@@ -14,10 +14,5 @@ code {
 
 @font-face {
   font-family: 'Maragsa Display';
-  src: url('./assets/fonts/Maragsâ-Display.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Public Sans';
-  src: url('./assets/fonts/PublicSans-VariableFont_wght.ttf') format('truetype');
+  src: url('./assets/fonts/Maragsa-Display.otf') format('opentype');
 }
