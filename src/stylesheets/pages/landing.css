@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #003153;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.ba-logo {
+  margin: 30px 0;
+  width: 300px;
+}
+
+.ba-banner {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ba-logo {
+    transform-origin: center;
+    animation: ba-logo-pulse 4s ease-in-out infinite alternate;
+  }
+}
+
+@media (max-width: 960px) {
+  .ba-logo {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ba-logo {
+    width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ba-logo {
+    width: 200px;
+  }
+}
+
+@keyframes ba-logo-pulse {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(1.1, 1.1);
+  }
+}

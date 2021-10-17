@@ -1,0 +1,38 @@
+footer {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.follow-text {
+  color: white;
+  font-size: 30px;
+}
+
+.follow-text > span:first-child {
+  font-weight: 200;
+}
+
+.follow-text > span:last-child {
+  font-family: 'Maragsa Display';
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.social-media-links {
+  margin-top: 30px;
+  display: flex;
+}
+
+.social-media-links img {
+  margin: 0 10px;
+  width: 50px;
+  opacity: 1;
+  transition: all 0.1s ease-out;
+}
+
+.social-media-links img:hover {
+  opacity: 0.6;
+}
