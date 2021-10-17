@@ -17,13 +17,6 @@
   width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .ba-logo {
-    transform-origin: center;
-    animation: ba-logo-pulse 4s ease-in-out infinite alternate;
-  }
-}
-
 @media (max-width: 960px) {
   .ba-logo {
     width: 200px;
@@ -39,14 +32,5 @@
 @media (max-width: 480px) {
   .ba-logo {
     width: 200px;
-  }
-}
-
-@keyframes ba-logo-pulse {
-  from {
-    transform: scale(1, 1);
-  }
-  to {
-    transform: scale(1.1, 1.1);
   }
 }
