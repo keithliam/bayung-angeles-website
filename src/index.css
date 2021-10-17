@@ -13,6 +13,8 @@ code {
 }
 
 @font-face {
-  font-family: 'Maragsa Display';
-  src: url('./assets/fonts/Maragsa-Display.otf') format('opentype');
+  font-family: 'Maragsa';
+  src: url('./assets/fonts/Maragsa.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
