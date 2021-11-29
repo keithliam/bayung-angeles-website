@@ -1,6 +1,5 @@
-.container {
+#landing .container {
   display: flex;
-  min-height: 100vh;
   align-items: center;
   justify-content: center;
   background-color: #003153;
@@ -8,29 +7,127 @@
   box-sizing: border-box;
 }
 
-.ba-logo {
-  margin: 30px 0;
-  width: 300px;
+#landing .cover-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
 }
 
-.ba-banner {
-  width: 100%;
+#landing .cover-container img.ba-cover {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#landing .cover-container .cover-headline {
+  padding: 0 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#landing .cover-headline h1 {
+  margin-top: 110px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+#landing .cover-headline h1,
+#landing .cover-headline h1 span {
+  display: inline-block;
+  font-family: 'Maragsa';
+  font-size: 130px;
+  font-weight: normal;
+  letter-spacing: 14px;
+  color: #003153;
+  position: relative;
+}
+
+#landing .cover-headline h1 span img {
+  position: absolute;
+  left: 0.33em;
+  bottom: 0.25em;
+  height: 0.98em;
+}
+
+#landing .cover-headline h4 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-family: 'Maragsa';
+  letter-spacing: 0.065em;
+  font-size: 40px;
+  font-weight: normal;
+  position: relative;
+  color: #003153;
+  text-shadow: -1px 1px white;
+}
+
+#landing .cover-headline span {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-family: 'Public Sans';
+  font-size: 16px;
+  position: relative;
+  color: #003153;
+}
+
+#landing .cover-headline .social-media-links {
+  margin-top: 20px;
+  position: relative;
+}
+
+#landing .cover-headline .cover-gradient {
+  position: absolute;
+  top: 60vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  background: linear-gradient(0deg, rgba(0,49,83,1) 0%, rgba(0,49,83,0) 100%); 
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#landing .cover-gradient button {
+  margin-bottom: 20px;
+  animation: bounce-down 4s ease-in-out infinite;
+  background-color: transparent;
+  border: none;
+}
+
+#landing .cover-gradient span {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-family: 'Public Sans';
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes bounce-down {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(0, 10px);
+  }
 }
 
 @media (max-width: 960px) {
-  .ba-logo {
-    width: 200px;
-  }
 }
 
 @media (max-width: 768px) {
-  .ba-logo {
-    width: 200px;
-  }
 }
 
 @media (max-width: 480px) {
-  .ba-logo {
-    width: 200px;
-  }
 }
