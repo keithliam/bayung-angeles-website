@@ -1,0 +1,13 @@
+.social-media-link:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.social-media-link img {
+  width: 50px;
+  opacity: 1;
+  transition: all 0.1s ease-out;
+}
+
+.social-media-link img:hover {
+  opacity: 0.6;
+}

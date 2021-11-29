@@ -1,3 +1,4 @@
+import SocialMediaLink from './SocialMediaLink';
 import facebook from '../assets/images/social-media-icons/facebook.svg';
 import instagram from '../assets/images/social-media-icons/instagram.svg';
 import twitter from '../assets/images/social-media-icons/twitter.svg';
@@ -16,12 +17,6 @@ const Footer = () => (
       <SocialMediaLink bitlyBackHalf="bayung-angeles-tiktok" icon={tiktok} alt="tiktok" />
     </div>
   </footer>
-);
-
-const SocialMediaLink = ({ bitlyBackHalf, icon, alt }) => (
-  <a href={`https://bit.ly/${bitlyBackHalf}`}>
-    <img src={icon} alt={alt} />
-  </a>
 );
 
 export default Footer;
