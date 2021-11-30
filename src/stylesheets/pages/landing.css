@@ -4,7 +4,6 @@
   justify-content: center;
   background-color: #003153;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
 #landing .cover-container {
@@ -54,6 +53,7 @@
   left: 0.33em;
   bottom: 0.25em;
   height: 0.98em;
+  pointer-events: none;
 }
 
 #landing .cover-headline h4 {
@@ -103,13 +103,213 @@
   border: none;
 }
 
-#landing .cover-gradient span {
+#landing .content-container {
+  width: 100%;
+  background-color: #003153;
+}
+
+#landing .content-container .three-pillars {
+  height: 400vh;
+  width: 100%;
+}
+
+#landing .three-pillars .pillars-content {
+  height: 100vh;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#landing .pillars-content img.pillars-bg {
   position: absolute;
-  right: 15px;
-  bottom: 15px;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  transition: 1s opacity ease-in-out, 3s filter ease-out;
+  opacity: 0;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+#landing .pillars-content img.pillars-bg.bg-show {
+  opacity: 0.4;
+  filter: blur(0);
+}
+
+#landing .pillars-content img.pillars-bg-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 40vh;
+  transition: 1s opacity ease-in-out, 3s filter ease-out;
+  opacity: 0;
+  pointer-events: none;
+  animation: wing-fly 3s cubic-bezier(.31,.02,.36,.94) infinite alternate;
+  filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+}
+
+#landing .pillars-content img.pillars-bg-logo.bg-show {
+  opacity: 0.4;
+}
+
+#landing .pillars-content .pillars-photo-credit:not(:hover) {
+  opacity: 0;
+}
+
+#landing .pillars-content .pillars-photo-credit.credit-show:not(:hover) {
+  opacity: 1;
+}
+
+#landing .pillars-content .title,
+#landing .pillars-content .description {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#landing .pillars-content .title {
+  font-size: 49px;
+  font-family: 'Maragsa';
+  letter-spacing: 0.065em;
+  font-weight: normal;
+  z-index: 1;
+}
+
+#landing .pillars-content .title .scroll-container {
+  margin-left: 10px;
+}
+
+#landing .title .scroll-container span {
+  white-space: nowrap;
+}
+
+#landing .pillars-content .title .highlight {
+  color: #CDA837;
+}
+
+#landing .pillars-content .title .scroll-container {
+  display: inline-block;
+}
+
+#landing .scroll-container {
+  position: relative;
+}
+
+#landing .scroll-container > span {
+  display: block;
+  position: absolute;
+  transition: 1.3s all cubic-bezier(.77,0,.18,1);
+}
+
+#landing .pillar-1 .title .scroll-container > span:nth-child(1) {
+  transform: none;
+}
+
+#landing .pillar-1 .title .scroll-container > span:nth-child(2) {
+  transform: translateY(75%);
+}
+
+#landing .pillar-1 .title .scroll-container > span:nth-child(3) {
+  transform: translateY(150%);
+}
+
+#landing .pillar-2 .title .scroll-container > span:nth-child(1) {
+  transform: translateY(-75%);
+}
+
+#landing .pillar-2 .title .scroll-container > span:nth-child(2) {
+  transform: none;
+}
+
+#landing .pillar-2 .title .scroll-container > span:nth-child(3) {
+  transform: translateY(75%);
+}
+
+#landing .pillar-3 .title .scroll-container > span:nth-child(1) {
+  transform: translateY(-150%);
+}
+
+#landing .pillar-3 .title .scroll-container > span:nth-child(2) {
+  transform: translateY(-75%);
+}
+
+#landing .pillar-3 .title .scroll-container > span:nth-child(3) {
+  transform: none;
+}
+
+#landing .pillar-1 .scroll-container > span:nth-child(1) {
+  opacity: 1;
+}
+
+#landing .pillar-1 .scroll-container > span:nth-child(2) {
+  opacity: 0;
+}
+
+#landing .pillar-1 .scroll-container > span:nth-child(3) {
+  opacity: 0;
+}
+
+#landing .pillar-2 .scroll-container > span:nth-child(1) {
+  opacity: 0;
+}
+
+#landing .pillar-2 .scroll-container > span:nth-child(2) {
+  opacity: 1;
+}
+
+#landing .pillar-2 .scroll-container > span:nth-child(3) {
+  opacity: 0;
+}
+
+#landing .pillar-3 .scroll-container > span:nth-child(1) {
+  opacity: 0;
+}
+
+#landing .pillar-3 .scroll-container > span:nth-child(2) {
+  opacity: 0;
+}
+
+#landing .pillar-3 .scroll-container > span:nth-child(3) {
+  opacity: 1;
+}
+
+#landing .scroll-container > span img {
+  position: absolute;
+  right: -0.45em;
+  bottom: 0.25em;
+  height: 0.98em;
+  pointer-events: none;
+}
+
+#landing .pillars-content .description {
   font-family: 'Public Sans';
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 22px;
+  margin-top: 16px;
+  line-height: 1.15em;
+  height: 2.5em;
+}
+
+#landing .pillars-content .description .word-wrap {
+  display: block;
+}
+
+@keyframes wing-fly {
+  0% {
+    transform: translate(-35%, calc(-50% - 15vh));
+    filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+  }
+
+  100% {
+    transform: translate(-35%, calc(-50% - 15vh - 30px));
+    filter: blur(0) drop-shadow(0 0 40px rgba(255, 255, 255, 1));
+  }
 }
 
 @keyframes bounce-down {
