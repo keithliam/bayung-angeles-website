@@ -1,4 +1,4 @@
-import { SocialMediaLink } from '../../components'
+import { PhotoCredit, SocialMediaLink } from '../../components'
 import cover from '../../assets/images/pisamban-maragul.png'
 import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png'
 import wingGold from '../../assets/images/wing-gold.svg'
@@ -26,7 +26,7 @@ const CoverSection = () =>(
         <button>
           <img src={caratDown} className="scroll-down-indicator" alt="" />
         </button>
-        <span>Pisamban Maragul © Bruno Tiotuico</span>
+        <PhotoCredit title="Pisamban Maragul" name="Bruno Tiotuico" link="#" />
       </div>
     </div>
   </div>
