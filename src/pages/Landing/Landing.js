@@ -1,8 +1,8 @@
 import CoverSection from './CoverSection';
-import { Footer } from '../components'
+import { Footer } from '../../components'
 
-import '../stylesheets/components/footer.css';
-import '../stylesheets/pages/landing.css';
+import '../../stylesheets/components/footer.css';
+import '../../stylesheets/pages/landing.css';
 
 const LandingPage = () => (
   <div id="landing">

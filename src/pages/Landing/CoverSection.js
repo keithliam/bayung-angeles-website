@@ -1,12 +1,12 @@
-import { SocialMediaLink } from '../components'
-import cover from '../assets/images/pisamban-maragul.png'
-import coverOverlay from '../assets/images/pisamban-maragul-isolated.png'
-import wingGold from '../assets/images/wing-gold.svg'
-import facebook from '../assets/images/social-media-icons/facebook-blue.svg';
-import instagram from '../assets/images/social-media-icons/instagram-blue.svg';
-import twitter from '../assets/images/social-media-icons/twitter-blue.svg';
-import tiktok from '../assets/images/social-media-icons/tiktok-blue.svg';
-import caratDown from '../assets/images/carat-down.svg';
+import { SocialMediaLink } from '../../components'
+import cover from '../../assets/images/pisamban-maragul.png'
+import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png'
+import wingGold from '../../assets/images/wing-gold.svg'
+import facebook from '../../assets/images/social-media-icons/facebook-blue.svg';
+import instagram from '../../assets/images/social-media-icons/instagram-blue.svg';
+import twitter from '../../assets/images/social-media-icons/twitter-blue.svg';
+import tiktok from '../../assets/images/social-media-icons/tiktok-blue.svg';
+import caratDown from '../../assets/images/carat-down.svg';
 
 const CoverSection = () =>(
   <div className="cover-container">
