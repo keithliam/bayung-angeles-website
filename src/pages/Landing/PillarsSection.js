@@ -1,5 +1,6 @@
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
+import classNames from 'classnames';
 import { PhotoCredit } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png'
 import wingGold from '../../assets/images/wing-gold.svg'
@@ -28,14 +29,18 @@ const PillarsSection = () => {
     <div className="three-pillars">
       <Sticky top={0} bottomBoundary=".three-pillars" innerClass={`pillars-content pillar-${nthPillar}`}>
         <img
-          className={`pillars-bg ${showBackground ? 'bg-show' : ''}`}
+          className={classNames('pillars-bg', { 'bg-show': showBackground })}
           style={{ transform: `scale(${backgroundScale}%)` }}
           src={baIllustration}
           alt="illustration"
         />
-        <img className={`pillars-bg-logo ${showLogo ? 'bg-show' : ''}`} src={logoWhite} alt="illustration" />
+        <img
+          className={classNames('pillars-bg-logo', { 'bg-show': showLogo })}
+          src={logoWhite}
+          alt="illustration"
+        />
         <PhotoCredit
-          className={`pillars-photo-credit ${showLogo ? 'credit-show' : ''}`}
+          className={classNames('pillars-photo-credit', { 'credit-show': showLogo })}
           title=""
           name="Brandon Evangelista"
           link="#"
