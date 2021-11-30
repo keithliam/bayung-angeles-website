@@ -2,7 +2,6 @@ import CoverSection from './CoverSection';
 import PillarsSection from './PillarsSection';
 import { Footer, Header } from '../../components'
 
-import '../../stylesheets/components/footer.css';
 import '../../stylesheets/pages/landing.css';
 
 const LandingPage = () => (
