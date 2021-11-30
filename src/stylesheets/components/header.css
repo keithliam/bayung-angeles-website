@@ -21,6 +21,14 @@ header .logo {
   letter-spacing: 0.125em;
   text-decoration: none;
   color: white;
+  padding-right: 45px;
+  opacity: 0;
+  transition: 0.3s filter ease-out, 2s opacity cubic-bezier(.52,.01,.53,1);
+}
+
+header.logo-appear .logo {
+  transition: 0.3s filter ease-out, 2s opacity cubic-bezier(.37,.01,.52,1.01);
+  opacity: 1;
 }
 
 header .logo span {
@@ -36,7 +44,11 @@ header .logo span img {
 }
 
 header .nav-links {
-  margin-left: 45px;
+  transition: 2s all cubic-bezier(.52,.01,.53,1);
+}
+
+header.logo-appear .nav-links {
+  transition: 2s all cubic-bezier(.37,.01,.52,1.01);
 }
 
 header .nav-links a {
@@ -47,16 +59,14 @@ header .nav-links a {
   letter-spacing: 1px;
   color: #003153;
   text-shadow: -1px 1px white;
+  transition: 0.3s filter ease-out;
 }
 
-header .nav-links.white-links a {
+header.logo-appear .nav-links a {
   color: white;
   text-shadow: none;
   text-decoration: none;
-}
-
-header a {
-  transition: 0.3s all ease-out;
+  transition: 0.3s filter ease-out;
 }
 
 header a:hover {
