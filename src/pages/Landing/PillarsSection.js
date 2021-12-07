@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import classNames from 'classnames';
@@ -7,27 +8,35 @@ import wingGold from '../../assets/images/wing-gold.svg'
 import logoWhite from '../../assets/images/logo-minimal-white.png'
 
 const PillarsSection = () => {
+  const containerRef = useRef();
   const scroll = useScroll();
   const dimensions = useDimensions();
 
+  const [containerRect, setContainerRect] = useState(0);
+
   const viewportHeight = dimensions.height;
+  const { top: containerTop, bottom: containerBottom } = containerRect;
 
   const nthPillar = (() => {
-    if (scroll.y < viewportHeight * 2) return 1;
-    if (scroll.y < viewportHeight * 3) return 2;
+    if (scroll.y < containerTop + viewportHeight) return 1;
+    if (scroll.y < containerTop + (viewportHeight * 2)) return 2;
     return 3;
   })();
-  
-  const backgroundAppearAt = viewportHeight;
+
+  const backgroundAppearAt = containerTop;
   const showBackground = backgroundAppearAt <= scroll.y;
   const showLogo = backgroundAppearAt + (viewportHeight * 0.2) <= scroll.y;
   const backgroundScale = showBackground
     ? 100 + (((scroll.y - backgroundAppearAt) / 50000) * 100)
     : 100;
 
+  useEffect(() => {
+    setContainerRect(containerRef.current.getBoundingClientRect());
+  }, []);
+
   return (
-    <div className="three-pillars">
-      <Sticky top={0} bottomBoundary=".three-pillars" innerClass={`pillars-content pillar-${nthPillar}`}>
+    <div ref={containerRef} className="three-pillars">
+      <Sticky top={0} bottomBoundary={containerBottom} innerClass={`pillars-content pillar-${nthPillar}`}>
         <img
           className={classNames('pillars-bg', { 'bg-show': showBackground })}
           style={{ transform: `scale(${backgroundScale}%)` }}
