@@ -1,5 +1,6 @@
 import CoverSection from './CoverSection';
 import PillarsSection from './PillarsSection';
+import ImagineSection from './ImagineSection';
 import { Footer, Header } from '../../components'
 
 import '../../stylesheets/pages/landing.css';
@@ -11,6 +12,7 @@ const LandingPage = () => (
       <CoverSection />
       <div className="content-container">
         <PillarsSection />
+        <ImagineSection />
       </div>
       <Footer />
     </div>
