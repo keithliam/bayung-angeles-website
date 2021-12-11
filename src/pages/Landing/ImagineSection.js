@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import classNames from 'classnames';
 import bloodBankPhoto from '../../assets/images/angeles-blood-bank.png'
 import dialysisCenterPhoto from '../../assets/images/angeles-dialysis-center.png'
 import foodStripPhoto from '../../assets/images/angeles-food-strip.png'
@@ -96,11 +97,11 @@ const ImagineSection = () => {
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={title}
-            classNames="fade"
+            classNames="bg-fade"
             timeout={1000}
           >
             <img
-              className="imagine-bg"
+              className={classNames('imagine-bg', { 'bg-show': showBackground })}
               style={{ transform: `scale(${backgroundScale}%)` }}
               src={source}
               alt={title}

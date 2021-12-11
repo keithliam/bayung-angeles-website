@@ -326,12 +326,31 @@
   object-fit: cover;
   object-position: center bottom;
   pointer-events: none;
+  opacity: 0;
+  filter: blur(10px);
+  transition: 1s opacity ease-in-out, 3s filter ease-out;
 }
 
-/* Low precedence for transition */
-#landing .imagine-bg,
-#landing .imagine .imagine-content .imagine-bg.fade-enter-active {
+#landing .imagine .imagine-content .imagine-bg.bg-show {
   opacity: 0.28;
+  filter: blur(0);
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit-active {
+  opacity: 0;
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter-active {
+  opacity: 0.28;
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter-active,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit-active {
+  transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
 }
 
 #landing .imagine .imagine-content .imagine-text {
