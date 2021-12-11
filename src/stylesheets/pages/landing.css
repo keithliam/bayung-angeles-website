@@ -329,10 +329,7 @@
 }
 
 /* Low precedence for transition */
-#landing .imagine-bg {
-  opacity: 0.28;
-}
-
+#landing .imagine-bg,
 #landing .imagine .imagine-content .imagine-bg.fade-enter-active {
   opacity: 0.28;
 }
