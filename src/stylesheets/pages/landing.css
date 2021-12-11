@@ -326,6 +326,10 @@
   object-fit: cover;
   object-position: center bottom;
   pointer-events: none;
+}
+
+/* Low precedence for transition */
+#landing .imagine-bg {
   opacity: 0.28;
 }
 
