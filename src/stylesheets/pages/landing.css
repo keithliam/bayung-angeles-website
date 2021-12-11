@@ -406,12 +406,6 @@
   transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
 }
 
-/* #landing .pillars-content img.pillars-bg.bg-show {
-  opacity: 0.4;
-  filter: blur(0);
-} */
-
-
 @keyframes wing-fly {
   0% {
     transform: translate(-35%, calc(-50% - 15vh));
