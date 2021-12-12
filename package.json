@@ -59,6 +59,9 @@
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-scss": "^4.0.1"
   },
+  "resolutions": {
+    "postcss": "^8.3.11"
+  },
   "lint-staged": {
     "*.js": "npm run lint:fix",
     "*.scss": "npm run lint:style"
