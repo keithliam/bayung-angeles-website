@@ -16,7 +16,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "lint:fix": "eslint --fix --cache",
-    "lint:style": "stylelint src/stylesheets/**/*.scss",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
@@ -50,13 +49,9 @@
     "husky": "^7.0.4",
     "lint-staged": ">=10",
     "prettier": "2.5.1",
-    "sass": "^1.45.0",
-    "stylelint": "^14.1.0",
-    "stylelint-config-recommended-scss": "^5.0.2",
-    "stylelint-scss": "^4.0.1"
+    "sass": "^1.45.0"
   },
   "lint-staged": {
-    "*.js": "npm run lint:fix",
-    "*.scss": "npm run lint:style"
+    "*.js": "npm run lint:fix"
   }
 }
