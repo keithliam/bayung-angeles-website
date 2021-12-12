@@ -374,6 +374,64 @@
         }
       }
     }
+
+    .quote {
+      padding: $page-padding-x;
+      background-color: $ba-gold;
+      position: relative;
+      overflow: hidden;
+      
+      img.quote-bg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 150%;
+        transform: translate(25%,35%);
+        opacity: 0.3;
+
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-exit-active {
+          opacity: 0;
+        }
+
+        &.fade-enter-active {
+          opacity: 0.3;
+        }
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-enter-active,
+        &.fade-exit-active {
+          transition: opacity 3s ease-in;
+        }
+      }
+
+      &-text {
+        font-family: $font-heading;
+        font-size: 46px;
+        letter-spacing: 0.065em;
+        color: white;
+
+        .quote-line {
+          display: block;
+
+          .quote-highlight {
+            color: $ba-blue;
+          }
+        }
+      }
+
+      &-credit {
+        display: block;
+        margin-top: 35px;
+        font-family: $font-heading;
+        font-size: 24px;
+        letter-spacing: 0.065em;
+        color: white;
+      }
+    }
   }
 }
 
