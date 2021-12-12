@@ -8,8 +8,8 @@
   text-decoration: none;
   opacity: 1;
   transition: 0.3s all ease-in-out, 0.3s filter ease-in-out;
-}
 
-.photo-credit:hover {
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  &:hover {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
 }

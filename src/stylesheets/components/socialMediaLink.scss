@@ -1,0 +1,15 @@
+.social-media-link {
+  &:not(:last-of-type) {
+    margin-right: 20px;
+  }
+
+  & img {
+    width: 50px;
+    opacity: 1;
+    transition: all 0.1s ease-out;
+
+    &:hover {
+      opacity: 0.6;
+    }  
+  }
+}

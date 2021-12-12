@@ -3,7 +3,6 @@ import facebook from '../assets/images/social-media-icons/facebook.svg';
 import instagram from '../assets/images/social-media-icons/instagram.svg';
 import twitter from '../assets/images/social-media-icons/twitter.svg';
 import tiktok from '../assets/images/social-media-icons/tiktok.svg';
-import '../stylesheets/components/footer.css';
 
 const Footer = () => (
   <footer>

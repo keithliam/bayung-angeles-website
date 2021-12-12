@@ -3,8 +3,6 @@ import { CSSTransition, SwitchTransition } from "react-transition-group";
 import classNames from 'classnames';
 import wingGold from '../assets/images/wing-gold.svg'
 
-import '../stylesheets/components/header.css';
-
 const HEADER_TYPES = {
   FIXED: 'fixed',
   ABSOLUTE: 'absolute',
