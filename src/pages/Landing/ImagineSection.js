@@ -82,9 +82,10 @@ const ImagineSection = () => {
   } = getTopicAndPhoto(photoIndex)
 
   const backgroundAppearAt = containerTop;
-  const entireSectionInView = backgroundAppearAt <= scroll.y && scroll.y < containerBottom - viewportHeight;
+  const scrolledPastSectionTop = backgroundAppearAt <= scroll.y;
+  const entireSectionInView = scrolledPastSectionTop && scroll.y < containerBottom - viewportHeight;
   const currentPhotoTop = backgroundAppearAt + (viewportHeight * photoIndex);
-  const backgroundScale = entireSectionInView
+  const backgroundScale = scrolledPastSectionTop
     ? 100 + (((scroll.y - currentPhotoTop) / 50000) * 100) // Resets scale of every photo
     : 100;
 
