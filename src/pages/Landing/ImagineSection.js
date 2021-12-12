@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import useMeasure from 'react-use-measure';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
@@ -65,14 +66,12 @@ const getTopicAndPhoto = photoIndex => ({
 });
 
 const ImagineSection = () => {
-  const containerRef = useRef();
+  const [ref, bounds] = useMeasure();
   const scroll = useScroll();
   const dimensions = useDimensions();
 
-  const [containerRect, setContainerRect] = useState({});
-
   const viewportHeight = dimensions.height;
-  const { top: containerTop = 0, bottom: containerBottom = 0 } = containerRect;
+  const { top: containerTop, bottom: containerBottom } = bounds;
 
   const photoIndex = (() => {
     if (scroll.y <= containerTop) return 0;
@@ -92,16 +91,8 @@ const ImagineSection = () => {
     ? 100 + ((scroll.y - currentPhotoTop) / 50000) * 100 // Resets scale of every photo
     : 100;
 
-  useEffect(() => {
-    setContainerRect(containerRef.current.getBoundingClientRect());
-  }, []);
-
   return (
-    <div
-      ref={containerRef}
-      className="imagine"
-      style={{ height: `${(allPhotos.length + 1) * 100}vh` }}
-    >
+    <div ref={ref} className="imagine" style={{ height: `${(allPhotos.length + 1) * 100}vh` }}>
       <Sticky top={0} bottomBoundary={containerBottom} innerClass="imagine-content">
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="bg-fade" timeout={1000}>
