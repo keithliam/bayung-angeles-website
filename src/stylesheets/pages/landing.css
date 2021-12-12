@@ -370,6 +370,137 @@
   transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
 }
 
+#landing .content-container .imagine {
+  height: 400vh;
+  width: 100%;
+}
+
+#landing .imagine .imagine-content {
+  height: 100vh;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+#landing .imagine .imagine-content .imagine-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(10px);
+  transition: 1s opacity ease-in-out, 3s filter ease-out;
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-show {
+  opacity: 0.28;
+  filter: blur(0);
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit-active {
+  opacity: 0;
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter-active {
+  opacity: 0.28;
+}
+
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-enter-active,
+#landing .imagine .imagine-content .imagine-bg.bg-fade-exit-active {
+  transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+}
+
+#landing .imagine .imagine-content .imagine-text {
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Public Sans';
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  z-index: 100;
+}
+
+#landing .imagine .imagine-content .topic {
+  font-size: 49px;
+  font-family: 'Maragsa';
+  letter-spacing: 0.065em;
+  font-weight: normal;
+  margin-top: 12px;
+  z-index: 100;
+}
+
+#landing .imagine .imagine-content .topic .highlight {
+  color: #CDA837;
+}
+
+#landing .imagine .imagine-content .photo-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #CDA837;
+  padding: 18px 60px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+  opacity: 0;
+}
+
+#landing .imagine .imagine-content .photo-info.info-show {
+  opacity: 1;
+}
+
+#landing .imagine .imagine-content .photo-info,
+#landing .imagine .imagine-content .photo-info a {
+  font-size: 20px;
+  font-family: 'Public Sans';
+  letter-spacing: 0.075em;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
+
+#landing .imagine .imagine-content .photo-info .fade-enter,
+#landing .imagine .imagine-content .photo-info .fade-exit,
+#landing .imagine .imagine-content .photo-info .fade-enter-active,
+#landing .imagine .imagine-content .photo-info .fade-exit-active {
+  transition: opacity 1.5s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+}
+
+#landing .imagine .imagine-content .photo-info a:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
+}
+
+#landing .imagine .imagine-content .fade-enter,
+#landing .imagine .imagine-content .fade-exit,
+#landing .imagine .imagine-content .fade-exit-active {
+  opacity: 0;
+}
+
+#landing .imagine .imagine-content .fade-enter-active {
+  opacity: 1;
+}
+
+#landing .imagine .imagine-content .fade-enter,
+#landing .imagine .imagine-content .fade-exit,
+#landing .imagine .imagine-content .fade-enter-active,
+#landing .imagine .imagine-content .fade-exit-active {
+  transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+}
+
 @keyframes wing-fly {
   0% {
     transform: translate(-35%, calc(-50% - 15vh));
