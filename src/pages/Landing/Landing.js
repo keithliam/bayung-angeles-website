@@ -1,7 +1,8 @@
+import React from 'react';
 import CoverSection from './CoverSection';
 import PillarsSection from './PillarsSection';
 import ImagineSection from './ImagineSection';
-import { Footer, Header } from '../../components'
+import { Footer, Header } from '../../components';
 
 const LandingPage = () => (
   <div id="landing">

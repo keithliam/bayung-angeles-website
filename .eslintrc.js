@@ -11,6 +11,7 @@ module.exports = {
     'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 0,
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
     // printWidth in the .prettierrc.js file does not work, so we have to specify it here
     'prettier/prettier': ['warn', { printWidth: 100 }],
   },
@@ -18,5 +19,9 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+  },
+  env: {
+    browser: true,
+    node: true,
   },
 };

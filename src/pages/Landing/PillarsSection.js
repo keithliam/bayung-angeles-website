@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
-import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import { PhotoCredit } from '../../components';
-import baIllustration from '../../assets/images/ba-illus.png'
-import wingGold from '../../assets/images/wing-gold.svg'
-import logoWhite from '../../assets/images/logo-minimal-white.png'
+import baIllustration from '../../assets/images/ba-illus.png';
+import wingGold from '../../assets/images/wing-gold.svg';
+import logoWhite from '../../assets/images/logo-minimal-white.png';
 
 const topics = [
   {
@@ -23,8 +23,8 @@ const topics = [
     title: 'Core Values',
     descriptionLine1: 'Truth. Compassion. Innovation.',
     descriptionLine2: 'Cooperation. Leadership.',
-  }
-]
+  },
+];
 
 const PillarsSection = () => {
   const containerRef = useRef();
@@ -38,7 +38,7 @@ const PillarsSection = () => {
 
   const topicIndex = (() => {
     if (scroll.y < containerTop + viewportHeight) return 0;
-    if (scroll.y < containerTop + (viewportHeight * 2)) return 1;
+    if (scroll.y < containerTop + viewportHeight * 2) return 1;
     return 2;
   })();
   const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
@@ -46,9 +46,9 @@ const PillarsSection = () => {
   const backgroundAppearAt = containerTop;
   const scrolledPastSectionTop = backgroundAppearAt <= scroll.y;
   const entireSectionInView = scrolledPastSectionTop && scroll.y < containerBottom - viewportHeight;
-  const showLogo = entireSectionInView && backgroundAppearAt + (viewportHeight * 0.2) <= scroll.y;
+  const showLogo = entireSectionInView && backgroundAppearAt + viewportHeight * 0.2 <= scroll.y;
   const backgroundScale = scrolledPastSectionTop
-    ? 100 + (((scroll.y - backgroundAppearAt) / 50000) * 100)
+    ? 100 + ((scroll.y - backgroundAppearAt) / 50000) * 100
     : 100;
 
   useEffect(() => {
@@ -79,7 +79,10 @@ const PillarsSection = () => {
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
             <CSSTransition key={title} classNames="scroll" timeout={1000}>
-              <span className="title">{title}<img src={wingGold} alt="wing" /></span>
+              <span className="title">
+                {title}
+                <img src={wingGold} alt="wing" />
+              </span>
             </CSSTransition>
           </SwitchTransition>
         </div>
@@ -94,6 +97,6 @@ const PillarsSection = () => {
       </Sticky>
     </div>
   );
-}
+};
 
 export default PillarsSection;

@@ -1,3 +1,4 @@
+import React from 'react';
 import SocialMediaLink from './SocialMediaLink';
 import facebook from '../assets/images/social-media-icons/facebook.svg';
 import instagram from '../assets/images/social-media-icons/instagram.svg';
@@ -7,7 +8,8 @@ import tiktok from '../assets/images/social-media-icons/tiktok.svg';
 const Footer = () => (
   <footer>
     <div className="follow-text">
-      <span>Follow </span><span>Báyung Ángeles</span>
+      <span>Follow </span>
+      <span>Báyung Ángeles</span>
     </div>
     <div className="social-media-links">
       <SocialMediaLink bitlyBackHalf="bayung-angeles-facebook" icon={facebook} alt="facebook" />
