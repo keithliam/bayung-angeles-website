@@ -1,3 +1,5 @@
+@use '../theme/typography' as *;
+
 footer {
   padding: 50px;
   display: flex;
@@ -14,7 +16,7 @@ footer {
     }
 
     & > span:last-child {
-      font-family: 'Maragsa', Arial, Helvetica, sans-serif;
+      font-family: $font-heading;
       letter-spacing: 0.1em;
       white-space: nowrap;
     }
