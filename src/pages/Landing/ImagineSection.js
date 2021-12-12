@@ -82,9 +82,9 @@ const ImagineSection = () => {
   } = getTopicAndPhoto(photoIndex)
 
   const backgroundAppearAt = containerTop;
-  const showBackground = backgroundAppearAt <= scroll.y;
+  const entireSectionInView = backgroundAppearAt <= scroll.y && scroll.y < containerBottom - viewportHeight;
   const currentPhotoTop = backgroundAppearAt + (viewportHeight * photoIndex);
-  const backgroundScale = showBackground
+  const backgroundScale = entireSectionInView
     ? 100 + (((scroll.y - currentPhotoTop) / 50000) * 100) // Resets scale of every photo
     : 100;
 
@@ -102,7 +102,7 @@ const ImagineSection = () => {
             timeout={1000}
           >
             <img
-              className={classNames('imagine-bg', { 'bg-show': showBackground })}
+              className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
               style={{ transform: `scale(${backgroundScale}%)` }}
               src={source}
               alt={title}
@@ -121,7 +121,7 @@ const ImagineSection = () => {
             </div>
           </CSSTransition>
         </SwitchTransition>
-        <div className="photo-info">
+        <div className={classNames('photo-info', { 'info-show': entireSectionInView })}>
           <SwitchTransition mode="out-in">
             <CSSTransition
               key={title}

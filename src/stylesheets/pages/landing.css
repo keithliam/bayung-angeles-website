@@ -385,6 +385,12 @@
   bottom: 0;
   left: 0;
   right: 0;
+  transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+  opacity: 0;
+}
+
+#landing .imagine .imagine-content .photo-info.info-show {
+  opacity: 1;
 }
 
 #landing .imagine .imagine-content .photo-info,
