@@ -83,8 +83,9 @@ const ImagineSection = () => {
 
   const backgroundAppearAt = containerTop;
   const showBackground = backgroundAppearAt <= scroll.y;
+  const currentPhotoTop = backgroundAppearAt + (viewportHeight * photoIndex);
   const backgroundScale = showBackground
-    ? 100 + (((scroll.y - backgroundAppearAt) / 50000) * 100)
+    ? 100 + (((scroll.y - currentPhotoTop) / 50000) * 100) // Resets scale of every photo
     : 100;
 
   useEffect(() => {
