@@ -1,5 +1,6 @@
 @use '../theme/colors' as *;
 @use '../theme/spacing' as *;
+@use '../theme/typography' as *;
 
 header {
   position: absolute;
@@ -17,7 +18,7 @@ header {
 
   .nav-links {
     & a {
-      font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+      font-family: $font-body;
       font-weight: 600;
       text-decoration: underline;
       text-transform: uppercase;
@@ -53,7 +54,7 @@ header {
     }
 
     .logo {
-      font-family: 'Maragsa', Arial, Helvetica, sans-serif;
+      font-family: $font-heading;
       font-size: 40px;
       font-weight: normal;
       letter-spacing: 0.125em;
