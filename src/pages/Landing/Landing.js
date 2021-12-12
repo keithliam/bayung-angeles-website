@@ -3,8 +3,6 @@ import PillarsSection from './PillarsSection';
 import ImagineSection from './ImagineSection';
 import { Footer, Header } from '../../components'
 
-import '../../stylesheets/pages/landing.css';
-
 const LandingPage = () => (
   <div id="landing">
     <Header />
