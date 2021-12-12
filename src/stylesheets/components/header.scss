@@ -10,7 +10,24 @@ header {
 
   a:hover {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
-  }  
+  }
+
+  .nav-links {
+    & a {
+      font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      text-decoration: underline;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #003153;
+      text-shadow: -1px 1px white;
+      transition: 0.3s filter ease-out;
+  
+      &:not(:last-child) {
+        margin-right: 45px;
+      }
+    }
+  }
 
   &.fixed-header {
     position: fixed;
@@ -33,7 +50,7 @@ header {
     }
 
     .logo {
-      font-family: 'Maragsa';
+      font-family: 'Maragsa', Arial, Helvetica, sans-serif;
       font-size: 40px;
       font-weight: normal;
       letter-spacing: 0.125em;
@@ -59,23 +76,6 @@ header {
       text-shadow: none;
       text-decoration: none;
       transition: 0.3s filter ease-out;
-    }
-  }
-
-  .nav-links {
-    & a {
-      font-family: 'Public Sans';
-      font-weight: 600;
-      text-decoration: underline;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #003153;
-      text-shadow: -1px 1px white;
-      transition: 0.3s filter ease-out;
-  
-      &:not(:last-child) {
-        margin-right: 45px;
-      }
     }
   }
 }

@@ -30,10 +30,20 @@
       right: 0;
       bottom: 0;
 
+      span {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 0;
+        font-family: 'Public Sans', Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        position: relative;
+        color: #003153;
+      }
+
       h1,
       h1 span {
         display: inline-block;
-        font-family: 'Maragsa';
+        font-family: 'Maragsa', Arial, Helvetica, sans-serif;
         font-size: 130px;
         font-weight: normal;
         letter-spacing: 14px;
@@ -57,23 +67,13 @@
       h4 {
         margin-top: 10px;
         margin-bottom: 0;
-        font-family: 'Maragsa';
+        font-family: 'Maragsa', Arial, Helvetica, sans-serif;
         letter-spacing: 0.065em;
         font-size: 40px;
         font-weight: normal;
         position: relative;
         color: #003153;
         text-shadow: -1px 1px white;
-      }
-
-      span {
-        display: block;
-        margin-top: 10px;
-        margin-bottom: 0;
-        font-family: 'Public Sans';
-        font-size: 16px;
-        position: relative;
-        color: #003153;
       }
 
       .social-media-links {
@@ -202,7 +202,7 @@
 
         .topic {
           font-size: 49px;
-          font-family: 'Maragsa';
+          font-family: 'Maragsa', Arial, Helvetica, sans-serif;
           letter-spacing: 0.065em;
           font-weight: normal;
           z-index: 1;
@@ -236,7 +236,7 @@
         .description {
           display: flex;
           flex-direction: column;
-          font-family: 'Public Sans';
+          font-family: 'Public Sans', Arial, Helvetica, sans-serif;
           font-size: 22px;
           margin-top: 16px;
           line-height: 1.15em;
@@ -311,7 +311,7 @@
         .imagine-text {
           text-transform: uppercase;
           color: white;
-          font-family: 'Public Sans';
+          font-family: 'Public Sans', Arial, Helvetica, sans-serif;
           font-weight: 600;
           letter-spacing: 0.075em;
           z-index: 100;
@@ -319,7 +319,7 @@
 
         .topic {
           font-size: 49px;
-          font-family: 'Maragsa';
+          font-family: 'Maragsa', Arial, Helvetica, sans-serif;
           letter-spacing: 0.065em;
           font-weight: normal;
           margin-top: 12px;
@@ -333,7 +333,7 @@
         .photo-info,
         .photo-info a {
           font-size: 20px;
-          font-family: 'Public Sans';
+          font-family: 'Public Sans', Arial, Helvetica, sans-serif;
           letter-spacing: 0.075em;
           font-weight: 600;
           color: white;
@@ -394,13 +394,4 @@
   50% {
     transform: translate(0, 10px);
   }
-}
-
-@media (max-width: 960px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 480px) {
 }
