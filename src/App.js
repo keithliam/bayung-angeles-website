@@ -1,3 +1,4 @@
+import React from 'react';
 import { ViewportProvider } from 'react-viewport-utils';
 import { Landing } from './pages';
 
