@@ -14,20 +14,29 @@ header.fixed-header {
   background-color: #003153;
 }
 
-header.fixed-header.slide-from-top-enter,
-header.fixed-header.slide-from-top-exit,
-header.fixed-header.slide-from-top-exit-active {
+header.slide-from-top-enter,
+header.slide-from-top-exit,
+header.slide-from-top-exit-active {
   transform: translateY(-100%);
 }
 
-header.fixed-header.slide-from-top-enter-active {
+header.slide-from-top-enter-active {
   transform: translateY(0);
   transition: transform 0.5s cubic-bezier(0, 0.55, 0.45, 1);
 }
 
-header.fixed-header.slide-from-top-exit,
-header.fixed-header.slide-from-top-exit-active {
+header.slide-from-top-exit,
+header.slide-from-top-exit-active {
   transition: transform 0.75s ease-in-out;
+}
+
+/* Override fade transition properties */
+#landing header.fade-enter,
+#landing header.fade-exit,
+#landing header.fade-enter-active,
+#landing header.fade-exit-active {
+  transition: opacity 0.5s ease-in-out;
+  /* transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99); */
 }
 
 header .logo {

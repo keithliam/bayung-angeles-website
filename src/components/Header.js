@@ -1,5 +1,6 @@
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import { CSSTransition, SwitchTransition } from "react-transition-group";
+import classNames from 'classnames';
 import wingGold from '../assets/images/wing-gold.svg'
 
 import '../stylesheets/components/header.css';
@@ -22,7 +23,10 @@ const Header = () => {
     <SwitchTransition mode="out-in">
       <CSSTransition
         key={headerType}
-        classNames="slide-from-top"
+        classNames={classNames({
+          'slide-from-top': headerType === FIXED,
+          'fade': headerType === ABSOLUTE,
+        })}
         timeout={750}
       >
         {headerType === ABSOLUTE ? (
