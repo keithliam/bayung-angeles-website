@@ -1,4 +1,5 @@
 @use '../theme/colors' as *;
+@use '../theme/spacing' as *;
 
 #landing {
   .container {
@@ -25,7 +26,7 @@
     }
 
     .cover-headline {
-      padding: 0 60px;
+      padding: 0 $page-padding-x;
       position: absolute;
       top: 0;
       left: 0;
@@ -133,7 +134,7 @@
       .pillars-content {
         height: 100vh;
         width: 100%;
-        padding: 0 60px;
+        padding: 0 $page-padding-x;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -266,7 +267,7 @@
       .imagine-content {
         height: 100vh;
         width: 100%;
-        padding: 0 60px;
+        padding: 0 $page-padding-x;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -347,7 +348,7 @@
           justify-content: space-between;
           align-items: center;
           background-color: $ba-gold;
-          padding: 18px 60px;
+          padding: 18px $page-padding-x;
           position: absolute;
           bottom: 0;
           left: 0;

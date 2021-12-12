@@ -1,11 +1,12 @@
 @use '../theme/colors' as *;
+@use '../theme/spacing' as *;
 
 header {
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 26px 64px;
+  padding: 26px $page-padding-x;
   background-color: transparent;
   display: flex;
   align-items: center;
