@@ -19,7 +19,7 @@ header {
       text-decoration: underline;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #003153;
+      color: $ba-blue;
       text-shadow: -1px 1px white;
       transition: 0.3s filter ease-out;
   
@@ -31,7 +31,7 @@ header {
 
   &.fixed-header {
     position: fixed;
-    background-color: #003153;
+    background-color: $ba-blue;
 
     &.slide-from-top-enter,
     &.slide-from-top-exit,
