@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -18,8 +19,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint:fix": "eslint --fix --cache",
+    "lint:style": "stylelint src/stylesheets/**/*.scss",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +44,23 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.45.0"
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": ">=10",
+    "prettier": "2.5.1",
+    "sass": "^1.45.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-scss": "^4.0.1"
+  },
+  "lint-staged": {
+    "*.js": "npm run lint:fix",
+    "*.scss": "npm run lint:style"
   }
 }
