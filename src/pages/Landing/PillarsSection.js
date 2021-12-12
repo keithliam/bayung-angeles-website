@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
+import useMeasure from 'react-use-measure';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
@@ -27,14 +28,12 @@ const topics = [
 ];
 
 const PillarsSection = () => {
-  const containerRef = useRef();
+  const [ref, bounds] = useMeasure();
   const scroll = useScroll();
   const dimensions = useDimensions();
 
-  const [containerRect, setContainerRect] = useState(0);
-
   const viewportHeight = dimensions.height;
-  const { top: containerTop, bottom: containerBottom } = containerRect;
+  const { top: containerTop, bottom: containerBottom } = bounds;
 
   const topicIndex = (() => {
     if (scroll.y < containerTop + viewportHeight) return 0;
@@ -51,12 +50,8 @@ const PillarsSection = () => {
     ? 100 + ((scroll.y - backgroundAppearAt) / 50000) * 100
     : 100;
 
-  useEffect(() => {
-    setContainerRect(containerRef.current.getBoundingClientRect());
-  }, []);
-
   return (
-    <div ref={containerRef} className="pillars">
+    <div ref={ref} className="pillars">
       <Sticky top={0} bottomBoundary={containerBottom} innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}

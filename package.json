@@ -9,6 +9,7 @@
     "react-scripts": "4.0.3",
     "react-stickynode": "^4.0.0",
     "react-transition-group": "^4.4.2",
+    "react-use-measure": "^2.1.1",
     "react-viewport-utils": "^2.0.1",
     "web-vitals": "^1.0.1"
   },
