@@ -16,7 +16,7 @@ const Header = () => {
   const dimensions = useDimensions();
 
   const viewportHeight = dimensions.height;
-  const fixedHeaderAppear = viewportHeight <= scroll.y;
+  const fixedHeaderAppear = viewportHeight * 0.4 <= scroll.y;
   const headerType = fixedHeaderAppear ? FIXED : ABSOLUTE;
 
   return (
