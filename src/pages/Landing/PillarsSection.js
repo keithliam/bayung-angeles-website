@@ -44,9 +44,10 @@ const PillarsSection = () => {
   const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
 
   const backgroundAppearAt = containerTop;
-  const showBackground = backgroundAppearAt <= scroll.y;
-  const showLogo = backgroundAppearAt + (viewportHeight * 0.2) <= scroll.y;
-  const backgroundScale = showBackground
+  const scrolledPastSectionTop = backgroundAppearAt <= scroll.y;
+  const entireSectionInView = scrolledPastSectionTop && scroll.y < containerBottom - viewportHeight;
+  const showLogo = entireSectionInView && backgroundAppearAt + (viewportHeight * 0.2) <= scroll.y;
+  const backgroundScale = scrolledPastSectionTop
     ? 100 + (((scroll.y - backgroundAppearAt) / 50000) * 100)
     : 100;
 
@@ -58,7 +59,7 @@ const PillarsSection = () => {
     <div ref={containerRef} className="pillars">
       <Sticky top={0} bottomBoundary={containerBottom} innerClass="pillars-content">
         <img
-          className={classNames('pillars-bg', { 'bg-show': showBackground })}
+          className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={{ transform: `scale(${backgroundScale}%)` }}
           src={baIllustration}
           alt="illustration"
