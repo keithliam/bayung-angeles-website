@@ -164,6 +164,7 @@ const TeamSection = () => {
               className="swiper-container"
               modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
               effect="cards"
+              speed={750}
               mousewheel={{ forceToAxis: true }}
               pagination
               autoplay
