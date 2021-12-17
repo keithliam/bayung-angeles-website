@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ const HEADER_TYPES = {
 };
 const { FIXED, ABSOLUTE } = HEADER_TYPES;
 
-const Header = () => {
+const Header = (props, ref) => {
   const scroll = useScroll();
   const dimensions = useDimensions();
 
@@ -29,11 +29,11 @@ const Header = () => {
         timeout={750}
       >
         {headerType === ABSOLUTE ? (
-          <header>
+          <header ref={ref}>
             <NavigationLinks />
           </header>
         ) : (
-          <header className="fixed-header">
+          <header ref={ref} className="fixed-header">
             <a className="logo" href="google.com">
               Báyung{' '}
               <span>
@@ -57,4 +57,4 @@ const NavigationLinks = () => (
   </nav>
 );
 
-export default Header;
+export default forwardRef(Header);
