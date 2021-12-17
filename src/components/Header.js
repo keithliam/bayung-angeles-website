@@ -10,7 +10,7 @@ const HEADER_TYPES = {
 };
 const { FIXED, ABSOLUTE } = HEADER_TYPES;
 
-const Header = (props, ref) => {
+const Header = () => {
   const scroll = useScroll();
   const dimensions = useDimensions();
 
@@ -29,11 +29,11 @@ const Header = (props, ref) => {
         timeout={750}
       >
         {headerType === ABSOLUTE ? (
-          <header ref={ref}>
+          <header>
             <NavigationLinks />
           </header>
         ) : (
-          <header ref={ref} className="fixed-header">
+          <header className="fixed-header">
             <a className="logo" href="google.com">
               Báyung{' '}
               <span>

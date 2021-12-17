@@ -99,7 +99,7 @@ const { acc: overallMemberIndexByCategoryMemberIndices } = teamCategories.reduce
   { currentMemberIndex: 0, acc: [] }
 );
 
-const TeamSection = ({ headerHeight }) => {
+const TeamSection = () => {
   const swiperRef = useRef();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
@@ -124,7 +124,7 @@ const TeamSection = ({ headerHeight }) => {
   };
 
   return (
-    <div className="team" style={{ height: `calc(100vh - ${headerHeight}px)` }}>
+    <div className="team">
       <img className="team-bg" src={baIllustration} alt="BA logo" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
