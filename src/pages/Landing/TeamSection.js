@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import useMeasure from 'react-use-measure';
+import { useScroll } from 'react-viewport-utils';
 import classNames from 'classnames';
 import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -101,6 +103,8 @@ const { acc: overallMemberIndexByCategoryMemberIndices } = teamCategories.reduce
 
 const TeamSection = () => {
   const swiperRef = useRef();
+  const [sectionRef, bounds] = useMeasure();
+  const scroll = useScroll();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
   const activeCategoryIndex = categoryIndexByMemberIndex[activeMemberIndex];
@@ -109,12 +113,23 @@ const TeamSection = () => {
   useEffect(() => {
     if (swiperRef.current) {
       const { swiper } = swiperRef.current;
+
+      swiper.autoplay.stop();
+
       const onSlideChange = () => setActiveMemberIndex(swiper.activeIndex);
       swiper.on('slideChange', onSlideChange);
       return () => swiper.off('slideChange', onSlideChange);
     }
     return null;
   }, [swiperRef]);
+
+  // This is a workaround since Swiper only uses the first value of the autoplay prop
+  useLayoutEffect(() => {
+    const autoplayStartAt = bounds.top - bounds.height * 0.25;
+    if (swiperRef.current && autoplayStartAt <= scroll.y) {
+      swiperRef.current.swiper.autoplay.start();
+    }
+  }, [bounds.top, bounds.height, scroll.y]);
 
   const handlePreviousCard = () => swiperRef.current.swiper.slidePrev();
   const handleNextCard = () => swiperRef.current.swiper.slideNext();
@@ -124,7 +139,7 @@ const TeamSection = () => {
   };
 
   return (
-    <div className="team">
+    <div ref={sectionRef} className="team">
       <img className="team-bg" src={baIllustration} alt="BA logo" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
@@ -167,7 +182,6 @@ const TeamSection = () => {
               speed={750}
               mousewheel={{ forceToAxis: true }}
               pagination
-              autoplay
               grabCursor
             >
               {allMembers.map(({ name, bannerImage, platforms }) => (
