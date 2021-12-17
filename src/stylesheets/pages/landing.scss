@@ -205,28 +205,19 @@
         }
 
         .topic {
-          font-size: 49px;
-          font-family: $font-heading;
-          letter-spacing: 0.065em;
-          font-weight: normal;
           z-index: 1;
 
           .highlight {
+            font-size: 49px;
+            font-family: $font-heading;
+            letter-spacing: 0.065em;
+            font-weight: normal;
             color: $ba-gold;
           }
 
           .title {
-            position: relative;
             display: inline-block;
             z-index: 100;
-
-            img {
-              position: absolute;
-              right: -0.45em;
-              bottom: 0.25em;
-              height: 0.98em;
-              pointer-events: none;
-            }
 
             &.scroll-enter,
             &.scroll-exit,
