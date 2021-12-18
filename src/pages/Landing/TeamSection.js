@@ -14,7 +14,7 @@ import {
   categoryIndexByMemberIndex,
   memberIndexInCategoryByOverallMemberIndex,
   overallMemberIndexByCategoryMemberIndices,
-} from '../../data';
+} from '../../data/team';
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
