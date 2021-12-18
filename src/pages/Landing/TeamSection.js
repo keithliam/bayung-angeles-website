@@ -108,16 +108,16 @@ const TeamSection = () => {
   const scroll = useScroll();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
-  useEffect(() => {
-    if (swiperRef.current) {
-      const { swiper } = swiperRef.current;
+  const { swiper } = swiperRef.current || {};
 
+  useEffect(() => {
+    if (swiper) {
       const onSlideChange = () => setActiveMemberIndex(swiper.activeIndex);
       swiper.on('slideChange', onSlideChange);
       return () => swiper.off('slideChange', onSlideChange);
     }
     return null;
-  }, [swiperRef]);
+  }, [swiper]);
 
   // This is a workaround since Swiper only uses the first value of the autoplay prop
   useEffect(() => {
@@ -125,13 +125,13 @@ const TeamSection = () => {
     if (
       !autoplayActivatedOnce.current &&
       measurementDone &&
-      swiperRef.current &&
+      swiper &&
       autoplayStartAt <= scroll.y
     ) {
-      swiperRef.current.swiper.autoplay.start();
+      swiper.autoplay.start();
       autoplayActivatedOnce.current = true;
     }
-  }, [measurementDone, bounds.top, bounds.height, scroll.y]);
+  }, [swiper, measurementDone, bounds.top, bounds.height, scroll.y]);
 
   return (
     <div ref={sectionRef} className="team">
@@ -143,10 +143,10 @@ const TeamSection = () => {
           <WingText text="Dream Team" />
         </div>
         <div className="team-showcase">
-          <MemberList swiper={swiperRef.current} activeMemberIndex={activeMemberIndex} />
+          <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
           <CardsSection
             swiperRef={swiperRef}
-            swiper={swiperRef.current}
+            swiper={swiper}
             disablePrevButton={activeMemberIndex === 0}
           />
         </div>
@@ -190,8 +190,8 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
 };
 
 const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
-  const handlePreviousCard = () => swiper.swiper.slidePrev();
-  const handleNextCard = () => swiper.swiper.slideNext();
+  const handlePreviousCard = () => swiper.slidePrev();
+  const handleNextCard = () => swiper.slideNext();
 
   return (
     <div className="team-cards">
