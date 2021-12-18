@@ -1,9 +1,9 @@
-import carSticker from '../assets/images/asset-car-sticker.jpg';
-import badgePin from '../assets/images/asset-badge-pin.jpg';
-import baLogo from '../assets/images/asset-ba-logo.png';
-import baIllustrationAnimated from '../assets/images/asset-ba-illus-animated.gif';
-import fbFrame from '../assets/images/asset-fb-frame.png';
-import jeepSign from '../assets/images/asset-jeep-sign.png';
+import carSticker from '../assets/images/downloads-preview/asset-car-sticker.jpg';
+import badgePin from '../assets/images/downloads-preview/asset-badge-pin.jpg';
+import baLogo from '../assets/images/downloads-preview/asset-ba-logo.png';
+import baIllustrationAnimated from '../assets/images/downloads-preview/asset-ba-illus-animated.gif';
+import fbFrame from '../assets/images/downloads-preview/asset-fb-frame.png';
+import jeepSign from '../assets/images/downloads-preview/asset-jeep-sign.png';
 
 export const previewAssets = [
   {
