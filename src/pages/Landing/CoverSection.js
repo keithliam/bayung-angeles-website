@@ -23,7 +23,7 @@ const CoverSection = (props, ref) => (
       <span>Stay connected. Follow our socials.</span>
       <div className="social-media-links">
         {socialMediaLinks.map(link => (
-          <SocialMediaLink key={link.name} className="social-media-link" link={link} />
+          <SocialMediaLink key={link.name} className="social-media-link" color="blue" link={link} />
         ))}
       </div>
       <div className="cover-gradient">

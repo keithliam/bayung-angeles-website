@@ -25,8 +25,8 @@ const LandingPage = () => {
           <GetInvolvedSection />
           <DownloadsSection />
         </div>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };

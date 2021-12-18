@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const SocialMediaLink = ({ className, link: { link, icon, name } }) => (
+const SocialMediaLink = ({ className, color, link: { link, name, iconBlue, iconWhite } }) => (
   <a href={link} className={classNames('social-media-link', className)}>
-    <img src={icon} alt={name} />
+    <img src={color === 'blue' ? iconBlue : iconWhite} alt={name} />
   </a>
 );
 
