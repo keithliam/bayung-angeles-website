@@ -1,0 +1,33 @@
+@use 'sass:color';
+@use '../theme/colors' as *;
+@use '../theme/typography' as *;
+
+.cta-button {
+  text-transform: uppercase;
+  font-family: $font-body;
+  font-weight: 600;
+  letter-spacing: 0.075em;
+  font-size: 15px;
+  border-radius: 12px;
+  padding: 16px 28px;
+  color: white;
+  opacity: 1;
+  border: 0;
+  background-color: transparent;
+  box-shadow: 0 3px 6px color.change(black, $alpha: 0.40);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+  &.btn-blue {
+    background-color: $ba-blue;
+  }
+
+  &.btn-gold {
+    background-color: $ba-gold;
+  }
+
+  &:hover {
+    box-shadow: none;
+    opacity: 0.8;
+  }
+}

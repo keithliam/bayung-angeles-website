@@ -4,6 +4,7 @@ import PillarsSection from './PillarsSection';
 import ImagineSection from './ImagineSection';
 import QuoteSection from './QuoteSection';
 import TeamSection from './TeamSection';
+import GetInvolvedSection from './GetInvolvedSection';
 import { Footer, Header } from '../../components';
 
 const LandingPage = () => {
@@ -20,6 +21,7 @@ const LandingPage = () => {
           <ImagineSection />
           <QuoteSection />
           <TeamSection ref={teamSectionRef} />
+          <GetInvolvedSection />
         </div>
         <Footer />
       </div>
