@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -57,4 +57,4 @@ const NavigationLinks = () => (
   </nav>
 );
 
-export default forwardRef(Header);
+export default Header;
