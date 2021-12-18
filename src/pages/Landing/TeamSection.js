@@ -6,7 +6,7 @@ import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import Markdown from 'markdown-to-jsx';
 import { useMeasure } from '../../hooks';
-import { WingText } from '../../components';
+import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
 import caratDown from '../../assets/images/carat-down.svg';
 import {
@@ -74,6 +74,7 @@ const TeamSection = (props, ref) => {
           />
         </div>
       </div>
+      <PhotoCredit title="" name="Brandon Evangelista" />
     </div>
   );
 };
