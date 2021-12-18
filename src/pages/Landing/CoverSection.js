@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { PhotoCredit, SocialMediaLink } from '../../components';
 import cover from '../../assets/images/pisamban-maragul.png';
 import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png';
@@ -9,8 +9,8 @@ import twitter from '../../assets/images/social-media-icons/twitter-blue.svg';
 import tiktok from '../../assets/images/social-media-icons/tiktok-blue.svg';
 import caratDown from '../../assets/images/carat-down.svg';
 
-const CoverSection = () => (
-  <div className="cover-container">
+const CoverSection = (props, ref) => (
+  <div ref={ref} className="cover-container">
     <img src={cover} className="ba-cover" alt="cover" />
     <div className="cover-headline">
       <h1>
@@ -43,4 +43,4 @@ const CoverSection = () => (
   </div>
 );
 
-export default CoverSection;
+export default forwardRef(CoverSection);
