@@ -7,13 +7,14 @@ import TeamSection from './TeamSection';
 import { Footer, Header } from '../../components';
 
 const LandingPage = () => {
+  const coverSectionRef = useRef();
   const teamSectionRef = useRef();
 
   return (
     <div id="landing">
-      <Header teamSectionRef={teamSectionRef} />
+      <Header coverSectionRef={coverSectionRef} teamSectionRef={teamSectionRef} />
       <div className="container">
-        <CoverSection />
+        <CoverSection ref={coverSectionRef} />
         <div className="content-container">
           <PillarsSection />
           <ImagineSection />

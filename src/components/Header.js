@@ -10,7 +10,9 @@ const HEADER_TYPES = {
 };
 const { FIXED, ABSOLUTE } = HEADER_TYPES;
 
-const Header = ({ teamSectionRef }) => {
+const scrollOptions = { behavior: 'smooth' };
+
+const Header = ({ coverSectionRef, teamSectionRef }) => {
   const scroll = useScroll();
   const dimensions = useDimensions();
 
@@ -18,9 +20,8 @@ const Header = ({ teamSectionRef }) => {
   const fixedHeaderAppear = viewportHeight * 0.4 <= scroll.y;
   const headerType = fixedHeaderAppear ? FIXED : ABSOLUTE;
 
-  const handleLogoClick = () => teamSectionRef.current.scrollIntoView();
-  const handleMeetOurTeamClick = () =>
-    teamSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+  const handleLogoClick = () => coverSectionRef.current.scrollIntoView(scrollOptions);
+  const handleMeetOurTeamClick = () => teamSectionRef.current.scrollIntoView(scrollOptions);
 
   return (
     <SwitchTransition mode="out-in">
