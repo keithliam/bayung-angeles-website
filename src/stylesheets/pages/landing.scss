@@ -84,6 +84,14 @@
       .social-media-links {
         margin-top: 20px;
         position: relative;
+
+        .social-media-link {
+          height: 50px;
+
+          &:not(:last-of-type) {
+            margin-right: 20px;
+          }
+        }
       }
 
       .cover-gradient {
