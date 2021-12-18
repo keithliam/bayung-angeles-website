@@ -211,7 +211,10 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
         grabCursor
       >
         {allMembers.map(member => (
-          <MemberCard key={member.name} member={member} />
+          // SwiperSlide does not like being nested inside individual components when being mapped
+          <SwiperSlide key={member.name} className="team-card">
+            <MemberCard member={member} />
+          </SwiperSlide>
         ))}
       </Swiper>
       <div className="card-nav-right">
@@ -224,14 +227,14 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
 };
 
 const MemberCard = ({ member: { name, bannerImage, platforms } }) => (
-  <SwiperSlide className="team-card">
+  <>
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
       <div className="member-platform">
         <Markdown options={{ disableParsingRawHTML: true }}>{platforms}</Markdown>
       </div>
     </div>
-  </SwiperSlide>
+  </>
 );
 
 export default TeamSection;
