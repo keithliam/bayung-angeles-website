@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../theme/colors' as *;
 @use '../theme/spacing' as *;
 @use '../theme/typography' as *;
@@ -111,6 +112,14 @@
     width: 100%;
     background-color: $ba-blue;
 
+    .highlight {
+      font-size: 49px;
+      font-family: $font-heading;
+      letter-spacing: 0.065em;
+      font-weight: normal;
+      color: $ba-gold;
+    }
+
     .fade-enter,
     .fade-exit,
     .fade-exit-active {
@@ -206,14 +215,6 @@
 
         .topic {
           z-index: 1;
-
-          .highlight {
-            font-size: 49px;
-            font-family: $font-heading;
-            letter-spacing: 0.065em;
-            font-weight: normal;
-            color: $ba-gold;
-          }
 
           .title {
             display: inline-block;
@@ -421,6 +422,180 @@
         font-size: 24px;
         letter-spacing: 0.065em;
         color: white;
+      }
+    }
+
+    .team {
+      height: 100vh;
+      width: 100%;
+      position: relative;
+
+      .team-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .team-content {
+        height: 100%;
+        width: 100%;
+        padding: $page-padding-x;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .introduce-text {
+          text-transform: uppercase;
+          color: white;
+          font-family: $font-body;
+          font-weight: 600;
+          letter-spacing: 0.075em;
+          font-size: 23px;
+        }
+
+        .introduce-headline {
+          margin-top: 6px;
+        }
+
+        .team-showcase {
+          flex: 1;
+          padding-top: 30px;
+          display: flex;
+
+          $card-border-radius: 15px;
+          $card-background-color: #EBEBEB;
+          $card-shadow: 0 0 20px color.change(black, $alpha: 0.13);
+
+          .team-list {
+            $vertical-padding: 20px;
+            $horizontal-padding: 18px;
+
+            height: 100%;
+            width: 100%;
+            max-width: 250px;
+            padding: $vertical-padding 0;
+            border-radius: $card-border-radius;
+            background-color: $card-background-color;
+            box-shadow: $card-shadow;
+
+            .team-list-category {
+              &:not(:first-child) {
+                margin-top: 15px;
+              }
+
+              &-title {
+                font-family: $font-body;
+                font-weight: 600;
+                font-size: 14px;
+                color: #646464;
+                text-transform: uppercase;
+                padding: 0 $horizontal-padding;
+                letter-spacing: 0.075em;
+                display: block;
+              }
+
+              &-member {
+                width: 100%;
+                padding: 4px $horizontal-padding;
+                background-color: transparent;
+                border: none;
+                font-family: $font-body;
+                font-weight: 600;
+                font-size: 23px;
+                color: $ba-blue;
+                text-align: left;
+                transition: background-color 0.2s ease-in-out;
+                cursor: pointer;
+
+                &:hover,
+                &.active-member {
+                  background-color: #CCCCCC;
+                }
+              }
+            }
+          }
+
+          .team-cards {
+            flex: 1;
+            padding: 0 0 0 30px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            .card-nav-btn-container {
+              flex: 1;
+              display: flex;
+              justify-content: center;
+
+              button {
+                background-color: color.change(black, $alpha: 0.5);
+                height: 50px;
+                width: 50px;
+                border-radius: 40px;
+                border: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                opacity: 1;
+                transition: opacity 0.2s ease-out;
+                cursor: pointer;
+  
+                &:hover {
+                  opacity: 0.7;
+                }
+  
+                &:disabled {
+                  opacity: 0.3;
+                  cursor: not-allowed;
+                }
+              }
+            }
+
+            .swiper-container {
+              height: 100%;
+              width: 575px;
+            }
+
+            .team-card {
+              border-radius: $card-border-radius;
+              background-color: $card-background-color;
+              box-shadow: $card-shadow;
+              overflow: hidden;
+
+              &-banner {
+                width: 100%;
+              }
+
+              &-content {
+                margin-top: -16px;
+                padding: 24px;
+                padding-top: 0;
+
+                .member-platform {
+                  font-family: $font-body;
+                  font-weight: $font-medium;
+                  letter-spacing: 0.075em;
+                  font-size: 18px;
+                  color: $ba-blue;
+
+                  // Markdown overrides
+                  ul {
+                    margin: 0;
+                    padding-left: 20px;
+                  }
+
+                  strong {
+                    font-weight: $font-xbold;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
