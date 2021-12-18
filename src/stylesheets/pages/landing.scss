@@ -207,7 +207,7 @@
             opacity: 0;
           }
 
-          .credit-show:not(:hover) {
+          &.credit-show:not(:hover) {
             opacity: 1;
           }
         }
