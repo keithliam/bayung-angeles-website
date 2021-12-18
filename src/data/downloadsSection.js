@@ -40,9 +40,9 @@ export const previewAssets = [
     name: 'Báyung Ángeles Logo',
     link: '',
     style: {
-      top: '69px',
-      left: '127px',
-      height: '173px',
+      top: '89px',
+      left: '145px',
+      height: '137px',
     },
   },
   {
