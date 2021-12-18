@@ -11,31 +11,27 @@ import logoWhite from '../../assets/images/logo-minimal-white.png';
 import { topics } from '../../data/pillars';
 
 const PillarsSection = () => {
-  const [ref, bounds] = useMeasure();
-  const scroll = useScroll();
+  const [ref, bounds] = useMeasure({ scroll: true });
   const dimensions = useDimensions();
 
   const viewportHeight = dimensions.height;
-  const { top: containerTop, bottom: containerBottom } = bounds;
+  const { top, bottom } = bounds;
 
   const topicIndex = (() => {
-    if (scroll.y < containerTop + viewportHeight) return 0;
-    if (scroll.y < containerTop + viewportHeight * 2) return 1;
-    return 2;
+    if (-viewportHeight - top < 0) return 0;
+    if (bottom - viewportHeight < 0) return topics.length - 1;
+    return Math.floor(-top / viewportHeight);
   })();
   const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
 
-  const backgroundAppearAt = containerTop;
-  const scrolledPastSectionTop = backgroundAppearAt <= scroll.y;
-  const entireSectionInView = scrolledPastSectionTop && scroll.y < containerBottom - viewportHeight;
-  const showLogo = entireSectionInView && backgroundAppearAt + viewportHeight * 0.2 <= scroll.y;
-  const backgroundScale = scrolledPastSectionTop
-    ? 100 + ((scroll.y - backgroundAppearAt) / 50000) * 100
-    : 100;
+  const scrolledPastSectionTop = top < 0;
+  const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
+  const showLogo = entireSectionInView && top + viewportHeight * 0.2 < 0;
+  const backgroundScale = scrolledPastSectionTop ? 100 + (-top / 50000) * 100 : 100;
 
   return (
-    <div ref={ref} className="pillars">
-      <Sticky top={0} bottomBoundary={containerBottom} innerClass="pillars-content">
+    <div ref={ref} id="pillars" className="pillars">
+      <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={{ transform: `scale(${backgroundScale}%)` }}
