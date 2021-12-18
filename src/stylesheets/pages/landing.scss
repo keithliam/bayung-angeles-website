@@ -598,6 +598,65 @@
         }
       }
     }
+
+    .get-involved {
+      background-color: $ba-gold;
+      padding: $page-padding-x;
+      padding-bottom: 140px;
+      overflow: hidden;
+      position: relative;
+
+      img.quote-bg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 430px;
+        transform: translate(-55px, 86px);
+        opacity: 1;
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-exit-active {
+          opacity: 0;
+        }
+
+        &.fade-enter-active {
+          opacity: 1;
+        }
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-enter-active,
+        &.fade-exit-active {
+          transition: opacity 3s ease-in;
+        }
+      }
+
+      .involved-content {
+        color: white;
+
+        .heading-line {
+          font-family: $font-heading;
+          font-size: 46px;
+          letter-spacing: 0.065em;
+          display: block;
+        }
+
+        .involved-subheading {
+          text-transform: uppercase;
+          font-family: $font-body;
+          font-weight: 600;
+          letter-spacing: 0.075em;
+          font-size: 20px;
+          margin-top: 8px;
+          display: block;
+        }
+
+        .involved-cta {
+          margin-top: 28px;
+        }
+      }
+    }
   }
 }
 
