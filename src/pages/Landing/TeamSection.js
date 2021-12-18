@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { useScroll } from 'react-viewport-utils';
+import mergeRefs from 'merge-refs';
 import classNames from 'classnames';
 import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -22,7 +23,7 @@ import 'swiper/modules/mousewheel/mousewheel.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
-const TeamSection = () => {
+const TeamSection = (props, ref) => {
   const swiperRef = useRef();
   const autoplayActivatedOnce = useRef(false);
   const [sectionRef, bounds, measurementDone] = useMeasure();
@@ -55,7 +56,7 @@ const TeamSection = () => {
   }, [swiper, measurementDone, bounds.top, bounds.height, scroll.y]);
 
   return (
-    <div ref={sectionRef} className="team">
+    <div ref={mergeRefs(ref, sectionRef)} className="team">
       <img className="team-bg" src={baIllustration} alt="BA logo" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
@@ -168,4 +169,4 @@ const MemberCard = ({ member: { name, bannerImage, platforms } }) => (
   </>
 );
 
-export default TeamSection;
+export default forwardRef(TeamSection);

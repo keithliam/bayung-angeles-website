@@ -12,20 +12,27 @@ header {
   display: flex;
   align-items: center;
 
-  a:hover {
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s filter ease-out;
+
+    &:hover {
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
+    }
   }
 
   .nav-links {
-    & a {
+    & button {
       font-family: $font-body;
       font-weight: 600;
+      font-size: 15px;
       text-decoration: underline;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.075em;
       color: $ba-blue;
       text-shadow: -1px 1px white;
-      transition: 0.3s filter ease-out;
   
       &:not(:last-child) {
         margin-right: 45px;
@@ -61,7 +68,7 @@ header {
       text-decoration: none;
       color: white;
       padding-right: 45px;
-    
+
       span {
         position: relative;
       
@@ -75,7 +82,7 @@ header {
       }
     }
 
-    .nav-links a {
+    .nav-links button {
       color: white;
       text-shadow: none;
       text-decoration: none;

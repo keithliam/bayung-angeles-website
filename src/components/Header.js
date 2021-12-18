@@ -10,13 +10,17 @@ const HEADER_TYPES = {
 };
 const { FIXED, ABSOLUTE } = HEADER_TYPES;
 
-const Header = () => {
+const Header = ({ teamSectionRef }) => {
   const scroll = useScroll();
   const dimensions = useDimensions();
 
   const viewportHeight = dimensions.height;
   const fixedHeaderAppear = viewportHeight * 0.4 <= scroll.y;
   const headerType = fixedHeaderAppear ? FIXED : ABSOLUTE;
+
+  const handleLogoClick = () => teamSectionRef.current.scrollIntoView();
+  const handleMeetOurTeamClick = () =>
+    teamSectionRef.current.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <SwitchTransition mode="out-in">
@@ -30,18 +34,18 @@ const Header = () => {
       >
         {headerType === ABSOLUTE ? (
           <header>
-            <NavigationLinks />
+            <NavigationLinks onMeetOurTeamClick={handleMeetOurTeamClick} />
           </header>
         ) : (
           <header className="fixed-header">
-            <a className="logo" href="google.com">
+            <button className="logo" type="button" onClick={handleLogoClick}>
               Báyung{' '}
               <span>
                 Ángeles
                 <img src={wingGold} alt="wing" />
               </span>
-            </a>
-            <NavigationLinks />
+            </button>
+            <NavigationLinks onMeetOurTeamClick={handleMeetOurTeamClick} />
           </header>
         )}
       </CSSTransition>
@@ -49,11 +53,13 @@ const Header = () => {
   );
 };
 
-const NavigationLinks = () => (
+const NavigationLinks = ({ onMeetOurTeamClick }) => (
   <nav className="nav-links">
-    <a href="google.com">Meet Our Team</a>
-    <a href="google.com">Get Involved</a>
-    <a href="google.com">Contact Us</a>
+    <button type="button" onClick={onMeetOurTeamClick}>
+      Meet Our Team
+    </button>
+    <button type="button">Get Involved</button>
+    <button type="button">Contact Us</button>
   </nav>
 );
 
