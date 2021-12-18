@@ -167,10 +167,11 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
   return (
     <div className="team-list">
       {teamCategories.map(({ title, members }, categoryIndex) => (
-        <div className="team-list-category">
+        <div key={title} className="team-list-category">
           <span className="team-list-category-title">{title}</span>
           {members.map(({ name }, memberIndex) => (
             <button
+              key={name}
               className={classNames('team-list-category-member', {
                 'active-member':
                   categoryIndex === activeCategoryIndex &&
@@ -210,7 +211,7 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
         grabCursor
       >
         {allMembers.map(member => (
-          <MemberCard member={member} />
+          <MemberCard key={member.name} member={member} />
         ))}
       </Swiper>
       <div className="card-nav-right">
