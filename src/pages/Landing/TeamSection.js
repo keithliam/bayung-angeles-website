@@ -69,6 +69,7 @@ const TeamSection = () => {
             swiperRef={swiperRef}
             swiper={swiper}
             disablePrevButton={activeMemberIndex === 0}
+            disableNextButton={activeMemberIndex === allMembers.length - 1}
           />
         </div>
       </div>
@@ -110,39 +111,48 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
   );
 };
 
-const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
+const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton }) => (
+  <div className="team-cards">
+    <CardNavButton swiper={swiper} xDirection="left" disabled={disablePrevButton} />
+    <Swiper
+      ref={swiperRef}
+      className="swiper-container"
+      modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
+      effect="cards"
+      speed={750}
+      mousewheel={{ forceToAxis: true }}
+      pagination
+      grabCursor
+    >
+      {allMembers.map(member => (
+        // SwiperSlide does not like being nested inside individual components when being mapped
+        <SwiperSlide key={member.name} className="team-card">
+          <MemberCard member={member} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+    <CardNavButton swiper={swiper} xDirection="right" disabled={disableNextButton} />
+  </div>
+);
+
+const CardNavButton = ({ swiper, xDirection, disabled }) => {
   const handlePreviousCard = () => swiper.slidePrev();
   const handleNextCard = () => swiper.slideNext();
 
+  const isLeft = xDirection === 'left';
+  const onClick = isLeft ? handlePreviousCard : handleNextCard;
+  const translateX = isLeft ? `-2px` : `2px`;
+  const rotate = isLeft ? `90deg` : `-90deg`;
+
   return (
-    <div className="team-cards">
-      <div className="card-nav-left">
-        <button type="button" onClick={handlePreviousCard} disabled={disablePrevButton}>
-          <img src={caratDown} alt="" />
-        </button>
-      </div>
-      <Swiper
-        ref={swiperRef}
-        className="swiper-container"
-        modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
-        effect="cards"
-        speed={750}
-        mousewheel={{ forceToAxis: true }}
-        pagination
-        grabCursor
-      >
-        {allMembers.map(member => (
-          // SwiperSlide does not like being nested inside individual components when being mapped
-          <SwiperSlide key={member.name} className="team-card">
-            <MemberCard member={member} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className="card-nav-right">
-        <button type="button" onClick={handleNextCard}>
-          <img src={caratDown} alt="" />
-        </button>
-      </div>
+    <div className="card-nav-btn-container">
+      <button type="button" onClick={onClick} disabled={disabled}>
+        <img
+          style={{ transform: `translateX(${translateX}) rotate(${rotate})` }}
+          src={caratDown}
+          alt="Card navigation arrow"
+        />
+      </button>
     </div>
   );
 };
