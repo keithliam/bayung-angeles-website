@@ -1,6 +1,6 @@
 import React from 'react';
 import useMeasure from 'react-use-measure';
-import { useScroll, useDimensions } from 'react-viewport-utils';
+import { useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
