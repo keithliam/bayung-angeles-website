@@ -8,7 +8,6 @@ import { Footer, Header } from '../../components';
 
 const LandingPage = () => {
   const teamSectionRef = useRef();
-  console.log(teamSectionRef.current);
 
   return (
     <div id="landing">
