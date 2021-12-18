@@ -4,9 +4,8 @@ import { useScroll, useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-import { PhotoCredit } from '../../components';
+import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
-import wingGold from '../../assets/images/wing-gold.svg';
 import logoWhite from '../../assets/images/logo-minimal-white.png';
 
 const topics = [
@@ -74,10 +73,7 @@ const PillarsSection = () => {
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
             <CSSTransition key={title} classNames="scroll" timeout={1000}>
-              <span className="title">
-                {title}
-                <img src={wingGold} alt="wing" />
-              </span>
+              <WingText className="title" text={title} />
             </CSSTransition>
           </SwitchTransition>
         </div>
