@@ -108,9 +108,6 @@ const TeamSection = () => {
   const scroll = useScroll();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
-  const activeCategoryIndex = categoryIndexByMemberIndex[activeMemberIndex];
-  const activeMemberInCategoryIndex = memberIndexInCategoryByOverallMemberIndex[activeMemberIndex];
-
   useEffect(() => {
     if (swiperRef.current) {
       const { swiper } = swiperRef.current;
@@ -136,13 +133,6 @@ const TeamSection = () => {
     }
   }, [measurementDone, bounds.top, bounds.height, scroll.y]);
 
-  const handlePreviousCard = () => swiperRef.current.swiper.slidePrev();
-  const handleNextCard = () => swiperRef.current.swiper.slideNext();
-  const handleMemberItemClick = (categoryIndex, memberIndex) => {
-    const index = overallMemberIndexByCategoryMemberIndices[categoryIndex][memberIndex];
-    swiperRef.current.swiper.slideTo(index);
-  };
-
   return (
     <div ref={sectionRef} className="team">
       <img className="team-bg" src={baIllustration} alt="BA logo" />
@@ -153,63 +143,94 @@ const TeamSection = () => {
           <WingText text="Dream Team" />
         </div>
         <div className="team-showcase">
-          <div className="team-list">
-            {teamCategories.map(({ title, members }, categoryIndex) => (
-              <div className="team-list-category">
-                <span className="team-list-category-title">{title}</span>
-                {members.map(({ name }, memberIndex) => (
-                  <button
-                    className={classNames('team-list-category-member', {
-                      'active-member':
-                        categoryIndex === activeCategoryIndex &&
-                        memberIndex === activeMemberInCategoryIndex,
-                    })}
-                    type="button"
-                    onClick={() => handleMemberItemClick(categoryIndex, memberIndex)}
-                  >
-                    {name}
-                  </button>
-                ))}
-              </div>
-            ))}
-          </div>
-          <div className="team-cards">
-            <div className="card-nav-left">
-              <button type="button" onClick={handlePreviousCard} disabled={activeMemberIndex === 0}>
-                <img src={caratDown} alt="" />
-              </button>
-            </div>
-            <Swiper
-              ref={swiperRef}
-              className="swiper-container"
-              modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
-              effect="cards"
-              speed={750}
-              mousewheel={{ forceToAxis: true }}
-              pagination
-              grabCursor
-            >
-              {allMembers.map(({ name, bannerImage, platforms }) => (
-                <SwiperSlide className="team-card">
-                  <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
-                  <div className="team-card-content">
-                    <div className="member-platform">
-                      <Markdown options={{ disableParsingRawHTML: true }}>{platforms}</Markdown>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            <div className="card-nav-right">
-              <button type="button" onClick={handleNextCard}>
-                <img src={caratDown} alt="" />
-              </button>
-            </div>
-          </div>
+          <MemberList swiper={swiperRef.current} activeMemberIndex={activeMemberIndex} />
+          <CardsSection
+            swiperRef={swiperRef}
+            swiper={swiperRef.current}
+            disablePrevButton={activeMemberIndex === 0}
+          />
         </div>
       </div>
     </div>
   );
 };
+
+const MemberList = ({ swiper, activeMemberIndex }) => {
+  const activeCategoryIndex = categoryIndexByMemberIndex[activeMemberIndex];
+  const activeMemberInCategoryIndex = memberIndexInCategoryByOverallMemberIndex[activeMemberIndex];
+
+  const handleMemberItemClick = (categoryIndex, memberIndex) => {
+    const index = overallMemberIndexByCategoryMemberIndices[categoryIndex][memberIndex];
+    swiper.slideTo(index);
+  };
+
+  return (
+    <div className="team-list">
+      {teamCategories.map(({ title, members }, categoryIndex) => (
+        <div className="team-list-category">
+          <span className="team-list-category-title">{title}</span>
+          {members.map(({ name }, memberIndex) => (
+            <button
+              className={classNames('team-list-category-member', {
+                'active-member':
+                  categoryIndex === activeCategoryIndex &&
+                  memberIndex === activeMemberInCategoryIndex,
+              })}
+              type="button"
+              onClick={() => handleMemberItemClick(categoryIndex, memberIndex)}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
+  const handlePreviousCard = () => swiper.swiper.slidePrev();
+  const handleNextCard = () => swiper.swiper.slideNext();
+
+  return (
+    <div className="team-cards">
+      <div className="card-nav-left">
+        <button type="button" onClick={handlePreviousCard} disabled={disablePrevButton}>
+          <img src={caratDown} alt="" />
+        </button>
+      </div>
+      <Swiper
+        ref={swiperRef}
+        className="swiper-container"
+        modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
+        effect="cards"
+        speed={750}
+        mousewheel={{ forceToAxis: true }}
+        pagination
+        grabCursor
+      >
+        {allMembers.map(member => (
+          <MemberCard member={member} />
+        ))}
+      </Swiper>
+      <div className="card-nav-right">
+        <button type="button" onClick={handleNextCard}>
+          <img src={caratDown} alt="" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const MemberCard = ({ name, bannerImage, platforms }) => (
+  <SwiperSlide className="team-card">
+    <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
+    <div className="team-card-content">
+      <div className="member-platform">
+        <Markdown options={{ disableParsingRawHTML: true }}>{platforms}</Markdown>
+      </div>
+    </div>
+  </SwiperSlide>
+);
 
 export default TeamSection;
