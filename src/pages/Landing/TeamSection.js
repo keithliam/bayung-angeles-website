@@ -1,10 +1,10 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import useMeasure from 'react-use-measure';
+import React, { useEffect, useRef, useState } from 'react';
 import { useScroll } from 'react-viewport-utils';
 import classNames from 'classnames';
 import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import Markdown from 'markdown-to-jsx';
+import { useMeasure } from '../../hooks';
 import { WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
 import caratDown from '../../assets/images/carat-down.svg';
@@ -103,7 +103,8 @@ const { acc: overallMemberIndexByCategoryMemberIndices } = teamCategories.reduce
 
 const TeamSection = () => {
   const swiperRef = useRef();
-  const [sectionRef, bounds] = useMeasure();
+  const autoplayActivatedOnce = useRef(false);
+  const [sectionRef, bounds, measurementDone] = useMeasure();
   const scroll = useScroll();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
@@ -114,8 +115,6 @@ const TeamSection = () => {
     if (swiperRef.current) {
       const { swiper } = swiperRef.current;
 
-      swiper.autoplay.stop();
-
       const onSlideChange = () => setActiveMemberIndex(swiper.activeIndex);
       swiper.on('slideChange', onSlideChange);
       return () => swiper.off('slideChange', onSlideChange);
@@ -124,12 +123,18 @@ const TeamSection = () => {
   }, [swiperRef]);
 
   // This is a workaround since Swiper only uses the first value of the autoplay prop
-  useLayoutEffect(() => {
+  useEffect(() => {
     const autoplayStartAt = bounds.top - bounds.height * 0.25;
-    if (swiperRef.current && autoplayStartAt <= scroll.y) {
+    if (
+      !autoplayActivatedOnce.current &&
+      measurementDone &&
+      swiperRef.current &&
+      autoplayStartAt <= scroll.y
+    ) {
       swiperRef.current.swiper.autoplay.start();
+      autoplayActivatedOnce.current = true;
     }
-  }, [bounds.top, bounds.height, scroll.y]);
+  }, [measurementDone, bounds.top, bounds.height, scroll.y]);
 
   const handlePreviousCard = () => swiperRef.current.swiper.slidePrev();
   const handleNextCard = () => swiperRef.current.swiper.slideNext();
