@@ -3,6 +3,7 @@ import CoverSection from './CoverSection';
 import PillarsSection from './PillarsSection';
 import ImagineSection from './ImagineSection';
 import QuoteSection from './QuoteSection';
+import TeamSection from './TeamSection';
 import { Footer, Header } from '../../components';
 
 const LandingPage = () => (
@@ -14,6 +15,7 @@ const LandingPage = () => (
         <PillarsSection />
         <ImagineSection />
         <QuoteSection />
+        <TeamSection />
       </div>
       <Footer />
     </div>
