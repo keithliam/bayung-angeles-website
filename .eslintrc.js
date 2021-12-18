@@ -4,6 +4,7 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+    'no-unused-vars': ['warn'],
     'import/prefer-default-export': 0,
     'arrow-parens': ['error', 'as-needed'],
     'react-hooks/rules-of-hooks': 'error',
