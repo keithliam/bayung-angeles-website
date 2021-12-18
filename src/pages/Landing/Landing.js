@@ -5,6 +5,7 @@ import ImagineSection from './ImagineSection';
 import QuoteSection from './QuoteSection';
 import TeamSection from './TeamSection';
 import GetInvolvedSection from './GetInvolvedSection';
+import DownloadsSection from './DownloadsSection';
 import { Footer, Header } from '../../components';
 
 const LandingPage = () => {
@@ -22,6 +23,7 @@ const LandingPage = () => {
           <QuoteSection />
           <TeamSection ref={teamSectionRef} />
           <GetInvolvedSection />
+          <DownloadsSection />
         </div>
         <Footer />
       </div>
