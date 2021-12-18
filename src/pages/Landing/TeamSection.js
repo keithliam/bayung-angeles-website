@@ -8,98 +8,19 @@ import { useMeasure } from '../../hooks';
 import { WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
 import caratDown from '../../assets/images/carat-down.svg';
-import cardBannerPie from '../../assets/images/card-banner-pie.png';
+import {
+  teamCategories,
+  allMembers,
+  categoryIndexByMemberIndex,
+  memberIndexInCategoryByOverallMemberIndex,
+  overallMemberIndexByCategoryMemberIndices,
+} from '../../data';
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
 import 'swiper/modules/mousewheel/mousewheel.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
-
-const platformsPie =
-  '- **H**igh-quality nutrition and mental health programs.\n- **E**nsure the access to primary and preventive care.\n- **A**ccess to complete medicine and medical equipment.\n- **L**ocal public health department funding.\n- **T**o establish the connection between public and private hospitals for better healthcare coverage.\n- **H**ealthcare workforce would be strengthened by investing in their well-being.';
-const teamCategories = [
-  {
-    title: 'Mayor',
-    members: [
-      {
-        name: 'Amos Rivera',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-    ],
-  },
-  {
-    title: 'Vice Mayor',
-    members: [
-      {
-        name: 'Dr. Pie Juan',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-    ],
-  },
-  {
-    title: 'Councilors',
-    members: [
-      {
-        name: 'Bong Arceo',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Ar. Paul Maiquez',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Don Quito',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Harvs Santiago',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Jeselle Dayrit',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Dan Aloot',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-      {
-        name: 'Atty. Israel Forto',
-        bannerImage: cardBannerPie,
-        platforms: platformsPie,
-      },
-    ],
-  },
-];
-const allMembers = teamCategories.map(category => category.members).flat();
-const categoryIndexByMemberIndex = teamCategories.reduce(
-  (acc, category, index) => acc.concat(Array(category.members.length).fill(index)),
-  []
-);
-const memberIndexInCategoryByOverallMemberIndex = teamCategories.reduce(
-  (acc, category) => acc.concat(...Array(category.members.length).keys()),
-  []
-);
-const { acc: overallMemberIndexByCategoryMemberIndices } = teamCategories.reduce(
-  ({ acc, currentMemberIndex }, category) => {
-    const { members } = category;
-
-    return {
-      acc: [...acc, members.map((member, index) => currentMemberIndex + index)],
-      currentMemberIndex: currentMemberIndex + members.length,
-    };
-  },
-  { currentMemberIndex: 0, acc: [] }
-);
 
 const TeamSection = () => {
   const swiperRef = useRef();
