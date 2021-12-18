@@ -222,7 +222,7 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton }) => {
   );
 };
 
-const MemberCard = ({ name, bannerImage, platforms }) => (
+const MemberCard = ({ member: { name, bannerImage, platforms } }) => (
   <SwiperSlide className="team-card">
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
