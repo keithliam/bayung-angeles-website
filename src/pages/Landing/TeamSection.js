@@ -31,6 +31,9 @@ const TeamSection = (props, ref) => {
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
   const { swiper } = swiperRef.current || {};
+  // Assume that the component is 2D (has positive height and width)
+  const measurementDone = Object.values(bounds).some(pixels => pixels !== 0);
+  const autoplayStart = bounds.top - dimensions.height * 0.25 <= 0;
 
   useEffect(() => {
     if (swiper) {
@@ -41,15 +44,13 @@ const TeamSection = (props, ref) => {
     return null;
   }, [swiper]);
 
-  const autoplayStart = bounds.top - dimensions.height * 0.25 <= 0;
-
   // This is a workaround since Swiper only uses the first value of the autoplay prop
   useEffect(() => {
-    if (!autoplayActivatedOnce.current && swiper && autoplayStart) {
+    if (!autoplayActivatedOnce.current && measurementDone && swiper && autoplayStart) {
       swiper.autoplay.start();
       autoplayActivatedOnce.current = true;
     }
-  }, [swiper, bounds.top, autoplayStart]);
+  }, [swiper, autoplayStart, measurementDone]);
 
   return (
     <div ref={mergeRefs(ref, sectionRef)} className="team">
