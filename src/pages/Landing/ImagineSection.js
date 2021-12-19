@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
-const maxScaleUpPercent = 10;
+const maxScaleUpPercent = 5;
 
 const ImagineSection = () => {
   const [ref, bounds] = useMeasure({ scroll: true });
@@ -17,8 +17,8 @@ const ImagineSection = () => {
   const { top, bottom } = bounds;
 
   const photoIndex = (() => {
-    if (-viewportHeight - top < 0) return 0;
-    if (bottom - viewportHeight < 0) return allPhotos.length - 1;
+    if (-top - viewportHeight < 0) return 0;
+    if (bottom - viewportHeight <= 0) return allPhotos.length - 1;
     return Math.floor(-top / viewportHeight);
   })();
   const {

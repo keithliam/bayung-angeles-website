@@ -19,7 +19,7 @@ const PillarsSection = () => {
 
   const topicIndex = (() => {
     if (-viewportHeight - top < 0) return 0;
-    if (bottom - viewportHeight < 0) return topics.length - 1;
+    if (bottom - viewportHeight <= 0) return topics.length - 1;
     return Math.floor(-top / viewportHeight);
   })();
   const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
