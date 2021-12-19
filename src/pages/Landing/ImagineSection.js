@@ -17,7 +17,7 @@ const ImagineSection = () => {
   const { top, bottom } = bounds;
 
   const photoIndex = (() => {
-    if (-viewportHeight - top < 0) return 0;
+    if (-top - viewportHeight < 0) return 0;
     if (bottom - viewportHeight < 0) return allPhotos.length - 1;
     return Math.floor(-top / viewportHeight);
   })();
