@@ -1,19 +1,14 @@
 import React from 'react';
 import useMeasure from 'react-use-measure';
-import { useScroll, useDimensions } from 'react-viewport-utils';
+import { useDimensions } from 'react-viewport-utils';
 import { CSSTransition } from 'react-transition-group';
 import logoBlue from '../../assets/images/ba-logo-blue.png';
 
 const QuoteSection = () => {
-  const [ref, bounds] = useMeasure();
-  const scroll = useScroll();
+  const [ref, bounds] = useMeasure({ scroll: true });
   const dimensions = useDimensions();
 
-  const viewportHeight = dimensions.height;
-  const { top: containerTop } = bounds;
-
-  const imageAppearAt = containerTop - viewportHeight / 2;
-  const imageAppear = imageAppearAt <= scroll.y;
+  const imageAppear = bounds.top <= dimensions.height / 2;
 
   return (
     <div ref={ref} className="quote">

@@ -1,8 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const SocialMediaLink = ({ bitlyBackHalf, icon, alt }) => (
-  <a href={`https://bit.ly/${bitlyBackHalf}`} className="social-media-link">
-    <img src={icon} alt={alt} />
+const SocialMediaLink = ({ className, color, link: { link, name, iconBlue, iconWhite } }) => (
+  <a href={link} className={classNames('social-media-link', className)}>
+    <img src={color === 'blue' ? iconBlue : iconWhite} alt={name} />
   </a>
 );
 

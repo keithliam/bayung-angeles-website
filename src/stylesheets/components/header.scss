@@ -26,7 +26,7 @@ header {
   .nav-links {
     & button {
       font-family: $font-body;
-      font-weight: 600;
+      font-weight: $font-semibold;
       font-size: 15px;
       text-decoration: underline;
       text-transform: uppercase;
@@ -63,7 +63,7 @@ header {
     .logo {
       font-family: $font-heading;
       font-size: 40px;
-      font-weight: normal;
+      font-weight: $font-normal;
       letter-spacing: 0.125em;
       text-decoration: none;
       color: white;

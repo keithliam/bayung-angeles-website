@@ -50,7 +50,7 @@
         display: inline-block;
         font-family: $font-heading;
         font-size: 130px;
-        font-weight: normal;
+        font-weight: $font-normal;
         letter-spacing: 14px;
         color: $ba-blue;
         position: relative;
@@ -75,7 +75,7 @@
         font-family: $font-heading;
         letter-spacing: 0.065em;
         font-size: 40px;
-        font-weight: normal;
+        font-weight: $font-normal;
         position: relative;
         color: $ba-blue;
         text-shadow: -1px 1px white;
@@ -84,6 +84,14 @@
       .social-media-links {
         margin-top: 20px;
         position: relative;
+
+        .social-media-link {
+          height: 50px;
+
+          &:not(:last-of-type) {
+            margin-right: 20px;
+          }
+        }
       }
 
       .cover-gradient {
@@ -116,8 +124,15 @@
       font-size: 49px;
       font-family: $font-heading;
       letter-spacing: 0.065em;
-      font-weight: normal;
+      font-weight: $font-normal;
       color: $ba-gold;
+    }
+
+    .heading-line {
+      font-family: $font-heading;
+      font-size: 46px;
+      letter-spacing: 0.065em;
+      display: block;
     }
 
     .fade-enter,
@@ -192,7 +207,7 @@
             opacity: 0;
           }
 
-          .credit-show:not(:hover) {
+          &.credit-show:not(:hover) {
             opacity: 1;
           }
         }
@@ -308,7 +323,7 @@
           text-transform: uppercase;
           color: white;
           font-family: $font-body;
-          font-weight: 600;
+          font-weight: $font-semibold;
           letter-spacing: 0.075em;
           z-index: 100;
         }
@@ -317,7 +332,7 @@
           font-size: 49px;
           font-family: $font-heading;
           letter-spacing: 0.065em;
-          font-weight: normal;
+          font-weight: $font-normal;
           margin-top: 12px;
           z-index: 100;
 
@@ -331,7 +346,7 @@
           font-size: 20px;
           font-family: $font-body;
           letter-spacing: 0.075em;
-          font-weight: 600;
+          font-weight: $font-semibold;
           color: white;
           text-transform: uppercase;
         }
@@ -452,7 +467,7 @@
           text-transform: uppercase;
           color: white;
           font-family: $font-body;
-          font-weight: 600;
+          font-weight: $font-semibold;
           letter-spacing: 0.075em;
           font-size: 23px;
         }
@@ -489,7 +504,7 @@
 
               &-title {
                 font-family: $font-body;
-                font-weight: 600;
+                font-weight: $font-semibold;
                 font-size: 14px;
                 color: #646464;
                 text-transform: uppercase;
@@ -504,7 +519,7 @@
                 background-color: transparent;
                 border: none;
                 font-family: $font-body;
-                font-weight: 600;
+                font-weight: $font-semibold;
                 font-size: 23px;
                 color: $ba-blue;
                 text-align: left;
@@ -593,6 +608,114 @@
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+
+    .get-involved {
+      background-color: $ba-gold;
+      padding: $page-padding-x;
+      padding-bottom: 140px;
+      overflow: hidden;
+      position: relative;
+
+      img.quote-bg {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        height: 430px;
+        transform: translate(-55px, 86px);
+        opacity: 1;
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-exit-active {
+          opacity: 0;
+        }
+
+        &.fade-enter-active {
+          opacity: 1;
+        }
+
+        &.fade-enter,
+        &.fade-exit,
+        &.fade-enter-active,
+        &.fade-exit-active {
+          transition: opacity 3s ease-in;
+        }
+      }
+
+      .involved-content {
+        color: white;
+
+        .involved-subheading {
+          text-transform: uppercase;
+          font-family: $font-body;
+          font-weight: $font-semibold;
+          letter-spacing: 0.075em;
+          font-size: 20px;
+          margin-top: 8px;
+          display: block;
+        }
+
+        .involved-cta {
+          margin-top: 28px;
+        }
+      }
+    }
+
+    .downloads {
+      background-color: $ba-white;
+      padding: 0 $page-padding-x;
+      display: flex;
+
+      .downloads-content {
+        color: $ba-blue;
+        padding: $page-padding-x 0;
+        flex: 1;
+
+        .downloads-subheading {
+          text-transform: uppercase;
+          font-family: $font-body;
+          font-weight: $font-semibold;
+          letter-spacing: 0.075em;
+          font-size: 20px;
+          margin-top: 8px;
+          display: block;
+        }
+
+        .downloads-cta {
+          margin-top: 28px;
+        }
+      }
+
+      .downloads-assets-container {
+        padding: 50px 0;
+        flex: 0;
+
+        .downloads-assets {
+          height: 316px;
+          width: 396px;
+          position: relative;
+
+          .downloads-asset {
+            $box-shadow-color: color.change(black, $alpha: 0.16);
+            position: absolute;
+            transition: filter 0.5s ease-out, transform 0.5s ease-out;
+            filter: drop-shadow(3px 3px 16px $box-shadow-color);
+            transform: scale(100%);
+
+            img {
+              height: 100%;
+              width: 100%;
+            }
+
+            &:hover {
+              filter: drop-shadow(3px 3px 36px $box-shadow-color);
+              transform: scale(125%);
+              z-index: 5;
             }
           }
         }
