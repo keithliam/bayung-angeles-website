@@ -18,7 +18,7 @@ const PillarsSection = () => {
   const { top, bottom } = bounds;
 
   const topicIndex = (() => {
-    if (-viewportHeight - top < 0) return 0;
+    if (-top - viewportHeight < 0) return 0;
     if (bottom - viewportHeight <= 0) return topics.length - 1;
     return Math.floor(-top / viewportHeight);
   })();
