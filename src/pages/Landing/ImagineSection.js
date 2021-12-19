@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
-const maxScaleUpPercent = 10;
+const maxScaleUpPercent = 5;
 
 const ImagineSection = () => {
   const [ref, bounds] = useMeasure({ scroll: true });
