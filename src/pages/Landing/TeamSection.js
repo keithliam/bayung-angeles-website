@@ -71,7 +71,10 @@ const TeamSection = (props, ref) => {
           />
         </div>
       </div>
-      <PhotoCredit title="" name="Brandon Evangelista" />
+      <PhotoCredit
+        name="Brandon Evangelista"
+        link="https://bit.ly/bayung-angeles-portfolio-brandon"
+      />
     </div>
   );
 };

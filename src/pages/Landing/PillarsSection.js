@@ -45,9 +45,8 @@ const PillarsSection = () => {
         />
         <PhotoCredit
           className={classNames('pillars-photo-credit', { 'credit-show': showLogo })}
-          title=""
           name="Brandon Evangelista"
-          link="#"
+          link="https://bit.ly/bayung-angeles-portfolio-brandon"
         />
         <div className="topic">
           <span className="highlight">Our </span>
