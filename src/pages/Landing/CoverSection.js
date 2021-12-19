@@ -30,7 +30,11 @@ const CoverSection = (props, ref) => (
         <button type="button">
           <img src={caratDown} className="scroll-down-indicator" alt="" />
         </button>
-        <PhotoCredit title="Pisamban Maragul" name="Bruno Tiotuico" link="#" />
+        <PhotoCredit
+          title="Pisamban Maragul"
+          name="Bruno Tiotuico"
+          link="https://bit.ly/bayung-angeles-portfolio-bruno"
+        />
       </div>
     </div>
   </div>
