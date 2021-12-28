@@ -73,7 +73,11 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
           <button className="menu-btn" onClick={handleMenuClick} type="button">
             <SwitchTransition mode="out-in">
               <CSSTransition key={openMenu} classNames="fade" timeout={150}>
-                <img src={openMenu ? closeIcon : menuIcon} alt="Menu toggle" />
+                {openMenu ? (
+                  <img src={closeIcon} alt="Menu toggle" />
+                ) : (
+                  <img src={menuIcon} alt="Menu toggle" />
+                )}
               </CSSTransition>
             </SwitchTransition>
           </button>
