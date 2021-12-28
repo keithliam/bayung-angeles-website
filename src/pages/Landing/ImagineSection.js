@@ -3,6 +3,7 @@ import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
@@ -37,14 +38,14 @@ const ImagineSection = () => {
       ref={ref}
       id="imagine"
       className="imagine"
-      style={{ height: `${(allPhotos.length + 1) * 100}vh` }}
+      style={prefix({ height: `${(allPhotos.length + 1) * 100}vh` })}
     >
       <Sticky bottomBoundary="#imagine" innerClass="imagine-content">
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="bg-fade" timeout={1000}>
             <img
               className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
-              style={{ transform: `scale(${backgroundScale}%)` }}
+              style={prefix({ transform: `scale(${backgroundScale}%)` })}
               src={source}
               alt={title}
             />

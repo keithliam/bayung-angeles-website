@@ -3,6 +3,7 @@ import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
@@ -34,7 +35,7 @@ const PillarsSection = () => {
       <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
-          style={{ transform: `scale(${backgroundScale}%)` }}
+          style={prefix({ transform: `scale(${backgroundScale}%)` })}
           src={baIllustration}
           alt="illustration"
         />

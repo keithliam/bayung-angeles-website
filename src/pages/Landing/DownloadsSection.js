@@ -1,4 +1,5 @@
 import React from 'react';
+import { prefix } from 'inline-style-prefixer';
 import { CTAButton } from '../../components';
 
 import { previewAssets } from '../../data/downloadsSection';
@@ -20,7 +21,7 @@ const DownloadsSection = () => (
 );
 
 const DownloadAssetPreview = ({ asset: { image, link, style, name } }) => (
-  <a className="downloads-asset" style={style} href={link}>
+  <a className="downloads-asset" style={prefix(style)} href={link}>
     <img className="asset-image" src={image} alt={name} />
   </a>
 );

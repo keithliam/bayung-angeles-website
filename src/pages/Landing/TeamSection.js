@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
 import mergeRefs from 'merge-refs';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -151,7 +152,7 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
     <div className="card-nav-btn-container">
       <button type="button" onClick={onClick} disabled={disabled}>
         <img
-          style={{ transform: `translateX(${translateX}) rotate(${rotate})` }}
+          style={prefix({ transform: `translateX(${translateX}) rotate(${rotate})` })}
           src={caratDown}
           alt="Card navigation arrow"
         />
