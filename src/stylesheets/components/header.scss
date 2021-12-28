@@ -77,6 +77,8 @@
           align-items: center;
           width: 100%;
           background-color: $ba-blue;
+          position: relative;
+          z-index: 1000;
         }
 
         .mobile-nav-links {
@@ -86,6 +88,7 @@
           padding-bottom: 10px;
           background-color: $ba-blue;
           transform-origin: top;
+          box-shadow: 0 6px 6px color.change(black, $alpha: 0.30);
 
           &.scale-y-enter,
           &.scale-y-exit,
