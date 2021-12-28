@@ -281,7 +281,7 @@
             width: 100%;
             object-fit: cover;
             object-position: center bottom;
-            transition: 1s opacity ease-in-out, 3s filter ease-out;
+            transition: opacity 1s ease-in-out, filter 3s ease-out;
             opacity: 0;
             filter: blur(10px);
             pointer-events: none;
@@ -297,7 +297,7 @@
             left: 50%;
             top: 50%;
             height: 40vh;
-            transition: 1s opacity ease-in-out, 3s filter ease-out;
+            transition: opacity 1s ease-in-out, filter 3s ease-out;
             opacity: 0;
             pointer-events: none;
             animation: wing-fly 3s cubic-bezier(.31,.02,.36,.94) infinite alternate;
@@ -368,7 +368,7 @@
               &.scroll-exit,
               &.scroll-enter-active,
               &.scroll-exit-active {
-                transition: 1.5s all cubic-bezier(.77, 0, .18, 1);
+                transition: all 1.5s cubic-bezier(.77, 0, .18, 1);
               }
             }
           }
@@ -413,7 +413,7 @@
             &.scroll-exit,
             &.scroll-enter-active,
             &.scroll-exit-active {
-              transition: 1s all cubic-bezier(.77, 0, .18, 1);
+              transition: all 1s cubic-bezier(.77, 0, .18, 1);
             }
           }
         }
@@ -445,7 +445,7 @@
             pointer-events: none;
             opacity: 0;
             filter: blur(10px);
-            transition: opacity 1s ease-in-out, 3s filter ease-out;
+            transition: opacity 1s ease-in-out, filter 3s ease-out;
 
             &.bg-show {
               opacity: 0.28;

@@ -27,7 +27,7 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
-      transition: 0.3s filter ease-out;
+      transition: filter 0.3s ease-out;
 
       &:hover {
         filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1));
@@ -187,7 +187,7 @@
         color: white;
         text-shadow: none;
         text-decoration: none;
-        transition: 0.3s filter ease-out;
+        transition: filter 0.3s ease-out;
       }
     }
 
