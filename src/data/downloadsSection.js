@@ -13,6 +13,7 @@ export const previewAssets = [
     style: {
       top: '5.4%',
       height: '68.7%',
+      width: '60.6%',
     },
   },
   {
@@ -22,6 +23,7 @@ export const previewAssets = [
     style: {
       top: '0',
       right: '14.9%',
+      height: '50.9%',
       width: '43.2%',
     },
   },
@@ -33,6 +35,7 @@ export const previewAssets = [
       top: '44%',
       left: '9.3%',
       height: '38.6%',
+      width: '30.8%',
     },
   },
   {
@@ -43,6 +46,7 @@ export const previewAssets = [
       top: '28.2%',
       left: '36.6%',
       height: '43.4%',
+      width: '39.9%',
     },
   },
   {
@@ -53,6 +57,7 @@ export const previewAssets = [
       top: '38%',
       right: '0',
       height: '49.1%',
+      width: '39.1%',
     },
   },
   {
@@ -62,6 +67,7 @@ export const previewAssets = [
     style: {
       bottom: '0',
       left: '25.5%',
+      height: '29.7%',
       width: '46.2%',
     },
   },
