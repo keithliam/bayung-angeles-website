@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useScroll, useDimensions } from 'react-viewport-utils';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -6,6 +6,8 @@ import WingText from './WingText';
 
 import menuIcon from '../assets/images/menu-icon.svg';
 import closeIcon from '../assets/images/close-icon.svg';
+
+const MENU_AUTO_CLOSE_TIMEOUT = 8000;
 
 const HEADER_TYPES = {
   FIXED: 'fixed',
@@ -59,12 +61,32 @@ const PlainHeader = ({ onMeetOurTeamClick }) => {
 };
 
 const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
+  const menuAutoCloseTimer = useRef();
   const [openMenu, setOpenMenu] = useState(false);
   const { width: viewportWidth } = useDimensions();
   const useMenu = viewportWidth <= 450;
   const showCompleteLogo = viewportWidth > 660;
 
-  const handleMenuClick = () => setOpenMenu(!openMenu);
+  const stopMenuAutoCloseTimer = () => {
+    if (menuAutoCloseTimer.current) {
+      clearTimeout(menuAutoCloseTimer.current);
+      menuAutoCloseTimer.current = null;
+    }
+  };
+
+  const startMenuAutoCloseTimer = () => {
+    stopMenuAutoCloseTimer();
+    menuAutoCloseTimer.current = setTimeout(() => setOpenMenu(false), MENU_AUTO_CLOSE_TIMEOUT);
+  };
+
+  useEffect(() => stopMenuAutoCloseTimer, []);
+
+  const handleMenuClick = () => {
+    if (openMenu) stopMenuAutoCloseTimer();
+    else startMenuAutoCloseTimer();
+
+    setOpenMenu(!openMenu);
+  };
 
   if (useMenu) {
     return (
