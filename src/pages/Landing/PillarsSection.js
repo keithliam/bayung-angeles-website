@@ -28,14 +28,14 @@ const PillarsSection = () => {
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
   const showLogo = entireSectionInView && top + viewportHeight * 0.2 < 0;
-  const backgroundScale = scrolledPastSectionTop ? 100 + (-top / 50000) * 100 : 100;
+  const backgroundScale = scrolledPastSectionTop ? 1 + -top / 50000 : 1;
 
   return (
     <div ref={ref} id="pillars" className="pillars">
       <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
-          style={prefix({ transform: `scale(${backgroundScale}%)` })}
+          style={prefix({ transform: `scale(${backgroundScale})` })}
           src={baIllustration}
           alt="illustration"
         />

@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
-const maxScaleUpPercent = 5;
+const maxScaleUp = 0.05;
 
 const ImagineSection = () => {
   const [ref, bounds] = useMeasure({ scroll: true });
@@ -30,8 +30,8 @@ const ImagineSection = () => {
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
   const backgroundScale = scrolledPastSectionTop
-    ? 100 + ((-top - viewportHeight * photoIndex) / viewportHeight) * maxScaleUpPercent // Rese10 scale of every photo
-    : 100;
+    ? 1 + ((-top - viewportHeight * photoIndex) / viewportHeight) * maxScaleUp // Reset scale of every photo
+    : 1;
 
   return (
     <div
@@ -45,7 +45,7 @@ const ImagineSection = () => {
           <CSSTransition key={title} classNames="bg-fade" timeout={1000}>
             <img
               className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
-              style={prefix({ transform: `scale(${backgroundScale}%)` })}
+              style={prefix({ transform: `scale(${backgroundScale})` })}
               src={source}
               alt={title}
             />
