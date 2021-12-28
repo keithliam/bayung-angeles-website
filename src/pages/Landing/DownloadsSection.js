@@ -6,11 +6,8 @@ import { previewAssets } from '../../data/downloadsSection';
 const DownloadsSection = () => (
   <div className="downloads">
     <div className="downloads-content">
-      <div className="downloads-heading">
-        <span className="heading-line">Download wallpapers, stickers</span>
-        <span className="heading-line">Facebook frame, and more.</span>
-      </div>
-      <CTAButton className="downloads-cta" color="gold" text="Downloads" />
+      <span className="heading-line">Download wallpapers, stickers, Facebook frame, and more.</span>
+      <CTAButton className="cta-btn" color="gold" text="Downloads" />
     </div>
     <div className="downloads-assets-container">
       <div className="downloads-assets">
@@ -24,7 +21,7 @@ const DownloadsSection = () => (
 
 const DownloadAssetPreview = ({ asset: { image, link, style, name } }) => (
   <a className="downloads-asset" style={style} href={link}>
-    <img src={image} alt={name} />
+    <img className="asset-image" src={image} alt={name} />
   </a>
 );
 

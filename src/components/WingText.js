@@ -3,10 +3,14 @@ import classNames from 'classnames';
 
 import wingGold from '../assets/images/wing-gold.svg';
 
-const WingText = ({ className, text }) => (
+const WingText = ({
+  className,
+  text,
+  wingPosition, // 'start' or 'end'
+}) => (
   <span className={classNames('wing-text', className)}>
     {text}
-    <img src={wingGold} alt="wing" />
+    <img className={wingPosition} src={wingGold} alt="wing" />
   </span>
 );
 

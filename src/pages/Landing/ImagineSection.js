@@ -72,7 +72,9 @@ const ImagineSection = () => {
               </div>
             </CSSTransition>
           </SwitchTransition>
-          <a href={link}>Learn More</a>
+          <a className="learn-more-link" href={link}>
+            Learn More
+          </a>
         </div>
       </Sticky>
     </div>

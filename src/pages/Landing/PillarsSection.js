@@ -22,7 +22,7 @@ const PillarsSection = () => {
     if (bottom - viewportHeight <= 0) return topics.length - 1;
     return Math.floor(-top / viewportHeight);
   })();
-  const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
+  const { title, description } = topics[topicIndex] || {};
 
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
@@ -52,16 +52,13 @@ const PillarsSection = () => {
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
             <CSSTransition key={title} classNames="scroll" timeout={1000}>
-              <WingText className="title" text={title} />
+              <WingText className="title" text={title} wingPosition="end" />
             </CSSTransition>
           </SwitchTransition>
         </div>
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="fade" timeout={2000}>
-            <div className="description">
-              <span>{descriptionLine1}</span>
-              <span>{descriptionLine2}</span>
-            </div>
+            <span className="description">{description}</span>
           </CSSTransition>
         </SwitchTransition>
       </Sticky>

@@ -14,16 +14,17 @@ const GetInvolvedSection = () => {
 
   return (
     <div ref={ref} className="get-involved">
-      <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
-        <img className="quote-bg" src={logoFlagWhite} alt="BA Flag" />
-      </CSSTransition>
       <div className="involved-content">
-        <div className="involved-heading">
-          <span className="heading-line">Together we can make Angeles City</span>
-          <span className="heading-line">the best city in the country.</span>
-        </div>
+        <span className="heading-line">
+          Together we can make Angeles City the best city in the country.
+        </span>
         <span className="involved-subheading">Show your support. Join the movement.</span>
-        <CTAButton className="involved-cta" color="blue" text="Get Involved" />
+        <CTAButton className="cta-btn" color="blue" text="Get Involved" />
+      </div>
+      <div className="involved-image-container">
+        <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
+          <img className="involved-bg" src={logoFlagWhite} alt="BA Flag" />
+        </CSSTransition>
       </div>
     </div>
   );

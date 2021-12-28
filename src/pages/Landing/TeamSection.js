@@ -59,7 +59,7 @@ const TeamSection = (props, ref) => {
         <span className="introduce-text">Introducing</span>
         <div className="introduce-headline">
           <span className="highlight">Our </span>
-          <WingText text="Dream Team" />
+          <WingText text="Dream Team" wingPosition="end" />
         </div>
         <div className="team-showcase">
           <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
@@ -125,6 +125,7 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton 
       mousewheel={{ forceToAxis: true }}
       pagination
       grabCursor
+      autoHeight
     >
       {allMembers.map(member => (
         // SwiperSlide does not like being nested inside individual components when being mapped
