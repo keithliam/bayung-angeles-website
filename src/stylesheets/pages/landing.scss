@@ -800,10 +800,11 @@
               flex: 0;
               padding: 20px 0;
               border-radius: $card-border-radius;
-              background-color: $card-background-color;
               box-shadow: $card-shadow;
               position: relative;
               z-index: 20;
+              background-color: color.change($card-background-color, $alpha: 0.6);
+              backdrop-filter: blur(10px);
 
               @media (max-width: $breakpoint-large) {
                 padding: 18px 0;
@@ -852,7 +853,7 @@
                   font-family: $font-body;
                   font-weight: $font-semibold;
                   @include px-to-rem(14px);
-                  color: #646464;
+                  color: #494949;
                   text-transform: uppercase;
                   padding: 0 18px;
                   letter-spacing: 0.075em;
@@ -888,7 +889,7 @@
 
                   &:hover,
                   &.active-member {
-                    background-color: #CCCCCC;
+                    background-color: color.change($card-background-color, $alpha: 0.8);
                   }
 
                   @media (max-width: $breakpoint-large) {
