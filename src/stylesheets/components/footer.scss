@@ -1,34 +1,87 @@
+@use '../theme/breakpoints' as *;
 @use '../theme/colors' as *;
 @use '../theme/spacing' as *;
 @use '../theme/typography' as *;
 
-footer {
-  width: 100%;
-  padding: 14px $page-padding-x;
-  display: flex;
-  align-items: center;
-  background-color: $ba-blue;
-
-  .social-media-links {
+@mixin styling($page-padding-x) {
+  footer {
+    width: 100%;
+    padding: 14px $page-padding-x;
     display: flex;
-    margin-right: 20px;
+    align-items: center;
+    background-color: $ba-blue;
 
-    .social-media-link {
-      height: 35px;
+    @media (max-width: $breakpoint-mobile) {
+      padding: 12px $page-padding-x;
+    }
 
-      &:not(:last-of-type) {
-        margin-right: 15px;
+    .social-media-links {
+      display: flex;
+      margin-right: 20px;
+
+      @media (max-width: $breakpoint-small) {
+        margin-right: 18px;
+      }
+
+      .social-media-link {
+        height: 35px;
+
+        &:not(:last-of-type) {
+          margin-right: 15px;
+        }
+
+        @media (max-width: $breakpoint-small) {
+          height: 30px;
+
+          &:not(:last-of-type) {
+            margin-right: 13px;
+          }
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+          height: 25px;
+
+          &:not(:last-of-type) {
+            margin-right: 11px;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      color: white;
+      display: block;
+      text-transform: uppercase;
+      font-family: $font-body;
+      font-weight: $font-semibold;
+      letter-spacing: 0.075em;
+      @include px-to-rem(20px);
+
+      @media (max-width: $breakpoint-large) {
+        @include px-to-rem(18px);
+      }
+
+      @media (max-width: $breakpoint-small) {
+        @include px-to-rem(16px);
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        @include px-to-rem(14px);
       }
     }
   }
+}
 
-  .copyright {
-    color: white;
-    display: block;
-    text-transform: uppercase;
-    font-family: $font-body;
-    font-weight: $font-semibold;
-    letter-spacing: 0.075em;
-    font-size: 20px;
-  }
+@include styling($page-padding-x: $page-padding-default);
+
+@media (max-width: $breakpoint-small) {
+  @include styling($page-padding-x: $page-padding-small);
+}
+
+@media (max-width: $breakpoint-tablet) {
+  @include styling($page-padding-x: $page-padding-tablet);
+}
+
+@media (max-width: $breakpoint-mobile) {
+  @include styling($page-padding-x: $page-padding-mobile);
 }

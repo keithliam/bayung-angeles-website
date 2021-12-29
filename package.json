@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@benestudioco/react-scrollfade": "^1.0.2",
     "classnames": "^2.3.1",
-    "markdown-to-jsx": "^7.1.5",
+    "inline-style-prefixer": "^6.0.1",
     "merge-refs": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -1,3 +1,4 @@
+@use '../theme/breakpoints' as *;
 @use '../theme/typography' as *;
 
 .photo-credit {
@@ -5,13 +6,32 @@
   right: 15px;
   bottom: 15px;
   font-family: $font-body;
-  font-size: 16px;
+  @include px-to-rem(16px);
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   opacity: 1;
-  transition: 0.3s all ease-in-out, 0.3s filter ease-in-out;
+  transition: filter 0.3s ease-in-out;
+  text-align: right;
+  max-width: 40%;
 
   &:hover {
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
+
+  span {
+    display: inline-block;
+  }
+
+  @media (max-width: $breakpoint-small) {
+    @include px-to-rem(14px);
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    @include px-to-rem(12px);
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    right: 8px;
+    bottom: 8px;
   }
 }

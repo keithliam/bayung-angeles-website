@@ -12,6 +12,7 @@ import { Footer, Header } from '../../components';
 const LandingPage = () => {
   const [ref, bounds] = useMeasure();
   const coverSectionRef = useRef();
+  const pillarsSectionRef = useRef();
   const teamSectionRef = useRef();
 
   // This is just a fix because react-stickynode requires a scroll event to initially appear.
@@ -25,9 +26,9 @@ const LandingPage = () => {
     <div ref={ref} id="landing">
       <Header coverSectionRef={coverSectionRef} teamSectionRef={teamSectionRef} />
       <div className="container">
-        <CoverSection ref={coverSectionRef} />
+        <CoverSection ref={coverSectionRef} pillarsSectionRef={pillarsSectionRef} />
         <div className="content-container">
-          <PillarsSection />
+          <PillarsSection ref={pillarsSectionRef} />
           <ImagineSection />
           <QuoteSection />
           <TeamSection ref={teamSectionRef} />

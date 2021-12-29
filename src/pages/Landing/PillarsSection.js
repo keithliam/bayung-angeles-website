@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
+import mergeRefs from 'merge-refs';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
@@ -10,31 +12,34 @@ import logoWhite from '../../assets/images/logo-minimal-white.png';
 
 import { topics } from '../../data/pillars';
 
-const PillarsSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
+const lastTopicIndex = topics.length - 1;
+
+const PillarsSection = (props, ref) => {
+  const [sectionRef, bounds] = useMeasure({ scroll: true });
   const dimensions = useDimensions();
 
   const viewportHeight = dimensions.height;
   const { top, bottom } = bounds;
 
   const topicIndex = (() => {
-    if (-top - viewportHeight < 0) return 0;
-    if (bottom - viewportHeight <= 0) return topics.length - 1;
-    return Math.floor(-top / viewportHeight);
+    const nthTopic = Math.floor(-top / viewportHeight);
+    if (nthTopic < 0) return 0;
+    if (nthTopic > lastTopicIndex) return lastTopicIndex;
+    return nthTopic;
   })();
-  const { title, descriptionLine1, descriptionLine2 } = topics[topicIndex];
+  const { title, description } = topics[topicIndex];
 
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
   const showLogo = entireSectionInView && top + viewportHeight * 0.2 < 0;
-  const backgroundScale = scrolledPastSectionTop ? 100 + (-top / 50000) * 100 : 100;
+  const backgroundScale = scrolledPastSectionTop ? 1 + -top / 50000 : 1;
 
   return (
-    <div ref={ref} id="pillars" className="pillars">
+    <div ref={mergeRefs(ref, sectionRef)} id="pillars" className="pillars">
       <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
-          style={{ transform: `scale(${backgroundScale}%)` }}
+          style={prefix({ transform: `scale(${backgroundScale})` })}
           src={baIllustration}
           alt="illustration"
         />
@@ -52,16 +57,13 @@ const PillarsSection = () => {
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
             <CSSTransition key={title} classNames="scroll" timeout={1000}>
-              <WingText className="title" text={title} />
+              <WingText className="title" text={title} wingPosition="end" />
             </CSSTransition>
           </SwitchTransition>
         </div>
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="fade" timeout={2000}>
-            <div className="description">
-              <span>{descriptionLine1}</span>
-              <span>{descriptionLine2}</span>
-            </div>
+            <span className="description">{description}</span>
           </CSSTransition>
         </SwitchTransition>
       </Sticky>
@@ -69,4 +71,4 @@ const PillarsSection = () => {
   );
 };
 
-export default PillarsSection;
+export default forwardRef(PillarsSection);
