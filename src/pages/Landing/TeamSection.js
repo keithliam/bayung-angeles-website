@@ -4,12 +4,14 @@ import { useDimensions } from 'react-viewport-utils';
 import mergeRefs from 'merge-refs';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
-import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
+import { EffectCards, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-import Markdown from 'markdown-to-jsx';
+import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
+import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
+import caratRight from '../../assets/images/carat-right-blue.png';
 import {
   teamCategories,
   allMembers,
@@ -20,7 +22,6 @@ import {
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
-import 'swiper/modules/mousewheel/mousewheel.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
@@ -64,12 +65,7 @@ const TeamSection = (props, ref) => {
         </div>
         <div className="team-showcase">
           <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
-          <CardsSection
-            swiperRef={swiperRef}
-            swiper={swiper}
-            disablePrevButton={activeMemberIndex === 0}
-            disableNextButton={activeMemberIndex === allMembers.length - 1}
-          />
+          <CardsSection swiperRef={swiperRef} swiper={swiper} />
         </div>
       </div>
       <PhotoCredit
@@ -110,38 +106,52 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
           ))}
         </div>
       ))}
+      <img className="team-list-bg" src={baLogo} alt="Logo" />
     </div>
   );
 };
 
-const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton }) => (
-  <div className="team-cards">
-    <CardNavButton swiper={swiper} xDirection="left" disabled={disablePrevButton} />
-    <Swiper
-      ref={swiperRef}
-      className="swiper-container"
-      modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
-      effect="cards"
-      speed={750}
-      mousewheel={{ forceToAxis: true }}
-      pagination
-      grabCursor
-      autoHeight
-    >
-      {allMembers.map(member => (
-        // SwiperSlide does not like being nested inside individual components when being mapped
-        <SwiperSlide key={member.name} className="team-card">
-          <MemberCard member={member} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-    <CardNavButton swiper={swiper} xDirection="right" disabled={disableNextButton} />
-  </div>
-);
+const CardsSection = ({ swiperRef, swiper }) => {
+  const handleCardContentScroll = () => {
+    if (swiper) swiper.autoplay.stop();
+  };
 
-const CardNavButton = ({ swiper, xDirection, disabled }) => {
-  const handlePreviousCard = () => swiper.slidePrev();
-  const handleNextCard = () => swiper.slideNext();
+  return (
+    <div className="team-cards">
+      <CardNavButton swiper={swiper} xDirection="left" />
+      <Swiper
+        ref={swiperRef}
+        className="swiper-container"
+        modules={[EffectCards, Autoplay, Pagination]}
+        effect="cards"
+        speed={750}
+        pagination
+        grabCursor
+        autoHeight
+      >
+        {allMembers.map(member => (
+          // SwiperSlide does not like being nested inside individual components when being mapped
+          <SwiperSlide key={member.name} className="team-card">
+            <MemberCard member={member} onCardContentScroll={handleCardContentScroll} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <CardNavButton swiper={swiper} xDirection="right" />
+    </div>
+  );
+};
+
+const CardNavButton = ({ swiper, xDirection }) => {
+  const handlePreviousCard = () => {
+    const { activeIndex, slides } = swiper;
+    const lastIndex = slides.length - 1;
+    swiper.slideTo(activeIndex === 0 ? lastIndex : activeIndex - 1);
+  };
+  const handleNextCard = () => {
+    const { activeIndex, slides } = swiper;
+    const lastIndex = slides.length - 1;
+    swiper.slideTo(activeIndex === lastIndex ? 0 : activeIndex + 1);
+  };
 
   const isLeft = xDirection === 'left';
   const onClick = isLeft ? handlePreviousCard : handleNextCard;
@@ -150,7 +160,7 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
 
   return (
     <div className="card-nav-btn-container">
-      <button type="button" onClick={onClick} disabled={disabled}>
+      <button type="button" onClick={onClick}>
         <img
           style={prefix({ transform: `translateX(${translateX}) rotate(${rotate})` })}
           src={caratDown}
@@ -161,15 +171,50 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
   );
 };
 
-const MemberCard = ({ member: { name, bannerImage, platforms } }) => (
+const MemberCard = ({
+  member: { name, bannerImage, education, experience, affiliations },
+  onCardContentScroll,
+}) => (
   <>
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
-      <div className="member-platform">
-        <Markdown options={{ disableParsingRawHTML: true }}>{platforms}</Markdown>
+      <div className="member-info" onScroll={onCardContentScroll}>
+        <InfoSection title="Education" items={education} />
+        <InfoSection title="Professional Experience" items={experience} />
+        <InfoSection title="Affiliations" items={affiliations} />
+        <ScrollFade />
+      </div>
+      <div className="member-footer">
+        <div className="member-social-media-links" />
+        <a className="member-page-link" href="google.com">
+          Learn More
+          <img src={caratRight} alt="Button arrow" />
+        </a>
       </div>
     </div>
   </>
+);
+
+const InfoSection = ({ title, items }) => (
+  <div className="info-section">
+    <span className="section-title">{title}</span>
+    <ul className="section-content">
+      {items.map(({ highlight, description }) => (
+        <InfoSectionItem highlight={highlight} description={description} />
+      ))}
+    </ul>
+  </div>
+);
+
+const InfoSectionItem = ({ highlight, description }) => (
+  <li className="info-item">
+    <span className="info-highlight">{highlight}</span>
+    {description && (
+      <>
+        , <span className="info-description">{description}</span>
+      </>
+    )}
+  </li>
 );
 
 export default forwardRef(TeamSection);
