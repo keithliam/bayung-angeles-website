@@ -833,6 +833,8 @@
 
               .team-list-category {
                 width: 100%;
+                position: relative;
+                z-index: 1;
 
                 &:not(:first-child) {
                   margin-top: 15px;
