@@ -806,10 +806,11 @@
               flex: 0;
               padding: 20px 0;
               border-radius: $card-border-radius;
-              background-color: $card-background-color;
               box-shadow: $card-shadow;
               position: relative;
               z-index: 20;
+              background-color: color.change($card-background-color, $alpha: 0.6);
+              backdrop-filter: blur(10px);
 
               @media (max-width: $breakpoint-large) {
                 padding: 18px 0;
@@ -839,6 +840,8 @@
 
               .team-list-category {
                 width: 100%;
+                position: relative;
+                z-index: 1;
 
                 &:not(:first-child) {
                   margin-top: 15px;
@@ -856,7 +859,7 @@
                   font-family: $font-body;
                   font-weight: $font-semibold;
                   @include px-to-rem(14px);
-                  color: #646464;
+                  color: #494949;
                   text-transform: uppercase;
                   padding: 0 18px;
                   letter-spacing: 0.075em;
@@ -892,7 +895,7 @@
 
                   &:hover,
                   &.active-member {
-                    background-color: #CCCCCC;
+                    background-color: color.change($card-background-color, $alpha: 0.8);
                   }
 
                   @media (max-width: $breakpoint-large) {
@@ -919,7 +922,12 @@
                 transform: translate(-50%, -25%);
                 pointer-events: none;
                 width: 60%;
-                opacity: 0.3;
+                opacity: 0.5;
+                display: block;
+
+                @media (max-width: $card-breakpoint-mobile) {
+                  display: none;
+                }
               }
             }
 
@@ -1181,7 +1189,7 @@
                   }
 
                   .member-footer {
-                    padding: 20px;
+                    padding: 15px 20px 34px;
                     display: flex;
                     align-items: center;
 
