@@ -10,3 +10,8 @@ $font-semibold: 600;
 $font-bold: 700;
 $font-xbold: 800;
 $font-black: 900;
+
+@mixin px-to-rem($size) {
+  font-size: $size;
+  font-size: ($size / 16px) * 1rem;
+}
