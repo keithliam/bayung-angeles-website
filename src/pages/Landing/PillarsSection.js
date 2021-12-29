@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
+import mergeRefs from 'merge-refs';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { prefix } from 'inline-style-prefixer';
@@ -13,8 +14,8 @@ import { topics } from '../../data/pillars';
 
 const lastTopicIndex = topics.length - 1;
 
-const PillarsSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
+const PillarsSection = (props, ref) => {
+  const [sectionRef, bounds] = useMeasure({ scroll: true });
   const dimensions = useDimensions();
 
   const viewportHeight = dimensions.height;
@@ -34,7 +35,7 @@ const PillarsSection = () => {
   const backgroundScale = scrolledPastSectionTop ? 1 + -top / 50000 : 1;
 
   return (
-    <div ref={ref} id="pillars" className="pillars">
+    <div ref={mergeRefs(ref, sectionRef)} id="pillars" className="pillars">
       <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
@@ -70,4 +71,4 @@ const PillarsSection = () => {
   );
 };
 
-export default PillarsSection;
+export default forwardRef(PillarsSection);

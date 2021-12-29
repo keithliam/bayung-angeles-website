@@ -175,10 +175,16 @@
           align-items: flex-end;
 
           button {
-            margin-bottom: 20px;
+            padding: 20px;
             animation: bounce-down 4s ease-in-out infinite;
             background-color: transparent;
             border: none;
+            cursor: pointer;
+            transition: filter 0.5s ease-out;
+
+            &:hover {
+              filter: drop-shadow(0 0 8px white);
+            }
           }
 
           .cover-credit {
