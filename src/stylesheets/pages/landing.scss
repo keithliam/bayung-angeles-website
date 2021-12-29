@@ -221,7 +221,6 @@
         @media (max-width: $breakpoint-tablet) {
           @include px-to-rem(35px);
         }
-      }
 
         @media (max-width: $breakpoint-mobile) {
           @include px-to-rem(30px);
@@ -1344,6 +1343,7 @@
             }
           }
         }
+      }
 
       .downloads {
         background-color: $ba-white;
