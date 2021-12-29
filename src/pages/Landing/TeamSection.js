@@ -114,29 +114,35 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
   );
 };
 
-const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton }) => (
-  <div className="team-cards">
-    <CardNavButton swiper={swiper} xDirection="left" disabled={disablePrevButton} />
-    <Swiper
-      ref={swiperRef}
-      className="swiper-container"
-      modules={[EffectCards, Autoplay, Pagination]}
-      effect="cards"
-      speed={750}
-      pagination
-      grabCursor
-      autoHeight
-    >
-      {allMembers.map(member => (
-        // SwiperSlide does not like being nested inside individual components when being mapped
-        <SwiperSlide key={member.name} className="team-card">
-          <MemberCard member={member} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
-    <CardNavButton swiper={swiper} xDirection="right" disabled={disableNextButton} />
-  </div>
-);
+const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton }) => {
+  const handleCardContentScroll = () => {
+    if (swiper) swiper.autoplay.stop();
+  };
+
+  return (
+    <div className="team-cards">
+      <CardNavButton swiper={swiper} xDirection="left" disabled={disablePrevButton} />
+      <Swiper
+        ref={swiperRef}
+        className="swiper-container"
+        modules={[EffectCards, Autoplay, Pagination]}
+        effect="cards"
+        speed={750}
+        pagination
+        grabCursor
+        autoHeight
+      >
+        {allMembers.map(member => (
+          // SwiperSlide does not like being nested inside individual components when being mapped
+          <SwiperSlide key={member.name} className="team-card">
+            <MemberCard member={member} onCardContentScroll={handleCardContentScroll} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <CardNavButton swiper={swiper} xDirection="right" disabled={disableNextButton} />
+    </div>
+  );
+};
 
 const CardNavButton = ({ swiper, xDirection, disabled }) => {
   const handlePreviousCard = () => swiper.slidePrev();
@@ -160,11 +166,14 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
   );
 };
 
-const MemberCard = ({ member: { name, bannerImage, education, experience, affiliations } }) => (
+const MemberCard = ({
+  member: { name, bannerImage, education, experience, affiliations },
+  onCardContentScroll,
+}) => (
   <>
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
-      <div className="member-info">
+      <div className="member-info" onScroll={onCardContentScroll}>
         <InfoSection title="Education" items={education} />
         <InfoSection title="Professional Experience" items={experience} />
         <InfoSection title="Affiliations" items={affiliations} />
