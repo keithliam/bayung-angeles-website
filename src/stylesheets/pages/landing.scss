@@ -916,7 +916,12 @@
                 transform: translate(-50%, -25%);
                 pointer-events: none;
                 width: 60%;
-                opacity: 0.3;
+                opacity: 0.5;
+                display: block;
+
+                @media (max-width: $card-breakpoint-mobile) {
+                  display: none;
+                }
               }
             }
 
