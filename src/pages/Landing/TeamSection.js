@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
+import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
 import caratRight from '../../assets/images/carat-right-blue.png';
 import {
@@ -110,6 +111,7 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
           ))}
         </div>
       ))}
+      <img className="team-list-bg" src={baLogo} alt="Logo" />
     </div>
   );
 };

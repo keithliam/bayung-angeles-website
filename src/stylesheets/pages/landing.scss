@@ -905,6 +905,16 @@
                   }
                 }
               }
+
+              .team-list-bg {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, -25%);
+                pointer-events: none;
+                width: 60%;
+                opacity: 0.3;
+              }
             }
 
             .team-cards {
