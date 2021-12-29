@@ -11,8 +11,9 @@ export const previewAssets = [
     name: 'Car Sticker',
     link: '',
     style: {
-      top: '17px',
-      height: '217px',
+      top: '5.4%',
+      height: '68.7%',
+      width: '60.6%',
     },
   },
   {
@@ -21,8 +22,9 @@ export const previewAssets = [
     link: '',
     style: {
       top: '0',
-      right: '59px',
-      width: '171px',
+      right: '14.9%',
+      height: '50.9%',
+      width: '43.2%',
     },
   },
   {
@@ -30,9 +32,10 @@ export const previewAssets = [
     name: 'Báyung Ángeles Illustration',
     link: '',
     style: {
-      top: '139px',
-      left: '37px',
-      height: '122px',
+      top: '44%',
+      left: '9.3%',
+      height: '38.6%',
+      width: '30.8%',
     },
   },
   {
@@ -40,9 +43,10 @@ export const previewAssets = [
     name: 'Báyung Ángeles Logo',
     link: '',
     style: {
-      top: '89px',
-      left: '145px',
-      height: '137px',
+      top: '28.2%',
+      left: '36.6%',
+      height: '43.4%',
+      width: '39.9%',
     },
   },
   {
@@ -50,9 +54,10 @@ export const previewAssets = [
     name: 'Facebook Frame',
     link: '',
     style: {
-      top: '120px',
+      top: '38%',
       right: '0',
-      height: '155px',
+      height: '49.1%',
+      width: '39.1%',
     },
   },
   {
@@ -61,8 +66,9 @@ export const previewAssets = [
     link: '',
     style: {
       bottom: '0',
-      left: '101px',
-      width: '183px',
+      left: '25.5%',
+      height: '29.7%',
+      width: '46.2%',
     },
   },
 ];

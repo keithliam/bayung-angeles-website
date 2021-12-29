@@ -2,6 +2,7 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
 import mergeRefs from 'merge-refs';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
@@ -59,7 +60,7 @@ const TeamSection = (props, ref) => {
         <span className="introduce-text">Introducing</span>
         <div className="introduce-headline">
           <span className="highlight">Our </span>
-          <WingText text="Dream Team" />
+          <WingText text="Dream Team" wingPosition="end" />
         </div>
         <div className="team-showcase">
           <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
@@ -125,6 +126,7 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton 
       mousewheel={{ forceToAxis: true }}
       pagination
       grabCursor
+      autoHeight
     >
       {allMembers.map(member => (
         // SwiperSlide does not like being nested inside individual components when being mapped
@@ -150,7 +152,7 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
     <div className="card-nav-btn-container">
       <button type="button" onClick={onClick} disabled={disabled}>
         <img
-          style={{ transform: `translateX(${translateX}) rotate(${rotate})` }}
+          style={prefix({ transform: `translateX(${translateX}) rotate(${rotate})` })}
           src={caratDown}
           alt="Card navigation arrow"
         />

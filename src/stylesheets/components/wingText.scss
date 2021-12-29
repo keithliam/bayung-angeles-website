@@ -2,17 +2,20 @@
 
 .wing-text {
   position: relative;
-  font-size: 49px;
-  font-family: $font-heading;
-  letter-spacing: 0.065em;
-  font-weight: $font-normal;
-  color: white;
 
   img {
     position: absolute;
-    right: -0.45em;
-    bottom: 0.25em;
-    height: 0.98em;
+    height: 1.05em;
     pointer-events: none;
+
+    &.start {
+      left: 0.33em;
+      bottom: 0.25em;
+    }
+
+    &.end {
+      right: -0.45em;
+      bottom: 0.25em;
+    }
   }
 }

@@ -15,7 +15,7 @@ const QuoteSection = () => {
       <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
         <img className="quote-bg" src={logoBlue} alt="BA logo" />
       </CSSTransition>
-      <div className="quote-text">
+      <div className="heading-line">
         <span className="quote-line">We need leaders</span>
         <span className="quote-line">not in love with money</span>
         <span className="quote-line">

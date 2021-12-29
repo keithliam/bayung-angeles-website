@@ -3,11 +3,12 @@ import useMeasure from 'react-use-measure';
 import { useDimensions } from 'react-viewport-utils';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
-const maxScaleUpPercent = 5;
+const maxScaleUp = 0.05;
 
 const ImagineSection = () => {
   const [ref, bounds] = useMeasure({ scroll: true });
@@ -29,22 +30,22 @@ const ImagineSection = () => {
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
   const backgroundScale = scrolledPastSectionTop
-    ? 100 + ((-top - viewportHeight * photoIndex) / viewportHeight) * maxScaleUpPercent // Rese10 scale of every photo
-    : 100;
+    ? 1 + ((-top - viewportHeight * photoIndex) / viewportHeight) * maxScaleUp // Reset scale of every photo
+    : 1;
 
   return (
     <div
       ref={ref}
       id="imagine"
       className="imagine"
-      style={{ height: `${(allPhotos.length + 1) * 100}vh` }}
+      style={prefix({ height: `${(allPhotos.length + 1) * 100}vh` })}
     >
       <Sticky bottomBoundary="#imagine" innerClass="imagine-content">
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="bg-fade" timeout={1000}>
             <img
               className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
-              style={{ transform: `scale(${backgroundScale}%)` }}
+              style={prefix({ transform: `scale(${backgroundScale})` })}
               src={source}
               alt={title}
             />
@@ -72,7 +73,9 @@ const ImagineSection = () => {
               </div>
             </CSSTransition>
           </SwitchTransition>
-          <a href={link}>Learn More</a>
+          <a className="learn-more-link" href={link}>
+            Learn More
+          </a>
         </div>
       </Sticky>
     </div>
