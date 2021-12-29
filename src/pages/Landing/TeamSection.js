@@ -4,12 +4,13 @@ import { useDimensions } from 'react-viewport-utils';
 import mergeRefs from 'merge-refs';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
-import { EffectCards, Mousewheel, Pagination, Autoplay } from 'swiper';
+import { EffectCards, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
-import Markdown from 'markdown-to-jsx';
+import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
 import baIllustration from '../../assets/images/ba-illus.png';
 import caratDown from '../../assets/images/carat-down.svg';
+import caratRight from '../../assets/images/carat-right-blue.png';
 import {
   teamCategories,
   allMembers,
@@ -20,7 +21,6 @@ import {
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
-import 'swiper/modules/mousewheel/mousewheel.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
@@ -120,10 +120,9 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton 
     <Swiper
       ref={swiperRef}
       className="swiper-container"
-      modules={[EffectCards, Mousewheel, Autoplay, Pagination]}
+      modules={[EffectCards, Autoplay, Pagination]}
       effect="cards"
       speed={750}
-      mousewheel={{ forceToAxis: true }}
       pagination
       grabCursor
       autoHeight
@@ -161,15 +160,47 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
   );
 };
 
-const MemberCard = ({ member: { name, bannerImage, platforms } }) => (
+const MemberCard = ({ member: { name, bannerImage, education, experience, affiliations } }) => (
   <>
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
-      <div className="member-platform">
-        <Markdown options={{ disableParsingRawHTML: true }}>{platforms}</Markdown>
+      <div className="member-info">
+        <InfoSection title="Education" items={education} />
+        <InfoSection title="Professional Experience" items={experience} />
+        <InfoSection title="Affiliations" items={affiliations} />
+        <ScrollFade />
+      </div>
+      <div className="member-footer">
+        <div className="member-social-media-links" />
+        <a className="member-page-link" href="google.com">
+          Learn More
+          <img src={caratRight} alt="Button arrow" />
+        </a>
       </div>
     </div>
   </>
+);
+
+const InfoSection = ({ title, items }) => (
+  <div className="info-section">
+    <span className="section-title">{title}</span>
+    <ul className="section-content">
+      {items.map(({ highlight, description }) => (
+        <InfoSectionItem highlight={highlight} description={description} />
+      ))}
+    </ul>
+  </div>
+);
+
+const InfoSectionItem = ({ highlight, description }) => (
+  <li className="info-item">
+    <span className="info-highlight">{highlight}</span>
+    {description && (
+      <>
+        , <span className="info-description">{description}</span>
+      </>
+    )}
+  </li>
 );
 
 export default forwardRef(TeamSection);

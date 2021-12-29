@@ -1055,54 +1055,42 @@
                 background-color: $card-background-color;
                 box-shadow: $card-shadow;
                 overflow: hidden;
+                position: relative;
 
                 &-banner {
+                  position: absolute;
                   width: 100%;
+                  filter: drop-shadow(0 0 6px color.change(black, $alpha: 0.4));
+                  z-index: 10;
                 }
 
                 &-content {
-                  $padding-bottom: 36px;
-                  margin-top: -16px;
-                  padding: 0 24px $padding-bottom 24px;
-                  padding-top: 0;
+                  display: flex;
+                  flex-direction: column;
+                  max-height: 75vh;
 
-                  @media (max-width: $breakpoint-large) {
-                    padding: 0 22px $padding-bottom 22px;
-                    padding-top: 0;
-                  }
-
-                  @media (max-width: $breakpoint-small) {
-                    padding: 0 20px $padding-bottom 20px;
-                    padding-top: 0;
-                  }
-
-                  @media (max-width: $breakpoint-tablet) {
-                    padding: 0 18px $padding-bottom 18px;
-                    padding-top: 0;
-                  }
-
-                  @media (max-width: $breakpoint-mobile) {
-                    padding: 0 16px $padding-bottom 16px;
-                    padding-top: 0;
-                  }
-
-                  .member-platform {
+                  .member-info {
                     font-family: $font-body;
-                    font-weight: $font-medium;
-                    letter-spacing: 0.06em;
-                    @include px-to-rem(18px);
+                    letter-spacing: 0.02em;
+                    @include px-to-rem(16px);
+                    padding: 0 24px;
                     color: $ba-blue;
+                    flex: 1;
+                    overflow-y: scroll;
 
                     @media (max-width: $breakpoint-large) {
                       @include px-to-rem(16px);
+                      padding: 0 22px;
                     }
 
                     @media (max-width: $breakpoint-small) {
                       @include px-to-rem(14px);
+                      padding: 0 20px;
                     }
 
                     @media (max-width: $breakpoint-tablet) {
                       @include px-to-rem(12px);
+                      padding: 0 18px;
                     }
 
                     @media (max-width: $card-breakpoint-mobile) {
@@ -1111,16 +1099,106 @@
 
                     @media (max-width: $breakpoint-mobile) {
                       @include px-to-rem(14px);
+                      padding: 0 16px;
                     }
 
-                    // Markdown overrides
-                    ul {
-                      margin: 0;
-                      padding-left: 20px;
+                    .info-section {
+                      &:first-of-type {
+                        padding-top: 245px;
+
+                        @media (max-width: $breakpoint-large) {
+                          padding-top: 220px;
+                        }
+    
+                        @media (max-width: $breakpoint-small) {
+                          padding-top: 195px;
+                        }
+    
+                        @media (max-width: $breakpoint-tablet) {
+                          padding-top: 165px;
+                        }
+    
+                        @media (max-width: $card-breakpoint-mobile) {
+                          padding-top: 195px;
+                        }
+    
+                        @media (max-width: $breakpoint-mobile) {
+                          padding-top: 160px;
+                        }
+                      }
+
+                      &:not(:first-child) {
+                        margin-top: 12px;
+                      }
+
+                      .section-title {
+                        display: block;
+                        padding: 4px 15px;
+                        border-radius: 100px;
+                        background-color: $ba-gray;
+                        color: white;
+                        font-weight: $font-semibold;
+                        text-transform: uppercase;
+                        width: fit-content;
+                      }
+
+                      .section-content {
+                        margin: 0;
+                        margin-top: 6px;
+                        padding-left: 15px;
+
+                        .info-item {
+                          &:not(:first-child) {
+                            margin-top: 4px;
+                          }
+
+                          .info-highlight {
+                            font-weight: $font-bold;
+                            color: $ba-blue;
+                          }
+
+                          .info-description {
+                            color: $ba-blue;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .member-footer {
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+
+                    .member-social-media-links {
+                      flex: 1;
                     }
 
-                    strong {
-                      font-weight: $font-xbold;
+                    .member-page-link {
+                      text-decoration: none;
+                      background-color: $ba-gold;
+                      color: $ba-blue;
+                      padding: 8px 15px;
+                      @include px-to-rem(13px);
+                      border-radius: 12px;
+                      opacity: 1;
+                      transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+                      box-shadow: 0 2px 6px color.change(black, $alpha: 0.16);
+                      display: flex;
+                      align-items: center;
+                      font-family: $font-body;
+                      font-weight: $font-semibold;
+                      text-transform: uppercase;
+
+                      &:hover {
+                        box-shadow: none;
+                        opacity: 0.8;
+                      }
+
+                      img {
+                        height: 14px;
+                        margin-left: 8px;
+                      }
                     }
                   }
                 }
