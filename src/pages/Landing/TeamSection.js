@@ -65,12 +65,7 @@ const TeamSection = (props, ref) => {
         </div>
         <div className="team-showcase">
           <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
-          <CardsSection
-            swiperRef={swiperRef}
-            swiper={swiper}
-            disablePrevButton={activeMemberIndex === 0}
-            disableNextButton={activeMemberIndex === allMembers.length - 1}
-          />
+          <CardsSection swiperRef={swiperRef} swiper={swiper} />
         </div>
       </div>
       <PhotoCredit
@@ -116,14 +111,14 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
   );
 };
 
-const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton }) => {
+const CardsSection = ({ swiperRef, swiper }) => {
   const handleCardContentScroll = () => {
     if (swiper) swiper.autoplay.stop();
   };
 
   return (
     <div className="team-cards">
-      <CardNavButton swiper={swiper} xDirection="left" disabled={disablePrevButton} />
+      <CardNavButton swiper={swiper} xDirection="left" />
       <Swiper
         ref={swiperRef}
         className="swiper-container"
@@ -141,14 +136,22 @@ const CardsSection = ({ swiperRef, swiper, disablePrevButton, disableNextButton 
           </SwiperSlide>
         ))}
       </Swiper>
-      <CardNavButton swiper={swiper} xDirection="right" disabled={disableNextButton} />
+      <CardNavButton swiper={swiper} xDirection="right" />
     </div>
   );
 };
 
-const CardNavButton = ({ swiper, xDirection, disabled }) => {
-  const handlePreviousCard = () => swiper.slidePrev();
-  const handleNextCard = () => swiper.slideNext();
+const CardNavButton = ({ swiper, xDirection }) => {
+  const handlePreviousCard = () => {
+    const { activeIndex, slides } = swiper;
+    const lastIndex = slides.length - 1;
+    swiper.slideTo(activeIndex === 0 ? lastIndex : activeIndex - 1);
+  };
+  const handleNextCard = () => {
+    const { activeIndex, slides } = swiper;
+    const lastIndex = slides.length - 1;
+    swiper.slideTo(activeIndex === lastIndex ? 0 : activeIndex + 1);
+  };
 
   const isLeft = xDirection === 'left';
   const onClick = isLeft ? handlePreviousCard : handleNextCard;
@@ -157,7 +160,7 @@ const CardNavButton = ({ swiper, xDirection, disabled }) => {
 
   return (
     <div className="card-nav-btn-container">
-      <button type="button" onClick={onClick} disabled={disabled}>
+      <button type="button" onClick={onClick}>
         <img
           style={prefix({ transform: `translateX(${translateX}) rotate(${rotate})` })}
           src={caratDown}
