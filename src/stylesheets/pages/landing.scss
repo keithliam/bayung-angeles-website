@@ -970,6 +970,8 @@
                   opacity: 1;
                   transition: opacity 0.2s ease-out;
                   cursor: pointer;
+                  position: relative;
+                  z-index: 20;
 
                   @media (max-width: $breakpoint-large) {
                     height: 40px;
