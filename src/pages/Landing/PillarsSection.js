@@ -11,6 +11,8 @@ import logoWhite from '../../assets/images/logo-minimal-white.png';
 
 import { topics } from '../../data/pillars';
 
+const lastTopicIndex = topics.length - 1;
+
 const PillarsSection = () => {
   const [ref, bounds] = useMeasure({ scroll: true });
   const dimensions = useDimensions();
@@ -19,11 +21,12 @@ const PillarsSection = () => {
   const { top, bottom } = bounds;
 
   const topicIndex = (() => {
-    if (-top - viewportHeight < 0) return 0;
-    if (bottom - viewportHeight <= 0) return topics.length - 1;
-    return Math.floor(-top / viewportHeight);
+    const nthTopic = Math.floor(-top / viewportHeight);
+    if (nthTopic < 0) return 0;
+    if (nthTopic > lastTopicIndex) return lastTopicIndex;
+    return nthTopic;
   })();
-  const { title, description } = topics[topicIndex] || {};
+  const { title, description } = topics[topicIndex];
 
   const scrolledPastSectionTop = top < 0;
   const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;

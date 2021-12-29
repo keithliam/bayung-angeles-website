@@ -8,6 +8,8 @@ import classNames from 'classnames';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
+const lastPhotoIndex = allPhotos.length - 1;
+
 const maxScaleUp = 0.05;
 
 const ImagineSection = () => {
@@ -18,9 +20,10 @@ const ImagineSection = () => {
   const { top, bottom } = bounds;
 
   const photoIndex = (() => {
-    if (-top - viewportHeight < 0) return 0;
-    if (bottom - viewportHeight <= 0) return allPhotos.length - 1;
-    return Math.floor(-top / viewportHeight);
+    const nthPhoto = Math.floor(-top / viewportHeight);
+    if (nthPhoto < 0) return 0;
+    if (nthPhoto > lastPhotoIndex) return lastPhotoIndex;
+    return nthPhoto;
   })();
   const {
     topic: { highlightText, extraText },
