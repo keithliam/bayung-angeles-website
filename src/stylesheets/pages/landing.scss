@@ -802,6 +802,8 @@
               border-radius: $card-border-radius;
               background-color: $card-background-color;
               box-shadow: $card-shadow;
+              position: relative;
+              z-index: 20;
 
               @media (max-width: $breakpoint-large) {
                 padding: 18px 0;
