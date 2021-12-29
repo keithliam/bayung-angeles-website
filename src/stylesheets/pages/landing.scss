@@ -1035,7 +1035,7 @@
 
               .swiper-container {
                 width: 100%;
-                max-width: 500px;
+                max-width: 600px;
 
                 @media (max-width: $breakpoint-large) {
                   max-width: 450px;
@@ -1116,7 +1116,7 @@
 
                     .info-section {
                       &:first-of-type {
-                        padding-top: 245px;
+                        padding-top: 295px;
 
                         @media (max-width: $breakpoint-large) {
                           padding-top: 220px;
