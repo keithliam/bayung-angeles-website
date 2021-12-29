@@ -15,7 +15,7 @@ const CoverSection = (props, ref) => (
         Báyung <WingText text="Ángeles" wingPosition="start" />
       </h1>
       <img src={coverOverlay} className="ba-cover" alt="cover" />
-      <h4>Be a part of the movement</h4>
+      <h4>Be part of the movement</h4>
       <span>Stay connected. Follow our socials.</span>
       <div className="social-media-links">
         {socialMediaLinks.map(link => (
