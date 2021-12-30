@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'merge-refs';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
