@@ -1,17 +1,25 @@
-import React from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import logoBlue from '../../assets/images/ba-logo-blue.png';
 
 const QuoteSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
+  const sectionRef = useRef();
+  const [imageAppear, setImageAppear] = useState(false);
 
-  const imageAppear = bounds.top <= dimensions.height / 2;
+  const handleScrollEvent = () => {
+    if (sectionRef.current) {
+      const { top } = sectionRef.current.getBoundingClientRect();
+      setImageAppear(top <= window.innerHeight / 2);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollEvent);
+    return () => window.removeEventListener('scroll', handleScrollEvent);
+  }, []);
 
   return (
-    <div ref={ref} className="quote">
+    <div ref={sectionRef} className="quote">
       <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
         <img className="quote-bg" src={logoBlue} alt="BA logo" />
       </CSSTransition>
