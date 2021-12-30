@@ -6,14 +6,14 @@ const QuoteSection = () => {
   const sectionRef = useRef();
   const [imageAppear, setImageAppear] = useState(false);
 
-  const handleScrollEvent = () => {
-    if (sectionRef.current) {
-      const { top } = sectionRef.current.getBoundingClientRect();
-      setImageAppear(top <= window.innerHeight / 2);
-    }
-  };
-
   useEffect(() => {
+    const handleScrollEvent = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        setImageAppear(top <= window.innerHeight / 2);
+      }
+    };
+
     window.addEventListener('scroll', handleScrollEvent);
     return () => window.removeEventListener('scroll', handleScrollEvent);
   }, []);
