@@ -1,11 +1,6 @@
 import React from 'react';
-import { ViewportProvider } from 'react-viewport-utils';
 import { Landing } from './pages';
 
-const App = () => (
-  <ViewportProvider>
-    <Landing />
-  </ViewportProvider>
-);
+const App = () => <Landing />;
 
 export default App;
