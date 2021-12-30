@@ -1,6 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 import mergeRefs from 'merge-refs';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
@@ -26,16 +24,29 @@ import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
 const TeamSection = (props, ref) => {
+  const sectionRef = useRef();
   const swiperRef = useRef();
   const autoplayActivatedOnce = useRef(false);
-  const [sectionRef, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
   const { swiper } = swiperRef.current || {};
-  // Assume that the component is 2D (has positive height and width)
-  const measurementDone = Object.values(bounds).some(pixels => pixels !== 0);
-  const autoplayStart = bounds.top - dimensions.height * 0.25 <= 0;
+
+  const handleScrollEvent = useCallback(() => {
+    if (sectionRef.current) {
+      const { top } = sectionRef.current.getBoundingClientRect();
+      const autoplayStart = top - window.innerHeight * 0.25 <= 0;
+      if (autoplayStart && !autoplayActivatedOnce.current && swiper) {
+        // This is a workaround since Swiper only uses the first value of the autoplay prop
+        swiper.autoplay.start();
+        autoplayActivatedOnce.current = true;
+      }
+    }
+  }, [swiper]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScrollEvent);
+    return () => window.removeEventListener('scroll', handleScrollEvent);
+  }, [handleScrollEvent]);
 
   useEffect(() => {
     if (swiper) {
@@ -45,14 +56,6 @@ const TeamSection = (props, ref) => {
     }
     return null;
   }, [swiper]);
-
-  // This is a workaround since Swiper only uses the first value of the autoplay prop
-  useEffect(() => {
-    if (!autoplayActivatedOnce.current && measurementDone && swiper && autoplayStart) {
-      swiper.autoplay.start();
-      autoplayActivatedOnce.current = true;
-    }
-  }, [swiper, autoplayStart, measurementDone]);
 
   return (
     <div ref={mergeRefs(ref, sectionRef)} className="team">
