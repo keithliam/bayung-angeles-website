@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import WingText from './WingText';
+import { registerScrollResizeEventListeners } from '../helpers';
 
 import menuIcon from '../assets/images/menu-icon.svg';
 import closeIcon from '../assets/images/close-icon.svg';
@@ -20,13 +21,11 @@ const Header = ({ coverSectionRef, teamSectionRef }) => {
   const [headerType, setHeaderType] = useState(ABSOLUTE);
 
   useEffect(() => {
-    const handleScrollEvent = () => {
+    const handleScrollResizeEvent = () => {
       const fixedHeaderAppear = window.innerHeight * 0.4 <= window.scrollY;
       setHeaderType(fixedHeaderAppear ? FIXED : ABSOLUTE);
     };
-
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
 
   const handleLogoClick = () => coverSectionRef.current.scrollIntoView(scrollOptions);

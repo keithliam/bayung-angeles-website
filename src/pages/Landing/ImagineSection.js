@@ -3,6 +3,7 @@ import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
+import { registerScrollResizeEventListeners } from '../../helpers';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
@@ -17,7 +18,7 @@ const ImagineSection = () => {
   const [backgroundScale, setBackgroundScale] = useState(1);
 
   useEffect(() => {
-    const handleScrollEvent = () => {
+    const handleScrollResizeEvent = () => {
       if (sectionRef.current) {
         const viewportHeight = window.innerHeight;
         const { top, bottom } = sectionRef.current.getBoundingClientRect();
@@ -40,9 +41,7 @@ const ImagineSection = () => {
         setBackgroundScale(roundedScale);
       }
     };
-
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
 
   const {

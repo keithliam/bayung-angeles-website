@@ -5,6 +5,7 @@ import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
+import { registerScrollResizeEventListeners } from '../../helpers';
 import baIllustration from '../../assets/images/ba-illus.png';
 import logoWhite from '../../assets/images/logo-minimal-white.png';
 
@@ -20,7 +21,7 @@ const PillarsSection = (props, ref) => {
   const [backgroundScale, setBackgroundScale] = useState(1);
 
   useEffect(() => {
-    const handleScrollEvent = () => {
+    const handleScrollResizeEvent = () => {
       if (sectionRef.current) {
         const viewportHeight = window.innerHeight;
         const { top, bottom } = sectionRef.current.getBoundingClientRect();
@@ -44,9 +45,7 @@ const PillarsSection = (props, ref) => {
         setBackgroundScale(roundedScale);
       }
     };
-
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
 
   const { title, description } = topics[topicIndex];

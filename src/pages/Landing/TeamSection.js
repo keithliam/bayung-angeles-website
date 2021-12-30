@@ -6,6 +6,7 @@ import { EffectCards, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
+import { registerScrollResizeEventListeners } from '../../helpers';
 import baIllustration from '../../assets/images/ba-illus.png';
 import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
@@ -32,7 +33,7 @@ const TeamSection = (props, ref) => {
   const { swiper } = swiperRef.current || {};
 
   useEffect(() => {
-    const handleScrollEvent = () => {
+    const handleScrollResizeEvent = () => {
       if (sectionRef.current) {
         const { top } = sectionRef.current.getBoundingClientRect();
         const autoplayStart = top - window.innerHeight * 0.25 <= 0;
@@ -43,9 +44,7 @@ const TeamSection = (props, ref) => {
         }
       }
     };
-
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, [swiper]);
 
   useEffect(() => {

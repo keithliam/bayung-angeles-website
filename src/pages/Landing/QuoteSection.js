@@ -1,21 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import logoBlue from '../../assets/images/ba-logo-blue.png';
+import { registerScrollResizeEventListeners } from '../../helpers';
 
 const QuoteSection = () => {
   const sectionRef = useRef();
   const [imageAppear, setImageAppear] = useState(false);
 
   useEffect(() => {
-    const handleScrollEvent = () => {
+    const handleScrollResizeEvent = () => {
       if (sectionRef.current) {
         const { top } = sectionRef.current.getBoundingClientRect();
         setImageAppear(top <= window.innerHeight / 2);
       }
     };
-
-    window.addEventListener('scroll', handleScrollEvent);
-    return () => window.removeEventListener('scroll', handleScrollEvent);
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
 
   return (
