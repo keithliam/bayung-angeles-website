@@ -31,22 +31,22 @@ const TeamSection = (props, ref) => {
 
   const { swiper } = swiperRef.current || {};
 
-  const handleScrollEvent = useCallback(() => {
-    if (sectionRef.current) {
-      const { top } = sectionRef.current.getBoundingClientRect();
-      const autoplayStart = top - window.innerHeight * 0.25 <= 0;
-      if (autoplayStart && !autoplayActivatedOnce.current && swiper) {
-        // This is a workaround since Swiper only uses the first value of the autoplay prop
-        swiper.autoplay.start();
-        autoplayActivatedOnce.current = true;
-      }
-    }
-  }, [swiper]);
-
   useEffect(() => {
+    const handleScrollEvent = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        const autoplayStart = top - window.innerHeight * 0.25 <= 0;
+        if (autoplayStart && !autoplayActivatedOnce.current && swiper) {
+          // This is a workaround since Swiper only uses the first value of the autoplay prop
+          swiper.autoplay.start();
+          autoplayActivatedOnce.current = true;
+        }
+      }
+    };
+
     window.addEventListener('scroll', handleScrollEvent);
     return () => window.removeEventListener('scroll', handleScrollEvent);
-  }, [handleScrollEvent]);
+  }, [swiper]);
 
   useEffect(() => {
     if (swiper) {
