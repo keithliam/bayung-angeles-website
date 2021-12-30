@@ -1,19 +1,27 @@
-import React from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { CTAButton } from '../../components';
 
 import logoFlagWhite from '../../assets/images/ba-logo-flag-white.png';
 
 const GetInvolvedSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
+  const sectionRef = useRef();
+  const [imageAppear, setImageAppear] = useState(false);
 
-  const imageAppear = bounds.top <= dimensions.height / 2;
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        setImageAppear(top <= window.innerHeight / 2);
+      }
+    };
+
+    window.addEventListener('scroll', handleScrollEvent);
+    return () => window.removeEventListener('scroll', handleScrollEvent);
+  }, []);
 
   return (
-    <div ref={ref} className="get-involved">
+    <div ref={sectionRef} className="get-involved">
       <div className="involved-content">
         <span className="heading-line">
           Together we can make Angeles City the best city in the country.
