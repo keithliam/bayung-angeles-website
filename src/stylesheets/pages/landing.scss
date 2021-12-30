@@ -827,6 +827,8 @@
               @media (max-width: $card-breakpoint-mobile) {
                 margin-top: 20px;
                 max-width: 400px;
+                backdrop-filter: none;
+                background-color: $card-background-color;
               }
 
               @media (max-width: $breakpoint-mobile) {
@@ -896,6 +898,10 @@
                   &:hover,
                   &.active-member {
                     background-color: color.change($card-background-color, $alpha: 0.8);
+
+                    @media (max-width: $card-breakpoint-mobile) {
+                      background-color: #CCCCCC;
+                    }
                   }
 
                   @media (max-width: $breakpoint-large) {
