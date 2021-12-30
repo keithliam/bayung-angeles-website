@@ -45,7 +45,7 @@ const ImagineSection = () => {
     >
       <Sticky bottomBoundary="#imagine" innerClass="imagine-content">
         <SwitchTransition mode="out-in">
-          <CSSTransition key={title} classNames="bg-fade" timeout={1000}>
+          <CSSTransition key={title} classNames="bg-fade" timeout={500}>
             <img
               className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
               style={prefix({ transform: `scale(${backgroundScale})` })}
@@ -56,7 +56,7 @@ const ImagineSection = () => {
         </SwitchTransition>
         <span className="imagine-text">Imagine Angeles City where...</span>
         <SwitchTransition mode="out-in">
-          <CSSTransition key={highlightText} classNames="fade" timeout={2000}>
+          <CSSTransition key={highlightText} classNames="fade" timeout={750}>
             <div className="topic">
               <span className="highlight">{highlightText}</span> {extraText}
             </div>
@@ -64,7 +64,7 @@ const ImagineSection = () => {
         </SwitchTransition>
         <div className={classNames('photo-info', { 'info-show': entireSectionInView })}>
           <SwitchTransition mode="out-in">
-            <CSSTransition key={title} classNames="fade" timeout={2000}>
+            <CSSTransition key={title} classNames="fade" timeout={1000}>
               <div>
                 {title}
                 {credit && (
