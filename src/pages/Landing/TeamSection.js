@@ -1,6 +1,4 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
 import mergeRefs from 'merge-refs';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
@@ -8,6 +6,7 @@ import { EffectCards, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
+import { registerScrollResizeEventListeners } from '../../helpers';
 import baIllustration from '../../assets/images/ba-illus.png';
 import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
@@ -26,16 +25,27 @@ import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
 const TeamSection = (props, ref) => {
+  const sectionRef = useRef();
   const swiperRef = useRef();
   const autoplayActivatedOnce = useRef(false);
-  const [sectionRef, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
   const { swiper } = swiperRef.current || {};
-  // Assume that the component is 2D (has positive height and width)
-  const measurementDone = Object.values(bounds).some(pixels => pixels !== 0);
-  const autoplayStart = bounds.top - dimensions.height * 0.25 <= 0;
+
+  useEffect(() => {
+    const handleScrollResizeEvent = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        const autoplayStart = top - window.innerHeight * 0.25 <= 0;
+        if (autoplayStart && !autoplayActivatedOnce.current && swiper) {
+          // This is a workaround since Swiper only uses the first value of the autoplay prop
+          swiper.autoplay.start();
+          autoplayActivatedOnce.current = true;
+        }
+      }
+    };
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
+  }, [swiper]);
 
   useEffect(() => {
     if (swiper) {
@@ -45,14 +55,6 @@ const TeamSection = (props, ref) => {
     }
     return null;
   }, [swiper]);
-
-  // This is a workaround since Swiper only uses the first value of the autoplay prop
-  useEffect(() => {
-    if (!autoplayActivatedOnce.current && measurementDone && swiper && autoplayStart) {
-      swiper.autoplay.start();
-      autoplayActivatedOnce.current = true;
-    }
-  }, [swiper, autoplayStart, measurementDone]);
 
   return (
     <div ref={mergeRefs(ref, sectionRef)} className="team">

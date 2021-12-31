@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useScroll, useDimensions } from 'react-viewport-utils';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import WingText from './WingText';
+import { registerScrollResizeEventListeners } from '../helpers';
 
 import menuIcon from '../assets/images/menu-icon.svg';
 import closeIcon from '../assets/images/close-icon.svg';
@@ -18,11 +18,15 @@ const { FIXED, ABSOLUTE } = HEADER_TYPES;
 const scrollOptions = { behavior: 'smooth' };
 
 const Header = ({ coverSectionRef, teamSectionRef }) => {
-  const scroll = useScroll();
-  const { height: viewportHeight } = useDimensions();
+  const [headerType, setHeaderType] = useState(ABSOLUTE);
 
-  const fixedHeaderAppear = viewportHeight * 0.4 <= scroll.y;
-  const headerType = fixedHeaderAppear ? FIXED : ABSOLUTE;
+  useEffect(() => {
+    const handleScrollResizeEvent = () => {
+      const fixedHeaderAppear = window.innerHeight * 0.4 <= window.scrollY;
+      setHeaderType(fixedHeaderAppear ? FIXED : ABSOLUTE);
+    };
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
+  }, []);
 
   const handleLogoClick = () => coverSectionRef.current.scrollIntoView(scrollOptions);
   const handleMeetOurTeamClick = () => teamSectionRef.current.scrollIntoView(scrollOptions);
@@ -48,13 +52,21 @@ const Header = ({ coverSectionRef, teamSectionRef }) => {
 };
 
 const PlainHeader = ({ onMeetOurTeamClick }) => {
-  const { width: viewportWidth } = useDimensions();
+  const [shortenOurTeamNavText, setShortenOurTeamNavText] = useState(false);
+
+  useEffect(() => {
+    const handleResizeEvent = () => setShortenOurTeamNavText(window.innerWidth <= 400);
+    handleResizeEvent();
+
+    window.addEventListener('resize', handleResizeEvent);
+    return () => window.removeEventListener('resize', handleResizeEvent);
+  }, []);
 
   return (
     <header>
       <NavigationLinks
         onMeetOurTeamClick={onMeetOurTeamClick}
-        shortenOurTeamNavText={viewportWidth <= 400}
+        shortenOurTeamNavText={shortenOurTeamNavText}
       />
     </header>
   );
@@ -63,9 +75,20 @@ const PlainHeader = ({ onMeetOurTeamClick }) => {
 const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
   const menuAutoCloseTimer = useRef();
   const [openMenu, setOpenMenu] = useState(false);
-  const { width: viewportWidth } = useDimensions();
-  const useMenu = viewportWidth <= 450;
-  const showCompleteLogo = viewportWidth > 660;
+  const [useMenu, setUseMenu] = useState(false);
+  const [showCompleteLogo, setShowCompleteLogo] = useState(true);
+
+  useEffect(() => {
+    const handleResizeEvent = () => {
+      const viewportWidth = window.innerWidth;
+      setUseMenu(viewportWidth <= 450);
+      setShowCompleteLogo(viewportWidth > 660);
+    };
+    handleResizeEvent();
+
+    window.addEventListener('resize', handleResizeEvent);
+    return () => window.removeEventListener('resize', handleResizeEvent);
+  }, []);
 
   const stopMenuAutoCloseTimer = () => {
     if (menuAutoCloseTimer.current) {

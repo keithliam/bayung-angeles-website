@@ -1,44 +1,57 @@
-import React from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
+import React, { useEffect, useRef, useState } from 'react';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
+import { registerScrollResizeEventListeners } from '../../helpers';
 
 import { allPhotos, getTopicAndPhoto } from '../../data/imagine';
 
 const lastPhotoIndex = allPhotos.length - 1;
 
-const maxScaleUp = 0.05;
+const MAX_SCALE_UP = 0.05;
 
 const ImagineSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
+  const sectionRef = useRef();
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [entireSectionInView, setEntireSectionInView] = useState(false);
+  const [backgroundScale, setBackgroundScale] = useState(1);
 
-  const viewportHeight = dimensions.height;
-  const { top, bottom } = bounds;
+  useEffect(() => {
+    const handleScrollResizeEvent = () => {
+      if (sectionRef.current) {
+        const viewportHeight = window.innerHeight;
+        const { top, bottom } = sectionRef.current.getBoundingClientRect();
 
-  const photoIndex = (() => {
-    const nthPhoto = Math.floor(-top / viewportHeight);
-    if (nthPhoto < 0) return 0;
-    if (nthPhoto > lastPhotoIndex) return lastPhotoIndex;
-    return nthPhoto;
-  })();
+        const newPhotoIndex = (() => {
+          const nthPhoto = Math.floor(-top / viewportHeight);
+          if (nthPhoto < 0) return 0;
+          if (nthPhoto > lastPhotoIndex) return lastPhotoIndex;
+          return nthPhoto;
+        })();
+        setPhotoIndex(newPhotoIndex);
+
+        const scrolledPastSectionTop = top < 0;
+        setEntireSectionInView(scrolledPastSectionTop && bottom - viewportHeight > 0);
+
+        const newScale = scrolledPastSectionTop
+          ? 1 + ((-top - viewportHeight * newPhotoIndex) / viewportHeight) * MAX_SCALE_UP // Reset scale of every photo
+          : 1;
+        const roundedScale = Math.floor(newScale * 1000) / 1000;
+        setBackgroundScale(roundedScale);
+      }
+    };
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
+  }, []);
+
   const {
     topic: { highlightText, extraText },
     photo: { title, source, link, credit, creditLink },
   } = getTopicAndPhoto(photoIndex);
 
-  const scrolledPastSectionTop = top < 0;
-  const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
-  const backgroundScale = scrolledPastSectionTop
-    ? 1 + ((-top - viewportHeight * photoIndex) / viewportHeight) * maxScaleUp // Reset scale of every photo
-    : 1;
-
   return (
     <div
-      ref={ref}
+      ref={sectionRef}
       id="imagine"
       className="imagine"
       style={prefix({ height: `${(allPhotos.length + 1) * 100}vh` })}
