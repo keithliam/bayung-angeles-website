@@ -202,7 +202,11 @@ const InfoSection = ({ title, items }) => (
     <span className="section-title">{title}</span>
     <ul className="section-content">
       {items.map(({ highlight, description }) => (
-        <InfoSectionItem highlight={highlight} description={description} />
+        <InfoSectionItem
+          key={`${highlight}${description}`}
+          highlight={highlight}
+          description={description}
+        />
       ))}
     </ul>
   </div>

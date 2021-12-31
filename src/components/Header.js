@@ -81,7 +81,11 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
   useEffect(() => {
     const handleResizeEvent = () => {
       const viewportWidth = window.innerWidth;
-      setUseMenu(viewportWidth <= 450);
+      const newUseMenu = viewportWidth <= 450;
+      setUseMenu(newUseMenu);
+
+      if (useMenu && !newUseMenu) setOpenMenu(false);
+
       setShowCompleteLogo(viewportWidth > 660);
     };
     handleResizeEvent();
@@ -111,6 +115,10 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
     setOpenMenu(!openMenu);
   };
 
+  const handleNavButtonClick = () => {
+    if (useMenu) setOpenMenu(false);
+  };
+
   if (useMenu) {
     return (
       <header className="fixed-header mobile-header">
@@ -133,6 +141,7 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
             className="mobile-nav-links"
             buttonsClassname="mobile-nav-link"
             onMeetOurTeamClick={onMeetOurTeamClick}
+            onButtonClick={handleNavButtonClick}
           />
         </CSSTransition>
       </header>
@@ -163,19 +172,31 @@ const NavigationLinks = ({
   className,
   buttonsClassname,
   onMeetOurTeamClick,
+  onButtonClick,
   shortenOurTeamNavText,
-}) => (
-  <nav className={classNames('nav-links', className)}>
-    <button className={classNames(buttonsClassname)} type="button" onClick={onMeetOurTeamClick}>
-      {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
-    </button>
-    <button className={classNames(buttonsClassname)} type="button">
-      Get Involved
-    </button>
-    <button className={classNames(buttonsClassname)} type="button">
-      Contact Us
-    </button>
-  </nav>
-);
+}) => {
+  const handleMeetOurTeamClick = event => {
+    if (onMeetOurTeamClick) onMeetOurTeamClick(event);
+    if (onButtonClick) onButtonClick(event);
+  };
+
+  return (
+    <nav className={classNames('nav-links', className)}>
+      <button
+        className={classNames(buttonsClassname)}
+        type="button"
+        onClick={handleMeetOurTeamClick}
+      >
+        {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
+      </button>
+      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
+        Get Involved
+      </button>
+      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
+        Contact Us
+      </button>
+    </nav>
+  );
+};
 
 export default Header;
