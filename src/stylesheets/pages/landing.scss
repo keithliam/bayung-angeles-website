@@ -375,7 +375,7 @@
               &.scroll-exit,
               &.scroll-enter-active,
               &.scroll-exit-active {
-                transition: all 1.5s cubic-bezier(.77, 0, .18, 1);
+                transition: all 0.8s cubic-bezier(.77, 0, .18, 1);
               }
             }
           }
@@ -414,13 +414,6 @@
                 margin-top: 8px;
                 @include px-to-rem(15px);
               }
-            }
-            
-            &.scroll-enter,
-            &.scroll-exit,
-            &.scroll-enter-active,
-            &.scroll-exit-active {
-              transition: all 1s cubic-bezier(.77, 0, .18, 1);
             }
           }
         }
@@ -473,7 +466,7 @@
             &.bg-fade-exit,
             &.bg-fade-enter-active,
             &.bg-fade-exit-active {
-              transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+              transition: opacity 0.5s cubic-bezier(0.87, 0.2, 0.61, 0.99);
             }
           }
 
@@ -538,6 +531,13 @@
                 margin-top: 6px;
                 @include px-to-rem(35px);
               }
+            }
+
+            &.fade-enter,
+            &.fade-exit,
+            &.fade-enter-active,
+            &.fade-exit-active {
+              transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
             }
           }
 
@@ -650,7 +650,7 @@
           &.fade-exit,
           &.fade-enter-active,
           &.fade-exit-active {
-            transition: opacity 3s ease-in;
+            transition: opacity 2s ease-in;
           }
         }
 
@@ -1351,7 +1351,7 @@
             &.fade-exit,
             &.fade-enter-active,
             &.fade-exit-active {
-              transition: opacity 3s ease-in;
+              transition: opacity 2s ease-in;
             }
           }
         }

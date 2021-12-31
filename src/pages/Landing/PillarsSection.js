@@ -56,13 +56,13 @@ const PillarsSection = (props, ref) => {
         <div className="topic">
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
-            <CSSTransition key={title} classNames="scroll" timeout={1000}>
+            <CSSTransition key={title} classNames="scroll" timeout={500}>
               <WingText className="title" text={title} wingPosition="end" />
             </CSSTransition>
           </SwitchTransition>
         </div>
         <SwitchTransition mode="out-in">
-          <CSSTransition key={title} classNames="fade" timeout={2000}>
+          <CSSTransition key={title} classNames="fade" timeout={1250}>
             <span className="description">{description}</span>
           </CSSTransition>
         </SwitchTransition>
