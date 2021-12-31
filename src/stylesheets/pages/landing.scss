@@ -664,9 +664,13 @@
 
           .quote-line {
             display: block;
-
+            
             .quote-highlight {
-              color: $ba-blue;
+              transition: all 2.5s ease-out;
+
+              &-show {
+                color: $ba-blue;
+              }
             }
           }
         }
