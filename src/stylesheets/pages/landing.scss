@@ -557,6 +557,14 @@
             @media (max-width: $breakpoint-small) {
               @include px-to-rem(15px);
             }
+
+            @media (max-width: $breakpoint-tablet) {
+              @include px-to-rem(14px);
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+              @include px-to-rem(13px);
+            }
           }
 
           .photo-info {
@@ -573,11 +581,15 @@
             opacity: 0;
 
             @media (max-width: $breakpoint-large) {
-              padding: 16px $page-padding-x;
+              padding: 14px $page-padding-x;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+              padding: 12px $page-padding-x;
             }
 
             @media (max-width: $breakpoint-mobile) {
-              padding: 14px $page-padding-x;
+              padding: 8px $page-padding-x;
             }
 
             &.info-show {
