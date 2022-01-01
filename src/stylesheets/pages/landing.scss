@@ -1141,6 +1141,10 @@
                       padding: 0 16px;
                     }
 
+                    &.no-scroll {
+                      overflow-y: hidden;
+                    }
+
                     .info-section {
                       &:first-of-type {
                         padding-top: 295px;

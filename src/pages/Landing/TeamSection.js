@@ -67,7 +67,7 @@ const TeamSection = (props, ref) => {
         </div>
         <div className="team-showcase">
           <MemberList swiperRef={swiperRef} activeMemberIndex={activeMemberIndex} />
-          <CardsSection swiperRef={swiperRef} />
+          <CardsSection swiperRef={swiperRef} activeMemberIndex={activeMemberIndex} />
         </div>
       </div>
       <PhotoCredit
@@ -113,7 +113,7 @@ const MemberList = ({ swiperRef, activeMemberIndex }) => {
   );
 };
 
-const CardsSection = ({ swiperRef }) => {
+const CardsSection = ({ swiperRef, activeMemberIndex }) => {
   const handleCardContentScroll = () => {
     if (swiperRef.current) swiperRef.current.swiper.autoplay.stop();
   };
@@ -131,10 +131,14 @@ const CardsSection = ({ swiperRef }) => {
         grabCursor
         autoHeight
       >
-        {allMembers.map(member => (
+        {allMembers.map((member, index) => (
           // SwiperSlide does not like being nested inside individual components when being mapped
           <SwiperSlide key={member.name} className="team-card">
-            <MemberCard member={member} onCardContentScroll={handleCardContentScroll} />
+            <MemberCard
+              member={member}
+              onCardContentScroll={handleCardContentScroll}
+              disableScroll={index !== activeMemberIndex}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -182,11 +186,15 @@ const CardNavButton = ({ swiperRef, xDirection }) => {
 const MemberCard = ({
   member: { name, bannerImage, education, experience, affiliations },
   onCardContentScroll,
+  disableScroll,
 }) => (
   <>
     <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
-      <div className="member-info" onScroll={onCardContentScroll}>
+      <div
+        className={classNames('member-info', { 'no-scroll': disableScroll })}
+        onScroll={onCardContentScroll}
+      >
         <InfoSection title="Education" items={education} />
         <InfoSection title="Professional Experience" items={experience} />
         <InfoSection title="Affiliations" items={affiliations} />
