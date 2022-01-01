@@ -15,9 +15,41 @@ export const teamCategories = [
       {
         name: 'Amos Rivera',
         bannerImage: riveraBanner,
-        education: [],
-        experience: [],
-        affiliations: [],
+        education: [
+          {
+            highlight: 'Bachelor of Science in Accountancy',
+            description: 'Holy Angel University',
+          },
+          {
+            highlight: 'Bachelor of Laws',
+            description: 'Undergraduate, Angeles University Foundation School of Law',
+          },
+          {
+            highlight: 'Urban Development and Housing',
+            description: 'Ateneo School of Government',
+          },
+          {
+            highlight: 'Transport and Traffic Engineering',
+            description: 'Univesity of the Philippines Diliman',
+          },
+        ],
+        experience: [
+          {
+            highlight: 'Angeles City Councilor',
+            description: '(2013-Present)',
+          },
+          {
+            highlight: 'Office-in-charge',
+            description:
+              'Local Urban Poor Affairs and Housing Office (LUPAHO), Angeles City Local Government (1998-2013)',
+          },
+        ],
+        affiliations: [
+          {
+            highlight:
+              'The Fraternal Order of Eagles—Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
       },
     ],
   },
