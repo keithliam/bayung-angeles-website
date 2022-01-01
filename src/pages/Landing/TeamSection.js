@@ -30,11 +30,10 @@ const TeamSection = (props, ref) => {
   const autoplayActivatedOnce = useRef(false);
   const [activeMemberIndex, setActiveMemberIndex] = useState(0);
 
-  const { swiper } = swiperRef.current || {};
-
   useEffect(() => {
     const handleScrollResizeEvent = () => {
-      if (sectionRef.current) {
+      const { swiper } = swiperRef.current || {};
+      if (swiper) {
         const { top } = sectionRef.current.getBoundingClientRect();
         const autoplayStart = top - window.innerHeight * 0.25 <= 0;
         if (autoplayStart && !autoplayActivatedOnce.current && swiper) {
@@ -45,16 +44,17 @@ const TeamSection = (props, ref) => {
       }
     };
     return registerScrollResizeEventListeners(handleScrollResizeEvent);
-  }, [swiper]);
+  }, []);
 
   useEffect(() => {
+    const { swiper } = swiperRef.current || {};
     if (swiper) {
       const onSlideChange = () => setActiveMemberIndex(swiper.activeIndex);
       swiper.on('slideChange', onSlideChange);
       return () => swiper.off('slideChange', onSlideChange);
     }
     return null;
-  }, [swiper]);
+  }, []);
 
   return (
     <div ref={mergeRefs(ref, sectionRef)} className="team">
@@ -66,8 +66,8 @@ const TeamSection = (props, ref) => {
           <WingText text="Dream Team" wingPosition="end" />
         </div>
         <div className="team-showcase">
-          <MemberList swiper={swiper} activeMemberIndex={activeMemberIndex} />
-          <CardsSection swiperRef={swiperRef} swiper={swiper} />
+          <MemberList swiperRef={swiperRef} activeMemberIndex={activeMemberIndex} />
+          <CardsSection swiperRef={swiperRef} />
         </div>
       </div>
       <PhotoCredit
@@ -78,13 +78,13 @@ const TeamSection = (props, ref) => {
   );
 };
 
-const MemberList = ({ swiper, activeMemberIndex }) => {
+const MemberList = ({ swiperRef, activeMemberIndex }) => {
   const activeCategoryIndex = categoryIndexByMemberIndex[activeMemberIndex];
   const activeMemberInCategoryIndex = memberIndexInCategoryByOverallMemberIndex[activeMemberIndex];
 
   const handleMemberItemClick = (categoryIndex, memberIndex) => {
     const index = overallMemberIndexByCategoryMemberIndices[categoryIndex][memberIndex];
-    swiper.slideTo(index);
+    if (swiperRef.current) swiperRef.current.swiper.slideTo(index);
   };
 
   return (
@@ -113,14 +113,14 @@ const MemberList = ({ swiper, activeMemberIndex }) => {
   );
 };
 
-const CardsSection = ({ swiperRef, swiper }) => {
+const CardsSection = ({ swiperRef }) => {
   const handleCardContentScroll = () => {
-    if (swiper) swiper.autoplay.stop();
+    if (swiperRef.current) swiperRef.current.swiper.autoplay.stop();
   };
 
   return (
     <div className="team-cards">
-      <CardNavButton swiper={swiper} xDirection="left" />
+      <CardNavButton swiperRef={swiperRef} xDirection="left" />
       <Swiper
         ref={swiperRef}
         className="swiper-container"
@@ -138,21 +138,27 @@ const CardsSection = ({ swiperRef, swiper }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <CardNavButton swiper={swiper} xDirection="right" />
+      <CardNavButton swiperRef={swiperRef} xDirection="right" />
     </div>
   );
 };
 
-const CardNavButton = ({ swiper, xDirection }) => {
+const CardNavButton = ({ swiperRef, xDirection }) => {
   const handlePreviousCard = () => {
-    const { activeIndex, slides } = swiper;
-    const lastIndex = slides.length - 1;
-    swiper.slideTo(activeIndex === 0 ? lastIndex : activeIndex - 1);
+    const { swiper } = swiperRef.current || {};
+    if (swiper) {
+      const { activeIndex, slides } = swiper;
+      const lastIndex = slides.length - 1;
+      swiper.slideTo(activeIndex === 0 ? lastIndex : activeIndex - 1);
+    }
   };
   const handleNextCard = () => {
-    const { activeIndex, slides } = swiper;
-    const lastIndex = slides.length - 1;
-    swiper.slideTo(activeIndex === lastIndex ? 0 : activeIndex + 1);
+    const { swiper } = swiperRef.current || {};
+    if (swiper) {
+      const { activeIndex, slides } = swiper;
+      const lastIndex = slides.length - 1;
+      swiper.slideTo(activeIndex === lastIndex ? 0 : activeIndex + 1);
+    }
   };
 
   const isLeft = xDirection === 'left';
