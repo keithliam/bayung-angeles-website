@@ -84,7 +84,7 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
       const newUseMenu = viewportWidth <= 450;
       setUseMenu(newUseMenu);
 
-      if (useMenu && !newUseMenu) setOpenMenu(false);
+      if (!newUseMenu) setOpenMenu(false);
 
       setShowCompleteLogo(viewportWidth > 660);
     };
