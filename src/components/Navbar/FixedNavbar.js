@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import NavigationLinks from './NavigationLinks';
 import WingText from '../WingText';
+import OfficialEmoji from '../OfficialEmoji';
 
 import menuIcon from '../../assets/images/menu-icon.svg';
 import closeIcon from '../../assets/images/close-icon.svg';
@@ -96,7 +97,7 @@ const Logo = ({ completeLogo, onClick }) => (
   <button className="logo" type="button" onClick={onClick}>
     {completeLogo ? (
       <>
-        Báyung <WingText text="Ángeles" wingPosition="start" />
+        Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
       </>
     ) : (
       <WingText className="winged-single" text="Á" wingPosition="start" />

@@ -68,6 +68,10 @@
       @media (max-width: $breakpoint-mobile) {
         @include px-to-rem(14px);
       }
+
+      @media (max-width: 360px) {
+        @include px-to-rem(13px);
+      }
     }
   }
 }

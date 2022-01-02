@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { CTAButton } from '../../components';
+import { CTAButton, OfficialEmoji } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
 
 import logoFlagWhite from '../../assets/images/ba-logo-flag-white.png';
@@ -23,7 +23,8 @@ const GetInvolvedSection = () => {
     <div ref={sectionRef} className="get-involved">
       <div className="involved-content">
         <span className="heading-line">
-          Together we can make Angeles City the best city in the country.
+          Together we can make Angeles City the best city in the country.{' '}
+          <OfficialEmoji color="white" />
         </span>
         <span className="involved-subheading">Show your support. Join the movement.</span>
         <CTAButton className="cta-btn" color="blue" text="Get Involved" />
