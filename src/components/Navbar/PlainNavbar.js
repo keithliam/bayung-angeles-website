@@ -13,7 +13,7 @@ const PlainNavbar = ({ onMeetOurTeamClick }) => {
   }, []);
 
   return (
-    <nav>
+    <nav className="plain-navbar">
       <NavigationLinks
         onMeetOurTeamClick={onMeetOurTeamClick}
         shortenOurTeamNavText={shortenOurTeamNavText}
