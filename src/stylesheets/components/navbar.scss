@@ -5,7 +5,7 @@
 @use '../theme/typography' as *;
 
 @mixin styling($page-padding-x) {
-  header {
+  nav {
     position: absolute;
     top: 0;
     width: 100%;
@@ -60,18 +60,18 @@
       }
     }
 
-    &.fixed-header {
+    &.fixed-navbar {
       position: fixed;
       background-color: $ba-blue;
 
-      &.mobile-header {
+      &.mobile-navbar {
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         background-color: transparent;
 
-        .mobile-header-options {
+        .mobile-navbar-options {
           padding: 10px;
           display: flex;
           align-items: center;
@@ -191,7 +191,7 @@
       }
     }
 
-    &.fixed-header .logo,
+    &.fixed-navbar .logo,
     .nav-links button:not(:last-child) {
       margin-right: 45px;
       
@@ -210,7 +210,7 @@
   }
 
   /* Override fade transition properties */
-  #landing header {
+  #landing nav {
     &.fade-enter,
     &.fade-exit,
     &.fade-enter-active,
