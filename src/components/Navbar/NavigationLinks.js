@@ -14,7 +14,7 @@ const NavigationLinks = ({
   };
 
   return (
-    <nav className={classNames('nav-links', className)}>
+    <div className={classNames('nav-links', className)}>
       <button
         className={classNames(buttonsClassname)}
         type="button"
@@ -28,7 +28,7 @@ const NavigationLinks = ({
       <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
         Contact Us
       </button>
-    </nav>
+    </div>
   );
 };
 
