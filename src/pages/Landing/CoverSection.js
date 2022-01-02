@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { PhotoCredit, SocialMediaLink, WingText } from '../../components';
+import { PhotoCredit, SocialMediaLink, WingText, OfficialEmoji } from '../../components';
 import cover from '../../assets/images/pisamban-maragul.png';
 import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png';
 
@@ -16,7 +16,7 @@ const CoverSection = ({ pillarsSectionRef }, ref) => {
       <img src={cover} className="ba-cover" alt="cover" />
       <div className="cover-headline">
         <h1>
-          Báyung <WingText text="Ángeles" wingPosition="start" />
+          Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
         </h1>
         <img src={coverOverlay} className="ba-cover" alt="cover" />
         <h4>Be part of the movement</h4>

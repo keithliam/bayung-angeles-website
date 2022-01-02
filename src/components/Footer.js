@@ -2,6 +2,7 @@ import React from 'react';
 import SocialMediaLink from './SocialMediaLink';
 
 import { socialMediaLinks } from '../data/socialMediaLinks';
+import OfficialEmoji from './OfficialEmoji';
 
 const Footer = () => (
   <footer>
@@ -10,7 +11,9 @@ const Footer = () => (
         <SocialMediaLink key={link.name} className="social-media-link" color="white" link={link} />
       ))}
     </div>
-    <span className="copyright">© Báyung Ángeles</span>
+    <span className="copyright">
+      © Báyung Ángeles <OfficialEmoji />
+    </span>
   </footer>
 );
 
