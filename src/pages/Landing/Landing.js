@@ -6,7 +6,7 @@ import QuoteSection from './QuoteSection';
 import TeamSection from './TeamSection';
 import GetInvolvedSection from './GetInvolvedSection';
 import DownloadsSection from './DownloadsSection';
-import { Footer, Header } from '../../components';
+import { Footer, Navbar } from '../../components';
 
 const LandingPage = () => {
   const coverSectionRef = useRef();
@@ -21,7 +21,7 @@ const LandingPage = () => {
 
   return (
     <div id="landing">
-      <Header coverSectionRef={coverSectionRef} teamSectionRef={teamSectionRef} />
+      <Navbar coverSectionRef={coverSectionRef} teamSectionRef={teamSectionRef} />
       <div className="container">
         <CoverSection ref={coverSectionRef} pillarsSectionRef={pillarsSectionRef} />
         <div className="content-container">

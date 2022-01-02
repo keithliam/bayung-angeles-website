@@ -17,13 +17,13 @@ const { FIXED, ABSOLUTE } = HEADER_TYPES;
 
 const scrollOptions = { behavior: 'smooth' };
 
-const Header = ({ coverSectionRef, teamSectionRef }) => {
-  const [headerType, setHeaderType] = useState(ABSOLUTE);
+const Navbar = ({ coverSectionRef, teamSectionRef }) => {
+  const [navbarType, setNavbarType] = useState(ABSOLUTE);
 
   useEffect(() => {
     const handleScrollResizeEvent = () => {
-      const fixedHeaderAppear = window.innerHeight * 0.4 <= window.scrollY;
-      setHeaderType(fixedHeaderAppear ? FIXED : ABSOLUTE);
+      const fixedNavbarAppear = window.innerHeight * 0.4 <= window.scrollY;
+      setNavbarType(fixedNavbarAppear ? FIXED : ABSOLUTE);
     };
     return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
@@ -34,24 +34,24 @@ const Header = ({ coverSectionRef, teamSectionRef }) => {
   return (
     <SwitchTransition mode="out-in">
       <CSSTransition
-        key={headerType}
+        key={navbarType}
         classNames={classNames({
-          'slide-from-top': headerType === FIXED,
-          fade: headerType === ABSOLUTE,
+          'slide-from-top': navbarType === FIXED,
+          fade: navbarType === ABSOLUTE,
         })}
         timeout={750}
       >
-        {headerType === ABSOLUTE ? (
-          <PlainHeader onMeetOurTeamClick={handleMeetOurTeamClick} />
+        {navbarType === ABSOLUTE ? (
+          <PlainNavbar onMeetOurTeamClick={handleMeetOurTeamClick} />
         ) : (
-          <FixedHeader onLogoClick={handleLogoClick} onMeetOurTeamClick={handleMeetOurTeamClick} />
+          <FixedNavbar onLogoClick={handleLogoClick} onMeetOurTeamClick={handleMeetOurTeamClick} />
         )}
       </CSSTransition>
     </SwitchTransition>
   );
 };
 
-const PlainHeader = ({ onMeetOurTeamClick }) => {
+const PlainNavbar = ({ onMeetOurTeamClick }) => {
   const [shortenOurTeamNavText, setShortenOurTeamNavText] = useState(false);
 
   useEffect(() => {
@@ -63,16 +63,16 @@ const PlainHeader = ({ onMeetOurTeamClick }) => {
   }, []);
 
   return (
-    <header>
+    <nav>
       <NavigationLinks
         onMeetOurTeamClick={onMeetOurTeamClick}
         shortenOurTeamNavText={shortenOurTeamNavText}
       />
-    </header>
+    </nav>
   );
 };
 
-const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
+const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
   const menuAutoCloseTimer = useRef();
   const [openMenu, setOpenMenu] = useState(false);
   const [useMenu, setUseMenu] = useState(false);
@@ -121,8 +121,8 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
 
   if (useMenu) {
     return (
-      <header className="fixed-header mobile-header">
-        <div className="mobile-header-options">
+      <nav className="fixed-navbar mobile-navbar">
+        <div className="mobile-navbar-options">
           <button className="menu-btn" onClick={handleMenuClick} type="button">
             <SwitchTransition mode="out-in">
               <CSSTransition key={openMenu} classNames="fade" timeout={150}>
@@ -144,15 +144,15 @@ const FixedHeader = ({ onLogoClick, onMeetOurTeamClick }) => {
             onButtonClick={handleNavButtonClick}
           />
         </CSSTransition>
-      </header>
+      </nav>
     );
   }
 
   return (
-    <header className="fixed-header">
+    <nav className="fixed-navbar">
       <Logo completeLogo={showCompleteLogo} onClick={onLogoClick} />
       <NavigationLinks onMeetOurTeamClick={onMeetOurTeamClick} />
-    </header>
+    </nav>
   );
 };
 
@@ -199,4 +199,4 @@ const NavigationLinks = ({
   );
 };
 
-export default Header;
+export default Navbar;
