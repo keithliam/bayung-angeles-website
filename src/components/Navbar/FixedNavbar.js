@@ -1,76 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-import classNames from 'classnames';
-import WingText from './WingText';
-import { registerScrollResizeEventListeners } from '../helpers';
+import NavigationLinks from './NavigationLinks';
+import WingText from '../WingText';
 
-import menuIcon from '../assets/images/menu-icon.svg';
-import closeIcon from '../assets/images/close-icon.svg';
+import menuIcon from '../../assets/images/menu-icon.svg';
+import closeIcon from '../../assets/images/close-icon.svg';
 
 const MENU_AUTO_CLOSE_TIMEOUT = 8000;
-
-const HEADER_TYPES = {
-  FIXED: 'fixed',
-  ABSOLUTE: 'absolute',
-};
-const { FIXED, ABSOLUTE } = HEADER_TYPES;
-
-const scrollOptions = { behavior: 'smooth' };
-
-const Navbar = ({ coverSectionRef, teamSectionRef }) => {
-  const [navbarType, setNavbarType] = useState(ABSOLUTE);
-
-  useEffect(() => {
-    const handleScrollResizeEvent = () => {
-      const fixedNavbarAppear = window.innerHeight * 0.4 <= window.scrollY;
-      setNavbarType(fixedNavbarAppear ? FIXED : ABSOLUTE);
-    };
-    return registerScrollResizeEventListeners(handleScrollResizeEvent);
-  }, []);
-
-  const handleLogoClick = () => coverSectionRef.current.scrollIntoView(scrollOptions);
-  const handleMeetOurTeamClick = () => teamSectionRef.current.scrollIntoView(scrollOptions);
-
-  return (
-    <SwitchTransition mode="out-in">
-      <CSSTransition
-        key={navbarType}
-        classNames={classNames({
-          'slide-from-top': navbarType === FIXED,
-          fade: navbarType === ABSOLUTE,
-        })}
-        timeout={750}
-      >
-        {navbarType === ABSOLUTE ? (
-          <PlainNavbar onMeetOurTeamClick={handleMeetOurTeamClick} />
-        ) : (
-          <FixedNavbar onLogoClick={handleLogoClick} onMeetOurTeamClick={handleMeetOurTeamClick} />
-        )}
-      </CSSTransition>
-    </SwitchTransition>
-  );
-};
-
-const PlainNavbar = ({ onMeetOurTeamClick }) => {
-  const [shortenOurTeamNavText, setShortenOurTeamNavText] = useState(false);
-
-  useEffect(() => {
-    const handleResizeEvent = () => setShortenOurTeamNavText(window.innerWidth <= 400);
-    handleResizeEvent();
-
-    window.addEventListener('resize', handleResizeEvent);
-    return () => window.removeEventListener('resize', handleResizeEvent);
-  }, []);
-
-  return (
-    <nav>
-      <NavigationLinks
-        onMeetOurTeamClick={onMeetOurTeamClick}
-        shortenOurTeamNavText={shortenOurTeamNavText}
-      />
-    </nav>
-  );
-};
 
 const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
   const menuAutoCloseTimer = useRef();
@@ -168,35 +104,4 @@ const Logo = ({ completeLogo, onClick }) => (
   </button>
 );
 
-const NavigationLinks = ({
-  className,
-  buttonsClassname,
-  onMeetOurTeamClick,
-  onButtonClick,
-  shortenOurTeamNavText,
-}) => {
-  const handleMeetOurTeamClick = event => {
-    if (onMeetOurTeamClick) onMeetOurTeamClick(event);
-    if (onButtonClick) onButtonClick(event);
-  };
-
-  return (
-    <nav className={classNames('nav-links', className)}>
-      <button
-        className={classNames(buttonsClassname)}
-        type="button"
-        onClick={handleMeetOurTeamClick}
-      >
-        {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
-      </button>
-      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
-        Get Involved
-      </button>
-      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
-        Contact Us
-      </button>
-    </nav>
-  );
-};
-
-export default Navbar;
+export default FixedNavbar;
