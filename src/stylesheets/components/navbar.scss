@@ -6,7 +6,6 @@
 
 @mixin styling($page-padding-x) {
   nav {
-    position: absolute;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -14,6 +13,10 @@
     background-color: transparent;
     display: flex;
     align-items: center;
+
+    &.plain-navbar {
+      position: absolute;
+    }
 
     @media (max-width: $breakpoint-small) {
       padding: 24px $page-padding-x;
