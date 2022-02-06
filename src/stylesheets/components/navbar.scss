@@ -9,21 +9,22 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 26px $page-padding-x;
+    padding: 0 $page-padding-x;
     background-color: transparent;
     display: flex;
     align-items: center;
+    height: 100px;
 
     &.plain-navbar {
       position: absolute;
     }
 
     @media (max-width: $breakpoint-small) {
-      padding: 24px $page-padding-x;
+      height: 96px;
     }
 
     @media (max-width: $breakpoint-tablet) {
-      padding: 20px $page-padding-x;
+      height: 88px;
     }
 
     .nav-link {
@@ -58,7 +59,7 @@
       }
 
       .winged-single {
-        padding-right: 0.35em;
+        height: 33px;
       }
     }
 
@@ -205,7 +206,7 @@
 
       .logo {
         color: white;
-        }
+      }
 
       .nav-links .nav-link {
         color: white;

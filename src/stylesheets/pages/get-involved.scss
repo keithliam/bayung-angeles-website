@@ -1,0 +1,24 @@
+@use '../theme/breakpoints' as *;
+@use '../theme/colors' as *;
+@use '../theme/spacing' as *;
+
+@mixin styling($page-padding-x) {
+  #get-involved {
+    background-color: white;
+    height: 200vh
+  }
+}
+
+@include styling($page-padding-x: $page-padding-default);
+
+@media (max-width: $breakpoint-small) {
+  @include styling($page-padding-x: $page-padding-small);
+}
+
+@media (max-width: $breakpoint-tablet) {
+  @include styling($page-padding-x: $page-padding-tablet);
+}
+
+@media (max-width: $breakpoint-mobile) {
+  @include styling($page-padding-x: $page-padding-mobile);
+}
