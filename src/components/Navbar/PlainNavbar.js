@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import NavigationLinks from './NavigationLinks';
 
-const PlainNavbar = ({ onMeetOurTeamClick }) => {
+const PlainNavbar = () => {
   const [shortenOurTeamNavText, setShortenOurTeamNavText] = useState(false);
 
   useEffect(() => {
@@ -14,10 +14,7 @@ const PlainNavbar = ({ onMeetOurTeamClick }) => {
 
   return (
     <nav className="plain-navbar">
-      <NavigationLinks
-        onMeetOurTeamClick={onMeetOurTeamClick}
-        shortenOurTeamNavText={shortenOurTeamNavText}
-      />
+      <NavigationLinks shortenOurTeamNavText={shortenOurTeamNavText} />
     </nav>
   );
 };

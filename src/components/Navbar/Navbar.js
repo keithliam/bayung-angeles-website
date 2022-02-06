@@ -4,9 +4,7 @@ import PlainNavbar from './PlainNavbar';
 import FixedNavbar from './FixedNavbar';
 import { registerScrollResizeEventListeners } from '../../helpers';
 
-const scrollOptions = { behavior: 'smooth' };
-
-const Navbar = ({ coverSectionRef, teamSectionRef }) => {
+const Navbar = () => {
   const [showFixedNavbar, setShowFixedNavbar] = useState(false);
 
   useEffect(() => {
@@ -18,14 +16,11 @@ const Navbar = ({ coverSectionRef, teamSectionRef }) => {
     return registerScrollResizeEventListeners(handleScrollResizeEvent);
   }, []);
 
-  const handleLogoClick = () => coverSectionRef.current.scrollIntoView(scrollOptions);
-  const handleMeetOurTeamClick = () => teamSectionRef.current.scrollIntoView(scrollOptions);
-
   return (
     <>
-      <PlainNavbar onMeetOurTeamClick={handleMeetOurTeamClick} />
+      <PlainNavbar />
       <CSSTransition in={showFixedNavbar} classNames="slide-from-top" timeout={750} unmountOnExit>
-        <FixedNavbar onLogoClick={handleLogoClick} onMeetOurTeamClick={handleMeetOurTeamClick} />
+        <FixedNavbar />
       </CSSTransition>
     </>
   );

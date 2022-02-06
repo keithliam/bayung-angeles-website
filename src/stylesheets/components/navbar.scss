@@ -26,7 +26,7 @@
       padding: 20px $page-padding-x;
     }
 
-    button {
+    .nav-link {
       background-color: transparent;
       border: none;
       cursor: pointer;
@@ -37,11 +37,36 @@
       }
     }
 
+    .logo {
+      font-family: $font-heading;
+      @include px-to-rem(40px);
+      font-weight: $font-normal;
+      letter-spacing: 0.125em;
+      text-decoration: none;
+      color: $ba-gold;
+      text-align: left;
+      flex: 0;
+      white-space: nowrap;
+      padding: 0;
+
+      @media (max-width: $breakpoint-small) {
+        @include px-to-rem(30px);
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        @include px-to-rem(28px);
+      }
+
+      .winged-single {
+        padding-right: 0.35em;
+      }
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: wrap;
       
-      button {
+      .nav-link {
         font-family: $font-body;
         font-weight: $font-semibold;
         @include px-to-rem(15px);
@@ -60,6 +85,23 @@
         @media (max-width: $breakpoint-tablet) {
           @include px-to-rem(12px);
         }
+      }
+    }
+
+    .logo,
+    .nav-links .nav-link:not(:last-child) {
+      margin-right: 45px;
+      
+      @media (max-width: $breakpoint-small) {
+        margin-right: 30px;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        margin-right: 21px;
+      }
+      
+      @media (max-width: $breakpoint-mobile) {
+        margin-right: 18px;
       }
     }
 
@@ -162,52 +204,14 @@
       }
 
       .logo {
-        font-family: $font-heading;
-        @include px-to-rem(40px);
-        font-weight: $font-normal;
-        letter-spacing: 0.125em;
-        text-decoration: none;
         color: white;
-        text-align: left;
-        flex: 0;
-        white-space: nowrap;
-        padding: 0;
-
-        @media (max-width: $breakpoint-small) {
-          @include px-to-rem(30px);
         }
 
-        @media (max-width: $breakpoint-tablet) {
-          @include px-to-rem(28px);
-        }
-
-        .winged-single {
-          padding-right: 0.35em;
-        }
-      }
-
-      .nav-links button {
+      .nav-links .nav-link {
         color: white;
         text-shadow: none;
         text-decoration: none;
         transition: filter 0.3s ease-out;
-      }
-    }
-
-    &.fixed-navbar .logo,
-    .nav-links button:not(:last-child) {
-      margin-right: 45px;
-      
-      @media (max-width: $breakpoint-small) {
-        margin-right: 30px;
-      }
-      
-      @media (max-width: $breakpoint-tablet) {
-        margin-right: 21px;
-      }
-      
-      @media (max-width: $breakpoint-mobile) {
-        margin-right: 18px;
       }
     }
   }

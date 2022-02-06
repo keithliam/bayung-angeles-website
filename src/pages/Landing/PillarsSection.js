@@ -1,5 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import mergeRefs from 'merge-refs';
+import React, { useEffect, useRef, useState } from 'react';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import { prefix } from 'inline-style-prefixer';
@@ -13,7 +12,7 @@ import { topics } from '../../data/pillars';
 
 const lastTopicIndex = topics.length - 1;
 
-const PillarsSection = (props, ref) => {
+const PillarsSection = ({ id = 'pillars' }) => {
   const sectionRef = useRef();
   const [topicIndex, setTopicIndex] = useState(0);
   const [entireSectionInView, setEntireSectionInView] = useState(false);
@@ -51,8 +50,8 @@ const PillarsSection = (props, ref) => {
   const { title, description } = topics[topicIndex];
 
   return (
-    <div ref={mergeRefs(ref, sectionRef)} id="pillars" className="pillars">
-      <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
+    <div ref={sectionRef} id={id} className="pillars">
+      <Sticky bottomBoundary={`#${id}`} innerClass="pillars-content">
         <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={prefix({ transform: `scale(${backgroundScale})` })}
@@ -87,4 +86,4 @@ const PillarsSection = (props, ref) => {
   );
 };
 
-export default forwardRef(PillarsSection);
+export default PillarsSection;
