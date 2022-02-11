@@ -145,34 +145,6 @@
         .social-media-links {
           margin-top: 20px;
           position: relative;
-
-          .social-media-link {
-            height: 50px;
-
-            &:not(:last-of-type) {
-              margin-right: 20px;
-            }
-
-            @media (max-width: $breakpoint-large) {
-              height: 50px;
-            }
-  
-            @media (max-width: $breakpoint-tablet) {
-              height: 45px;
-
-              &:not(:last-of-type) {
-                margin-right: 18px;
-              }
-            }
-  
-            @media (max-width: $breakpoint-mobile) {
-              height: 40px;
-
-              &:not(:last-of-type) {
-                margin-right: 15px;
-              }
-            }
-          }
         }
 
         .cover-gradient {
