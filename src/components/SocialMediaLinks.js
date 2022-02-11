@@ -3,7 +3,12 @@ import classNames from 'classnames';
 import { socialMediaLinks } from '../data/socialMediaLinks';
 
 const SocialMediaLink = ({ className, color, link: { link, name, iconBlue, iconWhite } }) => (
-  <a href={link} className={classNames('social-media-link', className)}>
+  <a
+    href={link}
+    className={classNames('social-media-link', className)}
+    target="_blank"
+    rel="noreferrer"
+  >
     <img src={color === 'blue' ? iconBlue : iconWhite} alt={name} />
   </a>
 );
