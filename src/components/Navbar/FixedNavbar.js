@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-import { HashLink } from 'react-router-hash-link';
 import NavigationLinks from './NavigationLinks';
-import WingText from '../WingText';
-import OfficialEmoji from '../OfficialEmoji';
-import { landing } from '../../routes';
+import Logo from './Logo';
 
 import menuIcon from '../../assets/images/menu-icon.svg';
 import closeIcon from '../../assets/images/close-icon.svg';
@@ -93,17 +90,5 @@ const FixedNavbar = () => {
     </nav>
   );
 };
-
-const Logo = ({ completeLogo, onClick }) => (
-  <HashLink className="logo nav-link" to={`${landing.pathname}#`} onClick={onClick} smooth>
-    {completeLogo ? (
-      <>
-        Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
-      </>
-    ) : (
-      <WingText className="winged-single" text="Á" wingPosition="start" />
-    )}
-  </HashLink>
-);
 
 export default FixedNavbar;
