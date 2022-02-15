@@ -33,3 +33,111 @@ export const socialMediaLinks = [
     iconWhite: tiktokWhite,
   },
 ];
+
+export const teamSocialMediaLinks = [
+  {
+    name: 'Amos Rivera',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/AManOfService/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetv6KDH/',
+      },
+    ],
+  },
+  {
+    name: 'Dr. Pie Juan',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/DocPieJuan/',
+      },
+    ],
+  },
+  {
+    name: 'Bong Arceo',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/BongArceo911Angeles/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetvyMjc/',
+      },
+    ],
+  },
+  {
+    name: 'Ar. Paul Maiquez',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/archpaulmaiquez/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetvCvtE/',
+      },
+    ],
+  },
+  {
+    name: 'Don Quito',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/ChefDonQuito/',
+      },
+    ],
+  },
+  {
+    name: 'Harvs Santiago',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/KuyaHarvs2022/',
+      },
+    ],
+  },
+  {
+    name: 'Jeselle Dayrit',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/jesellevegadayrit/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetvyY97/',
+      },
+    ],
+  },
+  {
+    name: 'Dan Aloot',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/TsuperDan/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetvaj9p/',
+      },
+    ],
+  },
+  {
+    name: 'Atty. Israel Forto',
+    links: [
+      {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/israelcforto/',
+      },
+      {
+        name: 'TikTok',
+        link: 'https://vt.tiktok.com/ZSetv9Lkh/',
+      },
+    ],
+  },
+];

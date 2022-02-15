@@ -4,7 +4,9 @@
 @use '../theme/typography' as *;
 
 .cta-button {
+  display: inline-block;
   text-transform: uppercase;
+  text-decoration: none;
   font-family: $font-body;
   font-weight: $font-semibold;
   letter-spacing: 0.075em;
