@@ -1,33 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import classNames from 'classnames';
+import { landing } from '../../routes';
+import { TEAM_SECTION_ID } from '../../constants';
 
-const NavigationLinks = ({
-  className,
-  buttonsClassname,
-  onMeetOurTeamClick,
-  onButtonClick,
-  shortenOurTeamNavText,
-}) => {
+const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOurTeamNavText }) => {
   const handleMeetOurTeamClick = event => {
-    if (onMeetOurTeamClick) onMeetOurTeamClick(event);
     if (onButtonClick) onButtonClick(event);
   };
 
   return (
     <div className={classNames('nav-links', className)}>
-      <button
-        className={classNames(buttonsClassname)}
-        type="button"
+      <HashLink
+        className={classNames('nav-link', buttonsClassname)}
         onClick={handleMeetOurTeamClick}
+        to={`${landing.pathname}#${TEAM_SECTION_ID}`}
+        smooth
       >
         {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
-      </button>
-      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
+      </HashLink>
+      <Link
+        className={classNames('nav-link', buttonsClassname)}
+        onClick={onButtonClick}
+        to="google.com"
+      >
         Get Involved
-      </button>
-      <button className={classNames(buttonsClassname)} type="button" onClick={onButtonClick}>
+      </Link>
+      <Link
+        className={classNames('nav-link', buttonsClassname)}
+        onClick={onButtonClick}
+        to="google.com"
+      >
         Contact Us
-      </button>
+      </Link>
     </div>
   );
 };

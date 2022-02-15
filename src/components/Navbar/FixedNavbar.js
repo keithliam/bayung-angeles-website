@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { HashLink } from 'react-router-hash-link';
 import NavigationLinks from './NavigationLinks';
 import WingText from '../WingText';
 import OfficialEmoji from '../OfficialEmoji';
+import { landing } from '../../routes';
 
 import menuIcon from '../../assets/images/menu-icon.svg';
 import closeIcon from '../../assets/images/close-icon.svg';
 
 const MENU_AUTO_CLOSE_TIMEOUT = 8000;
 
-const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
+const FixedNavbar = () => {
   const menuAutoCloseTimer = useRef();
   const [openMenu, setOpenMenu] = useState(false);
   const [useMenu, setUseMenu] = useState(false);
@@ -60,7 +62,7 @@ const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
     return (
       <nav className="fixed-navbar mobile-navbar">
         <div className="mobile-navbar-options">
-          <button className="menu-btn" onClick={handleMenuClick} type="button">
+          <button className="menu-btn nav-link" onClick={handleMenuClick} type="button">
             <SwitchTransition mode="out-in">
               <CSSTransition key={openMenu} classNames="fade" timeout={150}>
                 {openMenu ? (
@@ -71,13 +73,12 @@ const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
               </CSSTransition>
             </SwitchTransition>
           </button>
-          <Logo completeLogo onClick={onLogoClick} />
+          <Logo completeLogo />
         </div>
         <CSSTransition in={openMenu} classNames="scale-y" unmountOnExit timeout={750}>
           <NavigationLinks
             className="mobile-nav-links"
             buttonsClassname="mobile-nav-link"
-            onMeetOurTeamClick={onMeetOurTeamClick}
             onButtonClick={handleNavButtonClick}
           />
         </CSSTransition>
@@ -87,14 +88,14 @@ const FixedNavbar = ({ onLogoClick, onMeetOurTeamClick }) => {
 
   return (
     <nav className="fixed-navbar">
-      <Logo completeLogo={showCompleteLogo} onClick={onLogoClick} />
-      <NavigationLinks onMeetOurTeamClick={onMeetOurTeamClick} />
+      <Logo completeLogo={showCompleteLogo} />
+      <NavigationLinks />
     </nav>
   );
 };
 
 const Logo = ({ completeLogo, onClick }) => (
-  <button className="logo" type="button" onClick={onClick}>
+  <HashLink className="logo nav-link" to={`${landing.pathname}#`} onClick={onClick} smooth>
     {completeLogo ? (
       <>
         Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
@@ -102,7 +103,7 @@ const Logo = ({ completeLogo, onClick }) => (
     ) : (
       <WingText className="winged-single" text="Á" wingPosition="start" />
     )}
-  </button>
+  </HashLink>
 );
 
 export default FixedNavbar;

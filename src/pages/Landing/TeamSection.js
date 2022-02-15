@@ -1,5 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import mergeRefs from 'merge-refs';
+import React, { useEffect, useRef, useState } from 'react';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { EffectCards, Pagination, Autoplay } from 'swiper';
@@ -24,7 +23,7 @@ import 'swiper/modules/effect-cards/effect-cards.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
 import 'swiper/modules/pagination/pagination.scss';
 
-const TeamSection = (props, ref) => {
+const TeamSection = ({ id }) => {
   const sectionRef = useRef();
   const swiperRef = useRef();
   const autoplayActivatedOnce = useRef(false);
@@ -57,7 +56,7 @@ const TeamSection = (props, ref) => {
   }, []);
 
   return (
-    <div ref={mergeRefs(ref, sectionRef)} className="team">
+    <div id={id} ref={sectionRef} className="team">
       <img className="team-bg" src={baIllustration} alt="BA logo" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
@@ -237,4 +236,4 @@ const InfoSectionItem = ({ highlight, description }) => (
   </li>
 );
 
-export default forwardRef(TeamSection);
+export default TeamSection;
