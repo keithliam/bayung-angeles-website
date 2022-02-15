@@ -1,11 +1,245 @@
+@use 'sass:color';
 @use '../theme/breakpoints' as *;
 @use '../theme/colors' as *;
 @use '../theme/spacing' as *;
+@use '../theme/typography' as *;
 
 @mixin styling($page-padding-x) {
   #get-involved {
     background-color: white;
-    height: 200vh
+
+    .heading {
+      padding: 40px $page-padding-x 30px;
+      position: relative;
+      color: $ba-blue;
+
+      img,
+      .heading-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .heading-gradient {
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+      }
+    
+      h1 {
+        margin: 0;
+        position: relative;
+        font-family: $font-heading;
+        @include px-to-rem(58px);
+        font-weight: $font-normal;
+        letter-spacing: 0.107em;
+      }
+
+      span {
+        position: relative;
+        font-family: $font-body;
+        @include px-to-rem(20px);
+      }
+    }
+
+    .content-container {
+      background-color: $ba-smoke;
+      overflow: hidden;
+
+      .content-section {
+        padding: $page-padding-x;
+        display: flex;
+        position: relative;
+
+        .step-num {
+          position: absolute;
+          top: -160px;
+          left: -20px;
+          font-family: $font-heading;
+          font-weight: $font-normal;
+          @include px-to-rem(300px);
+          letter-spacing: 0.065em;
+          color: $ba-blue;
+          opacity: 0.16;
+        }
+
+        $previews-box-shadow-color: color.change(black, $alpha: 0.16);
+
+        .section-content {
+          flex: 1;
+          z-index: 2;
+
+          .section-header {
+            margin: 0;
+            font-family: $font-heading;
+            font-weight: $font-normal;
+            @include px-to-rem(46px);
+            letter-spacing: 0.065em;
+            color: $ba-blue;
+
+            &:last-of-type {
+              margin-top: 10px;
+            }
+
+            .highlight {
+              color: $ba-gold;
+            }
+          }
+
+          .content {
+            margin-top: 12px;
+            font-family: $font-body;
+            @include px-to-rem(20px);
+            font-weight: $font-semibold;
+            color: $ba-gray;
+            display: block;
+            letter-spacing: 0.055em;
+
+            a {
+              color: $ba-gray;
+              transition: color 0.2s ease-out;
+
+              &:hover {
+                color: $ba-gold;
+              }
+            }
+
+            .social-media-link {
+              background-color: white;
+              border-radius: 100px;
+              box-shadow: 0 3px 6px color.change(black, $alpha: 0.40);
+              transition: box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+              &:hover {
+                box-shadow: none;
+                opacity: 0.8;
+              }
+            }
+
+
+            $sticker-margins: 30px;
+            .downloads-preview {
+              margin-top: -$sticker-margins;
+              margin-left: -$sticker-margins;
+
+              .preview-item {
+                margin-top: $sticker-margins;
+                margin-left: $sticker-margins;
+                display: inline-block;
+                height: 180px;
+                width: 180px;
+                background-color: white;
+                border-radius: 18px;
+                transition: filter 0.5s ease-out, transform 0.5s ease-out;
+                filter: drop-shadow(3px 3px 16px $previews-box-shadow-color);
+                transform: scale(1);
+                overflow: hidden;
+
+                &:hover {
+                  filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
+                  transform: scale(2);
+                  position: relative;
+                  z-index: 3;
+                }
+
+                img {
+                  display: block;
+                  object-fit: contain;
+                  height: 100%;
+                  width: 100%;
+                }
+
+                &.poster-wallpaper-designs-preview-item {
+                  height: 360px;
+                  width: 360px;
+
+                  &:hover {
+                    transform: scale(1.75);
+                  }
+                }
+              }
+            }
+          }
+
+          .cta-btn {
+            margin-top: 22px;
+          }
+        }
+
+        .image-preview {
+          margin-left: $page-padding-x;
+          transition: filter 0.5s ease-out, transform 0.5s ease-out;
+          filter: drop-shadow(3px 3px 16px $previews-box-shadow-color);
+          transform: scale(1);
+          transform-origin: right center;
+          height: 400px;
+          position: relative;
+          z-index: 3;
+
+          &:hover {
+            filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
+            transform: scale(1.25);
+          }
+        }
+
+        .brand-preview {
+          height: 270px;
+        }
+      }
+
+      .step-1 {
+        .step-num {
+          top: -135px;
+        }
+      }
+
+      .step-4 {
+        .step-num {
+          left: -35px;
+        }
+
+        .team-links {
+          display: grid;
+          grid: auto-flow / max-content 1fr;
+          gap: 12px 30px;
+          text-transform: uppercase;
+
+          .member-name {
+            @include px-to-rem(17px);
+          }
+
+          .member-links {
+            display: flex;
+            align-items: center;
+
+            .member-link {
+              @include px-to-rem(14px);
+
+              &:not(:first-of-type) {
+                margin-left: 30px;
+              }
+            }
+          }
+        }
+      }
+
+      .donation {
+        .separator {
+          height: 6px;
+          width: 190px;
+          background-color: $ba-gold;
+          position: absolute;
+          left: $page-padding-x;
+          top: 40px;
+        }
+      }
+    }
+
+    .heading-first {
+      padding-top: 90px;
+    }
   }
 }
 
