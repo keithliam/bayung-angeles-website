@@ -1,16 +1,15 @@
 import React from 'react';
-import SocialMediaLink from './SocialMediaLink';
+import SocialMediaLinks from './SocialMediaLinks';
 
-import { socialMediaLinks } from '../data/socialMediaLinks';
 import OfficialEmoji from './OfficialEmoji';
 
 const Footer = () => (
   <footer>
-    <div className="social-media-links">
-      {socialMediaLinks.map(link => (
-        <SocialMediaLink key={link.name} className="social-media-link" color="white" link={link} />
-      ))}
-    </div>
+    <SocialMediaLinks
+      className="social-media-links"
+      linkClassName="social-media-link"
+      color="white"
+    />
     <span className="copyright">
       © Báyung Ángeles <OfficialEmoji />
     </span>
