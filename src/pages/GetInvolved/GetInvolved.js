@@ -12,9 +12,10 @@ import StickersSection from './StickersSection';
 
 import cover from '../../assets/images/pisamban-maragul.png';
 import PostersWallpapersSection from './PostersWallpapersSection';
+import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
 
-const Section = ({ headingClassName, title, subtitle, children }) => (
-  <>
+const Section = ({ id, headingClassName, title, subtitle, children }) => (
+  <div id={id}>
     <div className={classNames('heading', headingClassName)}>
       <img src={cover} alt="" />
       <div className="heading-gradient" />
@@ -22,7 +23,7 @@ const Section = ({ headingClassName, title, subtitle, children }) => (
       <span>{subtitle}</span>
     </div>
     <div className="content-container">{children}</div>
-  </>
+  </div>
 );
 
 const GetInvolved = () => (
@@ -39,7 +40,11 @@ const GetInvolved = () => (
       <StepFiveSection />
       <DonationSection />
     </Section>
-    <Section title="Download Assets 💾" subtitle="Introduce others to the movement.">
+    <Section
+      id={DOWNLOAD_ASSETS_SECTION_ID}
+      title="Download Assets 💾"
+      subtitle="Introduce others to the movement."
+    >
       <BrandGuidelinesSection />
       <BrandAssetsSection />
       <StickersSection />

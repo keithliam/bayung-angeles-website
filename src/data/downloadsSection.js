@@ -9,7 +9,6 @@ export const previewAssets = [
   {
     image: carSticker,
     name: 'Car Sticker',
-    link: '',
     style: {
       top: '5.4%',
       height: '68.7%',
@@ -19,7 +18,6 @@ export const previewAssets = [
   {
     image: badgePin,
     name: 'Badge Pin',
-    link: '',
     style: {
       top: '0',
       right: '14.9%',
@@ -30,7 +28,6 @@ export const previewAssets = [
   {
     image: baIllustrationAnimated,
     name: 'Báyung Ángeles Illustration',
-    link: '',
     style: {
       top: '44%',
       left: '9.3%',
@@ -41,7 +38,6 @@ export const previewAssets = [
   {
     image: baLogo,
     name: 'Báyung Ángeles Logo',
-    link: '',
     style: {
       top: '28.2%',
       left: '36.6%',
@@ -52,7 +48,6 @@ export const previewAssets = [
   {
     image: fbFrame,
     name: 'Facebook Frame',
-    link: '',
     style: {
       top: '38%',
       right: '0',
@@ -63,7 +58,6 @@ export const previewAssets = [
   {
     image: jeepSign,
     name: 'Jeepney Sign',
-    link: '',
     style: {
       bottom: '0',
       left: '25.5%',
