@@ -8,6 +8,8 @@ import {
 } from './components';
 import fbPage from '../../assets/images/ba-fb-page.png';
 
+const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
+
 const StepNum = () => <StepNumber className="step-num" number={1} />;
 
 const Header = () => (
@@ -26,7 +28,7 @@ const Content = () => (
   </>
 );
 
-const Preview = () => <ImagePreview src={fbPage} alt="Facebook page preview" />;
+const Preview = () => <ImagePreview src={fbPage} alt="Facebook page preview" link={LINK} />;
 
 const StepOneSection = () => (
   <StandardSection
@@ -35,7 +37,7 @@ const StepOneSection = () => (
     headerComponent={Header}
     contentComponent={Content}
     previewComponent={Preview}
-    link="https://bit.ly/bayung-angeles-facebook-page"
+    link={LINK}
     ctaLinkText="Open Page"
   />
 );
