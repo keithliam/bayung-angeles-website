@@ -1,16 +1,10 @@
 import classNames from 'classnames';
 import React from 'react';
 
-const DownloadsPreview = ({ itemClassName, previews }) => (
-  <div className="downloads-preview">
+const DownloadsPreview = ({ className, previews }) => (
+  <div className={classNames('downloads-preview', className)}>
     {previews.map(({ preview, link }) => (
-      <a
-        key={link}
-        className={classNames('preview-item', itemClassName)}
-        href={link}
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a key={link} className="preview-item" href={link} target="_blank" rel="noreferrer">
         <img src={preview} alt="Download preview" />
       </a>
     ))}
