@@ -8,8 +8,6 @@ import { scrollToElementAvoidHeader } from '../../helpers';
 
 import { previewAssets } from '../../data/downloadsSection';
 
-const LINK_TO_DOWNLOAD_ASSETS_SECTION = `${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`;
-
 const DownloadsSection = () => (
   <div className="downloads">
     <div className="downloads-content">
@@ -18,7 +16,7 @@ const DownloadsSection = () => (
         className="cta-btn"
         color="gold"
         text="Downloads"
-        hashlink={LINK_TO_DOWNLOAD_ASSETS_SECTION}
+        hashlink={`${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`}
       />
     </div>
     <div className="downloads-assets-container">
@@ -35,7 +33,7 @@ const DownloadAssetPreview = ({ asset: { image, style, name } }) => (
   <HashLink
     className="downloads-asset"
     style={prefix(style)}
-    to={LINK_TO_DOWNLOAD_ASSETS_SECTION}
+    to={`${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`}
     scroll={scrollToElementAvoidHeader}
     smooth
   >
