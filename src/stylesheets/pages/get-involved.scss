@@ -406,19 +406,45 @@
           gap: 12px 30px;
           text-transform: uppercase;
 
+          @media (max-width: $breakpoint-mobile) {
+            gap: 12px 15px;
+          }
+
           .member-name {
             @include px-to-rem(17px);
+
+            @media (max-width: $breakpoint-tablet) {
+              @include px-to-rem(15px);
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+              @include px-to-rem(14px);
+            }
           }
 
           .member-links {
             display: flex;
             align-items: center;
 
+            @media (max-width: $breakpoint-mobile) {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+
             .member-link {
               @include px-to-rem(14px);
 
+              @media (max-width: $breakpoint-mobile) {
+                @include px-to-rem(13px);
+              }
+
               &:not(:first-of-type) {
-                margin-left: 30px;
+                margin-left: 15px;
+
+                @media (max-width: $breakpoint-mobile) {
+                  margin-left: 0;
+                  margin-top: 3px;
+                }
               }
             }
           }
