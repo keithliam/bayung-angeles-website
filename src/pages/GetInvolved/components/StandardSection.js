@@ -3,6 +3,7 @@ import SectionContainer from './SectionContainer';
 import { CTAButton } from '../../../components';
 
 const StandardSection = ({
+  id,
   className,
   absoluteComponent,
   headerComponent,
@@ -11,7 +12,7 @@ const StandardSection = ({
   link,
   ctaLinkText,
 }) => (
-  <SectionContainer className={className}>
+  <SectionContainer id={id} className={className}>
     {absoluteComponent && absoluteComponent()}
     <div className="section-content">
       {headerComponent && <h2 className="section-header">{headerComponent()}</h2>}
