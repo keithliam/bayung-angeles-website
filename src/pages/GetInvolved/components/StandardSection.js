@@ -19,14 +19,7 @@ const StandardSection = ({
       {contentComponent && <span className="content">{contentComponent()}</span>}
       {link && <CTAButton className="cta-btn" color="gold" text={ctaLinkText} href={link} />}
     </div>
-    {previewComponent &&
-      (link ? (
-        <a href={link} target="_blank" rel="noreferrer">
-          {previewComponent()}
-        </a>
-      ) : (
-        previewComponent()
-      ))}
+    {previewComponent && previewComponent()}
   </SectionContainer>
 );
 
