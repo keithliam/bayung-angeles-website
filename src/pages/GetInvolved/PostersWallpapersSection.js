@@ -5,10 +5,7 @@ import { DownloadsPreview, StandardSection } from './components';
 const Header = () => 'Poster & Wallpaper Designs';
 
 const Content = () => (
-  <DownloadsPreview
-    itemClassName="poster-wallpaper-designs-preview-item"
-    previews={postersWallpapers}
-  />
+  <DownloadsPreview className="poster-wallpaper-designs-preview" previews={postersWallpapers} />
 );
 
 const PostersWallpapersSection = () => (

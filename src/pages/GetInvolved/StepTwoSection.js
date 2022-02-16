@@ -2,6 +2,8 @@ import React from 'react';
 import { StandardSection, SectionHeaderHighlight, StepNumber, ImagePreview } from './components';
 import fbGroup from '../../assets/images/ba-fb-group.png';
 
+const LINK = 'https://bit.ly/bayung-angeles-fb-group';
+
 const StepNum = () => <StepNumber number={2} />;
 
 const Header = () => (
@@ -12,7 +14,7 @@ const Header = () => (
 
 const Content = () => 'USE THE HASHTAG #BayungAngeles AND THE OFFICIAL EMOJI ☝️';
 
-const Preview = () => <ImagePreview src={fbGroup} alt="Facebook group preview" />;
+const Preview = () => <ImagePreview src={fbGroup} alt="Facebook group preview" link={LINK} />;
 
 const StepTwoSection = () => (
   <StandardSection
@@ -20,7 +22,7 @@ const StepTwoSection = () => (
     headerComponent={Header}
     contentComponent={Content}
     previewComponent={Preview}
-    link="https://bit.ly/bayung-angeles-fb-group"
+    link={LINK}
     ctaLinkText="Open Group"
   />
 );
