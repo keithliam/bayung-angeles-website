@@ -4,6 +4,7 @@ import { HashLink } from 'react-router-hash-link';
 import classNames from 'classnames';
 import { landing, getInvolved } from '../../routes';
 import { TEAM_SECTION_ID } from '../../constants';
+import { scrollToElementAvoidHeader } from '../../helpers';
 
 const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOurTeamNavText }) => {
   const handleMeetOurTeamClick = event => {
@@ -16,6 +17,7 @@ const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOu
         className={classNames('nav-link', buttonsClassname)}
         onClick={handleMeetOurTeamClick}
         to={`${landing.pathname}#${TEAM_SECTION_ID}`}
+        scroll={scrollToElementAvoidHeader}
         smooth
       >
         {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
