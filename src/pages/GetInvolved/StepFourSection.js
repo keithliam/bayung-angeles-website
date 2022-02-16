@@ -5,7 +5,7 @@ import {
   SectionContentLink,
   StepNumber,
 } from './components';
-import { teamSocialMediaLinks } from '../../data/socialMediaLinks';
+import { allMembers } from '../../data/team';
 
 const StepNum = () => <StepNumber className="step-num" number={4} />;
 
@@ -17,11 +17,11 @@ const Header = () => (
 
 const Content = () => (
   <div className="team-links">
-    {teamSocialMediaLinks.map(({ name: memberName, links }) => (
+    {allMembers.map(({ name: memberName, socialMediaLinks }) => (
       <Fragment key={memberName}>
         <span className="member-name">{memberName}:</span>
         <div className="member-links">
-          {links.map(({ name: linkName, link }) => (
+          {socialMediaLinks.map(({ name: linkName, link }) => (
             <SectionContentLink
               key={linkName}
               className="member-link"
