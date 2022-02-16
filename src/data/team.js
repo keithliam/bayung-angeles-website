@@ -50,6 +50,16 @@ export const teamCategories = [
               'The Fraternal Order of Eagles—Philippine Eagles, Clark Angeles Salakot Eagles Club',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/AManOfService/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetv6KDH/',
+          },
+        ],
       },
     ],
   },
@@ -131,6 +141,12 @@ export const teamCategories = [
             description: 'Sigma Delta Pi Sorority',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/DocPieJuan/',
+          },
+        ],
       },
     ],
   },
@@ -210,6 +226,16 @@ export const teamCategories = [
             highlight: 'Rotary Club of Angeles Kuliat',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/BongArceo911Angeles/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetvyMjc/',
+          },
+        ],
       },
       {
         name: 'Ar. Paul Maiquez',
@@ -252,6 +278,16 @@ export const teamCategories = [
           },
           {
             highlight: 'Fraternal Order of Eagles, Angeles City Clark Salakot Chapter',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/archpaulmaiquez/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetvCvtE/',
           },
         ],
       },
@@ -307,6 +343,12 @@ export const teamCategories = [
           },
           {
             highlight: 'Fraternal Order of Eagles, Angeles City Clark Salakot Chapter',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/ChefDonQuito/',
           },
         ],
       },
@@ -379,6 +421,12 @@ export const teamCategories = [
             description: 'HAU College of Arts, Sciences, and Education Student Council (2014-2015)',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/KuyaHarvs2022/',
+          },
+        ],
       },
       {
         name: 'Jeselle Dayrit',
@@ -419,6 +467,16 @@ export const teamCategories = [
           {
             highlight:
               'The Fraternal Order of Eagles - Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/jesellevegadayrit/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetvyY97/',
           },
         ],
       },
@@ -487,6 +545,16 @@ export const teamCategories = [
             description: 'Jose Abad Santos Memorial Masonic Lodge',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/TsuperDan/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetvaj9p/',
+          },
+        ],
       },
       {
         name: 'Atty. Israel Forto',
@@ -536,6 +604,16 @@ export const teamCategories = [
           {
             highlight:
               'Fraternal Order of Eagles - Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://www.facebook.com/israelcforto/',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://vt.tiktok.com/ZSetv9Lkh/',
           },
         ],
       },
