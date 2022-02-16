@@ -1,10 +1,14 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
 import { prefix } from 'inline-style-prefixer';
 import { CTAButton } from '../../components';
 import { getInvolved } from '../../routes';
 import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
+import { scrollToElementAvoidHeader } from '../../helpers';
 
 import { previewAssets } from '../../data/downloadsSection';
+
+const LINK_TO_DOWNLOAD_ASSETS_SECTION = `${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`;
 
 const DownloadsSection = () => (
   <div className="downloads">
@@ -14,7 +18,7 @@ const DownloadsSection = () => (
         className="cta-btn"
         color="gold"
         text="Downloads"
-        hashlink={`${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`}
+        hashlink={LINK_TO_DOWNLOAD_ASSETS_SECTION}
       />
     </div>
     <div className="downloads-assets-container">
@@ -27,10 +31,16 @@ const DownloadsSection = () => (
   </div>
 );
 
-const DownloadAssetPreview = ({ asset: { image, link, style, name } }) => (
-  <a className="downloads-asset" style={prefix(style)} href={link}>
+const DownloadAssetPreview = ({ asset: { image, style, name } }) => (
+  <HashLink
+    className="downloads-asset"
+    style={prefix(style)}
+    to={LINK_TO_DOWNLOAD_ASSETS_SECTION}
+    scroll={scrollToElementAvoidHeader}
+    smooth
+  >
     <img className="asset-image" src={image} alt={name} />
-  </a>
+  </HashLink>
 );
 
 export default DownloadsSection;
