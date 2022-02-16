@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { CTAButton, OfficialEmoji } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
+import { getInvolved } from '../../routes';
 
 import logoFlagWhite from '../../assets/images/ba-logo-flag-white.png';
 
@@ -27,7 +28,12 @@ const GetInvolvedSection = () => {
           <OfficialEmoji color="white" />
         </span>
         <span className="involved-subheading">Show your support. Join the movement.</span>
-        <CTAButton className="cta-btn" color="blue" text="Get Involved" />
+        <CTAButton
+          className="cta-btn"
+          color="blue"
+          text="Get Involved"
+          hashlink={`${getInvolved.pathname}#`}
+        />
       </div>
       <div className="involved-image-container">
         <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
