@@ -60,6 +60,10 @@
 
       .winged-single {
         height: 50px;
+  
+        @media (max-width: $breakpoint-tablet) {
+          height: 42px;
+        }
       }
     }
 

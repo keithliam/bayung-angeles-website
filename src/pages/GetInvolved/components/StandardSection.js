@@ -27,14 +27,7 @@ const StandardSection = ({
         />
       )}
     </div>
-    {previewComponent &&
-      (link ? (
-        <a href={link} target="_blank" rel="noreferrer">
-          {previewComponent()}
-        </a>
-      ) : (
-        previewComponent()
-      ))}
+    {previewComponent && previewComponent()}
   </SectionContainer>
 );
 
