@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import classNames from 'classnames';
 import { landing, getInvolved } from '../../routes';
-import { TEAM_SECTION_ID } from '../../constants';
+import { STEP_THREE_SECTION_ID, TEAM_SECTION_ID } from '../../constants';
 import { scrollToElementAvoidHeader } from '../../helpers';
 
 const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOurTeamNavText }) => {
@@ -22,20 +21,23 @@ const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOu
       >
         {shortenOurTeamNavText ? 'Our Team' : 'Meet Our Team'}
       </HashLink>
-      <Link
+      <HashLink
         className={classNames('nav-link', buttonsClassname)}
         onClick={onButtonClick}
-        to={getInvolved.pathname}
+        to={`${getInvolved.pathname}#`}
+        smooth
       >
         Get Involved
-      </Link>
-      <Link
+      </HashLink>
+      <HashLink
         className={classNames('nav-link', buttonsClassname)}
         onClick={onButtonClick}
-        to="google.com"
+        to={`${getInvolved.pathname}#${STEP_THREE_SECTION_ID}`}
+        scroll={scrollToElementAvoidHeader}
+        smooth
       >
         Contact Us
-      </Link>
+      </HashLink>
     </div>
   );
 };
