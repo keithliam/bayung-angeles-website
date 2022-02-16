@@ -2,6 +2,8 @@ import React from 'react';
 import { ImagePreview, StandardSection } from './components';
 import brandGuidelinesPreview from '../../assets/images/ba-brand-guidlines-preview.png';
 
+const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
+
 const Header = () => 'Brand Guidelines';
 
 const Content = () => 'FOLLOW THESE GUIDELINES WHEN USING OUR MEDIA ASSETS.';
@@ -11,6 +13,7 @@ const Preview = () => (
     className="brand-preview"
     src={brandGuidelinesPreview}
     alt="Brand guidelines document preview"
+    link={LINK}
   />
 );
 
@@ -20,7 +23,7 @@ const BrandGuidelinesSection = () => (
     headerComponent={Header}
     contentComponent={Content}
     previewComponent={Preview}
-    link="https://bit.ly/bayung-angeles-facebook-page"
+    link={LINK}
     ctaLinkText="Download Here"
   />
 );

@@ -13,6 +13,18 @@
       position: relative;
       color: $ba-blue;
 
+      @media (max-width: $breakpoint-small) {
+        padding: 35px $page-padding-x 25px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        padding: 30px $page-padding-x 20px;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        padding: 25px $page-padding-x 20px;
+      }
+
       img,
       .heading-gradient {
         position: absolute;
@@ -35,12 +47,32 @@
         @include px-to-rem(58px);
         font-weight: $font-normal;
         letter-spacing: 0.107em;
+
+        @media (max-width: $breakpoint-large) {
+          @include px-to-rem(56px);
+        }
+
+        @media (max-width: $breakpoint-small) {
+          @include px-to-rem(52px);
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          @include px-to-rem(44px);
+        }
+
+        @media (max-width: $breakpoint-mobile) {
+          @include px-to-rem(38px);
+        }
       }
 
       span {
         position: relative;
         font-family: $font-body;
         @include px-to-rem(20px);
+
+        @media (max-width: $breakpoint-mobile) {
+          @include px-to-rem(18px);
+        }
       }
     }
 
@@ -239,6 +271,14 @@
 
     .heading-first {
       padding-top: 90px;
+
+      @media (max-width: $breakpoint-small) {
+        padding-top: 85px;
+      }
+
+      @media (max-width: $breakpoint-tablet) {
+        padding-top: 80px;
+      }
     }
   }
 }
