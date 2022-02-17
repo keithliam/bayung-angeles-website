@@ -1,5 +1,5 @@
 import React from 'react';
-import { stickers } from '../../data/stickerDownloads';
+import { allStickersLink, stickers } from '../../data/stickerDownloads';
 import { DownloadsPreview, StandardSection } from './components';
 
 const Header = () => 'Sticker Designs';
@@ -10,7 +10,7 @@ const StickersSection = () => (
   <StandardSection
     headerComponent={Header}
     contentComponent={Content}
-    link="https://bit.ly/bayung-angeles-facebook-page"
+    link={allStickersLink}
     ctaLinkText="Download All"
   />
 );

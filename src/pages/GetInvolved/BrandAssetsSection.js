@@ -2,7 +2,7 @@ import React from 'react';
 import { ImagePreview, StandardSection } from './components';
 import brandGuidelinesPreview from '../../assets/images/ba-brand-assets-preview.png';
 
-const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
+const LINK = 'https://bit.ly/36mE7XB';
 
 const Header = () => 'Brand Assets';
 
