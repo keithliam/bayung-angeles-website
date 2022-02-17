@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { registerScrollResizeEventListeners } from '../../helpers';
@@ -59,7 +60,7 @@ const ImagineSection = () => {
       <Sticky bottomBoundary="#imagine" innerClass="imagine-content">
         <SwitchTransition mode="out-in">
           <CSSTransition key={title} classNames="bg-fade" timeout={500}>
-            <img
+            <Img
               className={classNames('imagine-bg', { 'bg-show': entireSectionInView })}
               style={prefix({ transform: `scale(${backgroundScale})` })}
               src={source}

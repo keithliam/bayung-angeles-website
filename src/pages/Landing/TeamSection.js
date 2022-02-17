@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { EffectCards, Pagination, Autoplay } from 'swiper';
@@ -57,7 +58,7 @@ const TeamSection = ({ id }) => {
 
   return (
     <div id={id} ref={sectionRef} className="team">
-      <img className="team-bg" src={baIllustration} alt="BA logo" />
+      <Img className="team-bg" src={baIllustration} alt="BA logo" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
         <div className="introduce-headline">
@@ -107,7 +108,7 @@ const MemberList = ({ swiperRef, activeMemberIndex }) => {
           ))}
         </div>
       ))}
-      <img className="team-list-bg" src={baLogo} alt="Logo" />
+      <Img className="team-list-bg" src={baLogo} alt="Logo" />
     </div>
   );
 };
@@ -172,7 +173,7 @@ const CardNavButton = ({ swiperRef, xDirection }) => {
   return (
     <div className="card-nav-btn-container">
       <button type="button" onClick={onClick}>
-        <img
+        <Img
           style={prefix({ transform: `translateX(${translateX}) rotate(${rotate})` })}
           src={caratDown}
           alt="Card navigation arrow"
@@ -188,7 +189,7 @@ const MemberCard = ({
   disableScroll,
 }) => (
   <>
-    <img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
+    <Img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
     <div className="team-card-content">
       <div
         className={classNames('member-info', { 'no-scroll': disableScroll })}
@@ -203,7 +204,7 @@ const MemberCard = ({
         <div className="member-social-media-links" />
         <a className="member-page-link" href="google.com">
           Learn More
-          <img src={caratRight} alt="Button arrow" />
+          <Img src={caratRight} alt="Button arrow" />
         </a>
       </div>
     </div>

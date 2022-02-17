@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'react-cool-img';
 import classNames from 'classnames';
 import StepOneSection from './StepOneSection';
 import StepTwoSection from './StepTwoSection';
@@ -17,7 +18,7 @@ import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
 const Section = ({ id, headingClassName, title, subtitle, children }) => (
   <div id={id}>
     <div className={classNames('heading', headingClassName)}>
-      <img src={cover} alt="" />
+      <Img src={cover} alt="" />
       <div className="heading-gradient" />
       <h1>{title}</h1>
       <span>{subtitle}</span>

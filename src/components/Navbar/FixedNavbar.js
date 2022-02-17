@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import Img from 'react-cool-img';
 import NavigationLinks from './NavigationLinks';
 import Logo from './Logo';
 
@@ -63,9 +64,9 @@ const FixedNavbar = () => {
             <SwitchTransition mode="out-in">
               <CSSTransition key={openMenu} classNames="fade" timeout={150}>
                 {openMenu ? (
-                  <img src={closeIcon} alt="Menu toggle" />
+                  <Img src={closeIcon} alt="Menu toggle" />
                 ) : (
-                  <img src={menuIcon} alt="Menu toggle" />
+                  <Img src={menuIcon} alt="Menu toggle" />
                 )}
               </CSSTransition>
             </SwitchTransition>

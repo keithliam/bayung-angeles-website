@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
@@ -52,13 +53,13 @@ const PillarsSection = ({ id = 'pillars' }) => {
   return (
     <div ref={sectionRef} id={id} className="pillars">
       <Sticky bottomBoundary={`#${id}`} innerClass="pillars-content">
-        <img
+        <Img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={prefix({ transform: `scale(${backgroundScale})` })}
           src={baIllustration}
           alt="illustration"
         />
-        <img
+        <Img
           className={classNames('pillars-bg-logo', { 'bg-show': showLogo })}
           src={logoWhite}
           alt="illustration"
