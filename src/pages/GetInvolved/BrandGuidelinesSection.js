@@ -1,18 +1,18 @@
 import React from 'react';
 import { ImagePreview, StandardSection } from './components';
-import brandGuidelinesPreview from '../../assets/images/ba-brand-guidlines-preview.png';
+import brandGuidelinesPreview from '../../assets/images/ba-brand-identity-preview.png';
 
 const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
 
-const Header = () => 'Brand Guidelines';
+const Header = () => 'Visual Identity & Guidelines';
 
-const Content = () => 'FOLLOW THESE GUIDELINES WHEN USING OUR MEDIA ASSETS.';
+const Content = () => 'FOLLOW THESE GUIDELINES WHEN USING OUR MEDIA ASSETS';
 
 const Preview = () => (
   <ImagePreview
     className="brand-preview"
     src={brandGuidelinesPreview}
-    alt="Brand guidelines document preview"
+    alt="Visual identity &amp; guidelines document preview"
     link={LINK}
   />
 );
