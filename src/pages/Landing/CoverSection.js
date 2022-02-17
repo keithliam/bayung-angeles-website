@@ -20,8 +20,8 @@ const CoverSection = () => (
       <span>Stay connected. Follow our socials.</span>
       <SocialMediaLinks className="social-media-links" color="blue" />
       <div className="cover-gradient">
-        <HashLink to={`#${PILLARS_SECTION_ID}`} smooth>
-          <img src={caratDown} className="scroll-down-indicator" alt="Scroll down" />
+        <HashLink className="scroll-down-indicator" to={`#${PILLARS_SECTION_ID}`} smooth>
+          <img src={caratDown} alt="Scroll down" />
         </HashLink>
         <PhotoCredit
           className="cover-credit"
