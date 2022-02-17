@@ -1,8 +1,8 @@
-import bloodBankPhoto from '../assets/images/angeles-blood-bank.png';
+import healthCareProjectsPhoto from '../assets/images/angeles-healthcare-projects.jpg';
 import dialysisCenterPhoto from '../assets/images/angeles-dialysis-center.png';
 import foodStripPhoto from '../assets/images/angeles-food-strip.png';
-import monumentPhoto from '../assets/images/angeles-monument.png';
-import projectBalePhoto from '../assets/images/project-bale.png';
+import civilCivicProjectsPhoto from '../assets/images/angeles-civil-civic-projects.jpg';
+import housingProjectsPhoto from '../assets/images/angeles-housing-projects.jpg';
 
 export const topics = [
   {
@@ -10,14 +10,14 @@ export const topics = [
     extraText: 'are well funded.',
     photos: [
       {
-        title: 'Proposed Ángeles Blood Bank',
-        source: bloodBankPhoto,
-        link: 'google.com',
+        title: 'Build Angeles Healthcare Projects',
+        source: healthCareProjectsPhoto,
+        link: 'https://bit.ly/3gSCdzZ',
       },
       {
-        title: 'Proposed Ángeles Dialysis',
+        title: 'Proposed Ángeles Dialysis Center',
         source: dialysisCenterPhoto,
-        link: 'google.com',
+        link: 'https://bit.ly/3HW1iWD',
       },
     ],
   },
@@ -26,25 +26,21 @@ export const topics = [
     extraText: 'is not neglected.',
     photos: [
       {
-        title: 'Angeles City International Food Strip',
+        title: 'Build Angeles Civil Works & Civic Centers',
+        source: civilCivicProjectsPhoto,
+        link: 'https://bit.ly/3gSCdzZ',
+      },
+      {
+        title: 'Angeles City Culinary Strip',
         credit: 'Ar. Paul Maiquez',
-        creditLink: 'google.com',
+        creditLink: 'https://bit.ly/ba-maiquez-fb',
         source: foodStripPhoto,
-        link: 'google.com',
+        link: 'https://bit.ly/3LFyd41',
       },
       {
-        title: 'Báyung Ángeles Livelihood Estates',
-        credit: 'Ar. Paul Maiquez',
-        creditLink: 'google.com',
-        source: projectBalePhoto,
-        link: 'google.com',
-      },
-      {
-        title: 'City of Angels Monument',
-        credit: 'Ar. Paul Maiquez',
-        creditLink: 'google.com',
-        source: monumentPhoto,
-        link: 'google.com',
+        title: 'Build Angeles Housing Projects',
+        source: housingProjectsPhoto,
+        link: 'https://bit.ly/3gSCdzZ',
       },
     ],
   },
