@@ -23,7 +23,7 @@ const BrandAssetsSection = () => (
     contentComponent={Content}
     previewComponent={Preview}
     link={LINK}
-    ctaLinkText="Download Here"
+    ctaLinkText="Download"
   />
 );
 
