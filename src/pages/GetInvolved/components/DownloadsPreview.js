@@ -17,6 +17,7 @@ const DownloadsPreview = ({ className, previews }) => {
         if (newPreviewsAppear) setPreviewsAppear(true);
       }
     };
+    handleScrollResizeEvent(); // Trigger immediately to show element if it's already in view
     const unregisterScrollResizeEventListeners =
       registerScrollResizeEventListeners(handleScrollResizeEvent);
 

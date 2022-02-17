@@ -17,6 +17,7 @@ const StepNumber = ({ className, number }) => {
         if (newShow) setShow(true);
       }
     };
+    handleScrollResizeEvent(); // Trigger immediately to show element if it's already in view
     const unregisterScrollResizeEventListeners =
       registerScrollResizeEventListeners(handleScrollResizeEvent);
 
