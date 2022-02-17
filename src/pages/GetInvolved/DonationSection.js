@@ -5,7 +5,7 @@ const Separator = () => <div className="separator" />;
 
 const Header = () => (
   <>
-    Donations are welcome <span className="shake">🎁</span>
+    Donations are welcome <span className="gift-box">🎁</span>
   </>
 );
 
