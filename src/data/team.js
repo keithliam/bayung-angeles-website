@@ -53,11 +53,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/AManOfService/',
+            link: 'https://bit.ly/ba-rivera-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetv6KDH/',
+            link: 'https://bit.ly/ba-rivera-tiktok',
           },
         ],
       },
@@ -144,7 +144,7 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/DocPieJuan/',
+            link: 'https://bit.ly/ba-juan-fb',
           },
         ],
       },
@@ -229,11 +229,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/BongArceo911Angeles/',
+            link: 'https://bit.ly/ba-arceo-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetvyMjc/',
+            link: 'https://bit.ly/ba-arceo-tiktok',
           },
         ],
       },
@@ -283,11 +283,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/archpaulmaiquez/',
+            link: 'https://bit.ly/ba-maiquez-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetvCvtE/',
+            link: 'https://bit.ly/ba-maiquez-tiktok',
           },
         ],
       },
@@ -348,7 +348,7 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/ChefDonQuito/',
+            link: 'https://bit.ly/ba-quito-fb',
           },
         ],
       },
@@ -424,7 +424,7 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/KuyaHarvs2022/',
+            link: 'https://bit.ly/ba-santiago-fb',
           },
         ],
       },
@@ -472,11 +472,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/jesellevegadayrit/',
+            link: 'https://bit.ly/ba-dayrit-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetvyY97/',
+            link: 'https://bit.ly/ba-dayrit-tiktok',
           },
         ],
       },
@@ -548,11 +548,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/TsuperDan/',
+            link: 'https://bit.ly/ba-aloot-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetvaj9p/',
+            link: 'https://bit.ly/ba-aloot-tiktok',
           },
         ],
       },
@@ -609,11 +609,11 @@ export const teamCategories = [
         socialMediaLinks: [
           {
             name: 'Facebook',
-            link: 'https://www.facebook.com/israelcforto/',
+            link: 'https://bit.ly/ba-forto-fb',
           },
           {
             name: 'TikTok',
-            link: 'https://vt.tiktok.com/ZSetv9Lkh/',
+            link: 'https://bit.ly/ba-forto-tiktok',
           },
         ],
       },
