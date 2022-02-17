@@ -116,7 +116,9 @@
           @include px-to-rem(300px);
           letter-spacing: 0.065em;
           color: $ba-blue;
-          opacity: 0.16;
+          user-select: none;
+          opacity: 0;
+          transition: opacity 1s ease-out;
 
           @media (max-width: $breakpoint-large) {
             @include px-to-rem(280px);
@@ -140,6 +142,10 @@
             @include px-to-rem(180px);
             top: -120px;
             left: -12px;
+          }
+
+          &.fade-in-enter-done:not(.fade-in-enter-active) {
+            opacity: 0.16;
           }
         }
 
