@@ -1,12 +1,12 @@
 import React from 'react';
 import { ImagePreview, StandardSection } from './components';
-import brandGuidelinesPreview from '../../assets/images/ba-brand-guidlines-preview.png';
+import brandGuidelinesPreview from '../../assets/images/ba-brand-assets-preview.png';
 
 const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
 
 const Header = () => 'Brand Assets';
 
-const Content = () => 'FOLLOW THESE GUIDELINES WHEN USING OUR MEDIA ASSETS.';
+const Content = () => 'LOGOS & FONTS AVAILABLE FOR DOWNLOAD';
 
 const Preview = () => (
   <ImagePreview
