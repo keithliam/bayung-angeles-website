@@ -8,13 +8,11 @@ const StepNumber = ({ className, number }) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (show) return null; // Avoid setting show back to false
-
     const handleScrollResizeEvent = () => {
       if (ref.current) {
         const { top } = ref.current.getBoundingClientRect();
         const newShow = top <= (window.innerHeight / 5) * 3;
-        if (newShow) setShow(true);
+        setShow(newShow);
       }
     };
     handleScrollResizeEvent(); // Trigger immediately to show element if it's already in view

@@ -8,13 +8,11 @@ const DownloadsPreview = ({ className, previews }) => {
   const [previewsAppear, setPreviewsAppear] = useState(false);
 
   useEffect(() => {
-    if (previewsAppear) return null; // Avoid setting previewsAppear back to false
-
     const handleScrollResizeEvent = () => {
       if (ref.current) {
         const { top } = ref.current.getBoundingClientRect();
         const newPreviewsAppear = top <= (window.innerHeight / 3) * 2;
-        if (newPreviewsAppear) setPreviewsAppear(true);
+        setPreviewsAppear(newPreviewsAppear);
       }
     };
     handleScrollResizeEvent(); // Trigger immediately to show element if it's already in view
