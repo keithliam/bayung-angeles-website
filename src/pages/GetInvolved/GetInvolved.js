@@ -26,37 +26,31 @@ const Section = ({ id, headingClassName, title, subtitle, children }) => (
   </div>
 );
 
-const GetInvolved = () => {
-  useEffect(() => {
-    window.scrollBy(0, -1);
-  }, []);
-
-  return (
-    <div id="get-involved">
-      <Section
-        headingClassName="heading-first"
-        title="Get Involved 🤝"
-        subtitle="Each one of us can make a difference."
-      >
-        <StepOneSection />
-        <StepTwoSection />
-        <StepThreeSection />
-        <StepFourSection />
-        <StepFiveSection />
-        <DonationSection />
-      </Section>
-      <Section
-        id={DOWNLOAD_ASSETS_SECTION_ID}
-        title="Download Assets 💾"
-        subtitle="Introduce others to the movement."
-      >
-        <BrandGuidelinesSection />
-        <BrandAssetsSection />
-        <StickersSection />
-        <PostersWallpapersSection />
-      </Section>
-    </div>
-  );
-};
+const GetInvolved = () => (
+  <div id="get-involved">
+    <Section
+      headingClassName="heading-first"
+      title="Get Involved 🤝"
+      subtitle="Each one of us can make a difference."
+    >
+      <StepOneSection />
+      <StepTwoSection />
+      <StepThreeSection />
+      <StepFourSection />
+      <StepFiveSection />
+      <DonationSection />
+    </Section>
+    <Section
+      id={DOWNLOAD_ASSETS_SECTION_ID}
+      title="Download Assets 💾"
+      subtitle="Introduce others to the movement."
+    >
+      <BrandGuidelinesSection />
+      <BrandAssetsSection />
+      <StickersSection />
+      <PostersWallpapersSection />
+    </Section>
+  </div>
+);
 
 export default GetInvolved;
