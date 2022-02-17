@@ -25,7 +25,7 @@ const StepNumber = ({ className, number }) => {
   }, [show]);
 
   return (
-    <CSSTransition in={show} classNames="fade-in">
+    <CSSTransition in={show} timeout={200} classNames="fade-in">
       <span ref={ref} className={classNames('step-num', className)}>
         {number}
       </span>
