@@ -18,7 +18,11 @@ const CoverSection = () => (
       <img src={coverOverlay} className="ba-cover" alt="cover" />
       <h4>Be part of the movement</h4>
       <span>Stay connected. Follow our socials.</span>
-      <SocialMediaLinks className="social-media-links" color="blue" />
+      <SocialMediaLinks
+        className="social-media-links"
+        linkClassName="social-media-links"
+        color="blue"
+      />
       <div className="cover-gradient">
         <HashLink className="scroll-down-indicator" to={`#${PILLARS_SECTION_ID}`} smooth>
           <img src={caratDown} alt="Scroll down" />
