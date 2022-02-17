@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'react-cool-img';
 import classNames from 'classnames';
 
 const ImagePreview = ({ className, src, alt, link }) => (
@@ -8,7 +9,7 @@ const ImagePreview = ({ className, src, alt, link }) => (
     target="_blank"
     rel="noreferrer"
   >
-    <img className="image-preview" src={src} alt={alt} />
+    <Img className="image-preview" src={src} alt={alt} />
   </a>
 );
 

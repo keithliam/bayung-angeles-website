@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
+import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import { CTAButton } from '../../components';
 import { getInvolved } from '../../routes';
@@ -37,7 +38,7 @@ const DownloadAssetPreview = ({ asset: { image, style, name } }) => (
     scroll={scrollToElementAvoidHeader}
     smooth
   >
-    <img className="asset-image" src={image} alt={name} />
+    <Img className="asset-image" src={image} alt={name} />
   </HashLink>
 );
 

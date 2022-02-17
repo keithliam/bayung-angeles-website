@@ -1,5 +1,6 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
+import Img from 'react-cool-img';
 import WingText from '../WingText';
 import OfficialEmoji from '../OfficialEmoji';
 import { landing } from '../../routes';
@@ -14,7 +15,7 @@ const Logo = ({ completeLogo, onClick, wingColor = 'white' }) => (
         Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
       </>
     ) : (
-      <img
+      <Img
         className="winged-single"
         src={wingColor === 'white' ? miniLogoWhite : miniLogoGold}
         alt="BÁ Logo"

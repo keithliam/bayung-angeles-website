@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'react-cool-img';
 import classNames from 'classnames';
 import { socialMediaLinks } from '../data/socialMediaLinks';
 
@@ -9,7 +10,7 @@ const SocialMediaLink = ({ className, color, link: { link, name, iconBlue, iconW
     target="_blank"
     rel="noreferrer"
   >
-    <img src={color === 'blue' ? iconBlue : iconWhite} alt={name} />
+    <Img src={color === 'blue' ? iconBlue : iconWhite} alt={name} />
   </a>
 );
 

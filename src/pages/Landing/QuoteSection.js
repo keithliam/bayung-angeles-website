@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import Img from 'react-cool-img';
 import classNames from 'classnames';
 import logoBlue from '../../assets/images/ba-logo-blue.png';
 import { registerScrollResizeEventListeners } from '../../helpers';
@@ -56,7 +57,7 @@ const QuoteSection = () => {
   return (
     <div ref={sectionRef} className="quote">
       <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
-        <img className="quote-bg" src={logoBlue} alt="BA logo" />
+        <Img className="quote-bg" src={logoBlue} alt="BA logo" />
       </CSSTransition>
       <div className="heading-line">
         <span className="quote-line">We need leaders</span>
