@@ -40,6 +40,9 @@ import cvQuito from '../assets/images/downloads-preview/posters-wallpapers/cv-qu
 import cvAloot from '../assets/images/downloads-preview/posters-wallpapers/cv-aloot.jpg';
 import cvMaiquez from '../assets/images/downloads-preview/posters-wallpapers/cv-maiquez.jpg';
 
+export const brandGuideLink = 'https://bit.ly/3HVYRDt';
+export const brandAssetsLink = 'https://bit.ly/36mE7XB';
+
 export const allStickersLink = 'https://bit.ly/ba-sticker-downloads';
 export const stickers = [
   {

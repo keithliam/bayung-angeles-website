@@ -1,8 +1,7 @@
 import React from 'react';
 import { ImagePreview, StandardSection } from './components';
+import { brandGuideLink } from '../../data/downloads';
 import brandGuidelinesPreview from '../../assets/images/ba-brand-identity-preview.png';
-
-const LINK = 'https://bit.ly/3HVYRDt';
 
 const Header = () => 'Visual Identity & Guidelines';
 
@@ -13,7 +12,7 @@ const Preview = () => (
     className="brand-preview"
     src={brandGuidelinesPreview}
     alt="Visual identity &amp; guidelines document preview"
-    link={LINK}
+    link={brandGuideLink}
   />
 );
 
@@ -23,7 +22,7 @@ const BrandGuidelinesSection = () => (
     headerComponent={Header}
     contentComponent={Content}
     previewComponent={Preview}
-    link={LINK}
+    link={brandGuideLink}
     ctaLinkText="Download"
   />
 );

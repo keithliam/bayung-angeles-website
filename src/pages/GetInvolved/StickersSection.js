@@ -1,5 +1,5 @@
 import React from 'react';
-import { allStickersLink, stickers } from '../../data/stickerDownloads';
+import { allStickersLink, stickers } from '../../data/downloads';
 import { DownloadsPreview, StandardSection } from './components';
 
 const Header = () => 'Sticker Designs';

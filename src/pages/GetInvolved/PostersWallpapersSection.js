@@ -1,5 +1,5 @@
 import React from 'react';
-import { allPostersWallpapersLink, postersWallpapers } from '../../data/stickerDownloads';
+import { allPostersWallpapersLink, postersWallpapers } from '../../data/downloads';
 import { DownloadsPreview, StandardSection } from './components';
 
 const Header = () => 'Poster & Wallpaper Designs';
