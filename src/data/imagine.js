@@ -31,7 +31,7 @@ export const topics = [
         link: 'https://bit.ly/3gSCdzZ',
       },
       {
-        title: 'Angeles City International Food Strip',
+        title: 'Angeles City Culinary Strip',
         credit: 'Ar. Paul Maiquez',
         creditLink: 'https://bit.ly/ba-maiquez-fb',
         source: foodStripPhoto,
