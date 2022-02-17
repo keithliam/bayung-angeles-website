@@ -24,7 +24,7 @@ const BrandGuidelinesSection = () => (
     contentComponent={Content}
     previewComponent={Preview}
     link={LINK}
-    ctaLinkText="Download Here"
+    ctaLinkText="Download"
   />
 );
 
