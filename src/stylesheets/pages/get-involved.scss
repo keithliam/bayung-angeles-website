@@ -253,16 +253,26 @@
                 width: 100%;
                 background-color: white;
                 border-radius: 18px;
-                transition: filter 0.5s ease-out, transform 0.5s ease-out;
+                transition: filter 0.5s ease-out, transform 0.5s ease-out, opacity 1s ease-out;
                 filter: drop-shadow(3px 3px 16px $previews-box-shadow-color);
-                transform: scale(1);
                 overflow: hidden;
+                opacity: 0;
 
-                &:hover {
-                  filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
-                  transform: scale(2);
-                  position: relative;
-                  z-index: 3;
+                &.fade-in-enter {
+                  transform: translateY(20%);
+                  transition: none;
+                }
+                
+                &.fade-in-enter-done:not(.fade-in-enter-active) {
+                  transform: translateY(0);
+                  opacity: 1;
+
+                  &:hover {
+                    filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
+                    transform: scale(2);
+                    position: relative;
+                    z-index: 3;
+                  }
                 }
 
                 img {
