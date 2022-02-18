@@ -32,6 +32,7 @@ import background1Portrait from '../assets/images/downloads-preview/posters-wall
 import background1 from '../assets/images/downloads-preview/posters-wallpapers/bg-1.jpg';
 import background2 from '../assets/images/downloads-preview/posters-wallpapers/bg-2.png';
 import calendar from '../assets/images/downloads-preview/posters-wallpapers/calendar.jpg';
+import cvRivera from '../assets/images/downloads-preview/posters-wallpapers/cv-rivera.jpg';
 import cvJuan from '../assets/images/downloads-preview/posters-wallpapers/cv-juan.jpg';
 import cvArceo from '../assets/images/downloads-preview/posters-wallpapers/cv-arceo.jpg';
 import cvDayrit from '../assets/images/downloads-preview/posters-wallpapers/cv-dayrit.jpg';
@@ -184,6 +185,10 @@ export const postersWallpapers = [
   {
     preview: calendar,
     link: 'https://bit.ly/3uSF8Rr',
+  },
+  {
+    preview: cvRivera,
+    link: 'https://bit.ly/3rYVd6k',
   },
   {
     preview: cvJuan,
