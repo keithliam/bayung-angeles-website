@@ -2,6 +2,8 @@ import React from 'react';
 import Img from 'react-cool-img';
 import classNames from 'classnames';
 
+import spinner from '../../../assets/images/spinner.gif';
+
 const ImagePreview = ({ className, src, alt, link }) => (
   <a
     className={classNames('image-preview-link', className)}
@@ -9,7 +11,7 @@ const ImagePreview = ({ className, src, alt, link }) => (
     target="_blank"
     rel="noreferrer"
   >
-    <Img className="image-preview" src={src} alt={alt} />
+    <Img className="image-preview" src={src} placeholder={spinner} alt={alt} />
   </a>
 );
 

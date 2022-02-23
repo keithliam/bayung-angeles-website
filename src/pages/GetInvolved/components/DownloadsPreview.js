@@ -4,6 +4,8 @@ import { CSSTransition } from 'react-transition-group';
 import Img from 'react-cool-img';
 import { registerScrollResizeEventListeners } from '../../../helpers';
 
+import spinner from '../../../assets/images/spinner.gif';
+
 const DownloadsPreview = ({ className, previews }) => {
   const ref = useRef();
   const [previewsAppear, setPreviewsAppear] = useState(false);
@@ -30,7 +32,7 @@ const DownloadsPreview = ({ className, previews }) => {
       {previews.map(({ preview, link }, index) => (
         <CSSTransition key={link} in={previewsAppear} timeout={index * 50} classNames="fade-in">
           <a className="preview-item" href={link} target="_blank" rel="noreferrer">
-            <Img src={preview} alt="Download preview" />
+            <Img src={preview} placeholder={spinner} alt="Download preview" />
           </a>
         </CSSTransition>
       ))}
