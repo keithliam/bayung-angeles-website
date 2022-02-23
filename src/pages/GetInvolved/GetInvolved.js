@@ -11,7 +11,7 @@ import BrandGuidelinesSection from './BrandGuidelinesSection';
 import BrandAssetsSection from './BrandAssetsSection';
 import StickersSection from './StickersSection';
 
-import cover from '../../assets/images/pisamban-maragul.png';
+import cover from '../../assets/images/pisamban-maragul.jpg';
 import PostersWallpapersSection from './PostersWallpapersSection';
 import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
 

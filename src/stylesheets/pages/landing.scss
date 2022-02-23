@@ -291,12 +291,12 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            height: 40vh;
+            height: 28vh;
             transition: opacity 1s ease-in-out, filter 3s ease-out;
             opacity: 0;
             pointer-events: none;
             animation: wing-fly 3s cubic-bezier(.31,.02,.36,.94) infinite alternate;
-            transform: translate(-35%, calc(-50% - 15vh));
+            transform: translate(-33%, calc(-50% - 15vh));
             filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
 
             &.bg-show {
@@ -620,8 +620,8 @@
           position: absolute;
           right: 0;
           bottom: 0;
-          height: 150%;
-          transform: translate(25%,35%);
+          height: 108%;
+          transform: translate(16%,29%);
           opacity: 0.3;
           pointer-events: none;
 
@@ -1469,13 +1469,13 @@
 
 @keyframes wing-fly {
   0% {
-    transform: translate(-35%, calc(-50% - 15vh));
+    transform: translate(-33%, calc(-50% - 15vh));
     transition: filter 3s ease-out;
     filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
   }
 
   100% {
-    transform: translate(-35%, calc(-50% - 15vh - 30px));
+    transform: translate(-33%, calc(-50% - 15vh - 30px));
     filter: blur(0) drop-shadow(0 0 40px rgba(255, 255, 255, 1));
   }
 }

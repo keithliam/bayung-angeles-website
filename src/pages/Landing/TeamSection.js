@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
-import baIllustration from '../../assets/images/ba-illus.png';
+import baIllustration from '../../assets/images/ba-illus.jpg';
 import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
 import caratRight from '../../assets/images/carat-right-blue.png';
