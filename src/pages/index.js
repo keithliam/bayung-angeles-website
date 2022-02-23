@@ -1,2 +1,3 @@
-export { default as Landing } from './Landing';
-export { default as GetInvolved } from './GetInvolved';
+// Do not import/export Landing & GetInvolved pages to preserve code-splitting
+export { default as Loading } from './Loading';
+export { default as Error } from './Error';

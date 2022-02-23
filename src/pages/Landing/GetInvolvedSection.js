@@ -3,7 +3,7 @@ import { CSSTransition } from 'react-transition-group';
 import Img from 'react-cool-img';
 import { CTAButton, OfficialEmoji } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
-import { getInvolved } from '../../routes';
+import { GET_INVOLVED_PATH } from '../../constants';
 
 import logoFlagWhite from '../../assets/images/ba-logo-flag-white.png';
 
@@ -33,7 +33,7 @@ const GetInvolvedSection = () => {
           className="cta-btn"
           color="blue"
           text="Get Involved"
-          hashlink={`${getInvolved.pathname}#`}
+          hashlink={`${GET_INVOLVED_PATH}#`}
         />
       </div>
       <div className="involved-image-container">
