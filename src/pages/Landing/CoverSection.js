@@ -2,7 +2,7 @@ import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import Img from 'react-cool-img';
 import { PhotoCredit, SocialMediaLinks, WingText, OfficialEmoji } from '../../components';
-import cover from '../../assets/images/pisamban-maragul.png';
+import cover from '../../assets/images/pisamban-maragul.jpg';
 import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png';
 
 import caratDown from '../../assets/images/carat-down.svg';

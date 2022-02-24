@@ -2,7 +2,7 @@ import carSticker from '../assets/images/downloads-preview/asset-car-sticker.jpg
 import badgePin from '../assets/images/downloads-preview/asset-badge-pin.jpg';
 import baLogo from '../assets/images/downloads-preview/asset-ba-logo.png';
 import baIllustrationAnimated from '../assets/images/downloads-preview/asset-ba-illus-animated.gif';
-import fbFrame from '../assets/images/downloads-preview/asset-fb-frame.png';
+import fbFrame from '../assets/images/downloads-preview/asset-fb-frame.jpg';
 import jeepSign from '../assets/images/downloads-preview/asset-jeep-sign.png';
 
 export const previewAssets = [

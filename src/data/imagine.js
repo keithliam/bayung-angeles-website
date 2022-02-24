@@ -1,6 +1,6 @@
 import healthCareProjectsPhoto from '../assets/images/angeles-healthcare-projects.jpg';
-import dialysisCenterPhoto from '../assets/images/angeles-dialysis-center.png';
-import foodStripPhoto from '../assets/images/angeles-food-strip.png';
+import dialysisCenterPhoto from '../assets/images/angeles-dialysis-center.jpg';
+import foodStripPhoto from '../assets/images/angeles-food-strip.jpg';
 import civilCivicProjectsPhoto from '../assets/images/angeles-civil-civic-projects.jpg';
 import housingProjectsPhoto from '../assets/images/angeles-housing-projects.jpg';
 
