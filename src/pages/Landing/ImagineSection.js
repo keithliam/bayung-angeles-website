@@ -90,7 +90,7 @@ const ImagineSection = () => {
               </div>
             </CSSTransition>
           </SwitchTransition>
-          <a className="learn-more-link" href={link}>
+          <a className="learn-more-link" href={link} target="_blank" rel="noreferrer">
             Learn More
           </a>
         </div>
