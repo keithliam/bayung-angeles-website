@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'react-cool-img';
 import classNames from 'classnames';
 
 import wingGold from '../assets/images/wing-gold.svg';
@@ -10,7 +11,7 @@ const WingText = ({
 }) => (
   <span className={classNames('wing-text', className)}>
     {text}
-    <img className={wingPosition} src={wingGold} alt="wing" />
+    <Img className={wingPosition} src={wingGold} alt="wing" />
   </span>
 );
 

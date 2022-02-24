@@ -1,10 +1,14 @@
 @use 'base.scss';
 
 @use 'components/footer.scss';
-@use 'components/header.scss';
+@use 'components/navbar.scss';
 @use 'components/photoCredit.scss';
-@use 'components/socialMediaLink.scss';
+@use 'components/socialMediaLinks.scss';
 @use 'components/wingText.scss';
 @use 'components/cta-button.scss';
+@use 'components/officialEmoji.scss';
+@use 'components/loadingScreen.scss';
+@use 'components/errorScreen.scss';
 
 @use 'pages/landing.scss';
+@use 'pages/get-involved.scss';

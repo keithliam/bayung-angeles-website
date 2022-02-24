@@ -16,10 +16,9 @@ module.exports = {
     // printWidth in the .prettierrc.js file does not work, so we have to specify it here
     'prettier/prettier': ['warn', { printWidth: 100 }],
   },
+  parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaversion: 6,
   },
   env: {
     browser: true,
