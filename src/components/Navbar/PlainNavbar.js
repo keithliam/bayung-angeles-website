@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import NavigationLinks from './NavigationLinks';
 import Logo from './Logo';
-import { landing } from '../../routes';
+import { LANDING_PATH } from '../../constants';
 
 const PlainNavbar = () => {
   const [shortenOurTeamNavText, setShortenOurTeamNavText] = useState(false);
@@ -18,7 +18,7 @@ const PlainNavbar = () => {
 
   return (
     <nav className="plain-navbar">
-      {pathname !== landing.pathname && <Logo wingColor="blue" />}
+      {pathname !== LANDING_PATH && <Logo wingColor="blue" />}
       <NavigationLinks shortenOurTeamNavText={shortenOurTeamNavText} />
     </nav>
   );

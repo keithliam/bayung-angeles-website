@@ -1,8 +1,12 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import classNames from 'classnames';
-import { landing, getInvolved } from '../../routes';
-import { STEP_THREE_SECTION_ID, TEAM_SECTION_ID } from '../../constants';
+import {
+  LANDING_PATH,
+  GET_INVOLVED_PATH,
+  STEP_THREE_SECTION_ID,
+  TEAM_SECTION_ID,
+} from '../../constants';
 import { scrollToElementAvoidHeader } from '../../helpers';
 
 const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOurTeamNavText }) => {
@@ -15,7 +19,7 @@ const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOu
       <HashLink
         className={classNames('nav-link', buttonsClassname)}
         onClick={handleMeetOurTeamClick}
-        to={`${landing.pathname}#${TEAM_SECTION_ID}`}
+        to={`${LANDING_PATH}#${TEAM_SECTION_ID}`}
         scroll={scrollToElementAvoidHeader}
         smooth
       >
@@ -24,7 +28,7 @@ const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOu
       <HashLink
         className={classNames('nav-link', buttonsClassname)}
         onClick={onButtonClick}
-        to={`${getInvolved.pathname}#`}
+        to={`${GET_INVOLVED_PATH}#`}
         smooth
       >
         Get Involved
@@ -32,7 +36,7 @@ const NavigationLinks = ({ className, buttonsClassname, onButtonClick, shortenOu
       <HashLink
         className={classNames('nav-link', buttonsClassname)}
         onClick={onButtonClick}
-        to={`${getInvolved.pathname}#${STEP_THREE_SECTION_ID}`}
+        to={`${GET_INVOLVED_PATH}#${STEP_THREE_SECTION_ID}`}
         scroll={scrollToElementAvoidHeader}
         smooth
       >

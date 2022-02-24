@@ -1,11 +1,23 @@
-import { Landing, GetInvolved } from './pages';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { GET_INVOLVED_PATH, LANDING_PATH } from './constants';
 
-export const landing = {
-  pathname: '/',
-  component: Landing,
-};
+const Landing = React.lazy(() => import('./pages/Landing'));
+const GetInvolved = React.lazy(() => import('./pages/GetInvolved'));
 
-export const getInvolved = {
-  pathname: '/get-involved',
-  component: GetInvolved,
-};
+const routes = [
+  {
+    path: LANDING_PATH,
+    element: <Landing />,
+  },
+  {
+    path: GET_INVOLVED_PATH,
+    element: <GetInvolved />,
+  },
+  {
+    path: '*',
+    element: <Navigate to={LANDING_PATH} />,
+  },
+];
+
+export default routes;

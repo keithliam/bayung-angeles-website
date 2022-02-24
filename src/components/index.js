@@ -5,3 +5,4 @@ export { default as SocialMediaLinks } from './SocialMediaLinks';
 export { default as WingText } from './WingText';
 export { default as CTAButton } from './CTAButton';
 export { default as OfficialEmoji } from './OfficialEmoji';
+export { default as ErrorBoundary } from './ErrorBoundary';

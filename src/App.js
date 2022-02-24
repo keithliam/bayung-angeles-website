@@ -1,17 +1,24 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { landing, getInvolved } from './routes';
-import { Footer, Navbar } from './components';
+import React, { Suspense } from 'react';
+import { BrowserRouter, useRoutes } from 'react-router-dom';
+import routes from './routes';
+import { Footer, Navbar, ErrorBoundary } from './components';
+import { Loading as LoadingPage, Error as ErrorPage } from './pages';
 
 const App = () => (
-  <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path={landing.pathname} element={<landing.component />} />
-      <Route path={getInvolved.pathname} element={<getInvolved.component />} />
-    </Routes>
-    <Footer />
-  </BrowserRouter>
+  <ErrorBoundary errorComponent={ErrorPage}>
+    <Suspense fallback={<LoadingPage />}>
+      <BrowserRouter>
+        <Navbar />
+        <Routes />
+        <Footer />
+      </BrowserRouter>
+    </Suspense>
+  </ErrorBoundary>
 );
+
+const Routes = () => {
+  const element = useRoutes(routes);
+  return element;
+};
 
 export default App;

@@ -3,8 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import { CTAButton } from '../../components';
-import { getInvolved } from '../../routes';
-import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
+import { DOWNLOAD_ASSETS_SECTION_ID, GET_INVOLVED_PATH } from '../../constants';
 import { scrollToElementAvoidHeader } from '../../helpers';
 
 import { previewAssets } from '../../data/downloadsSection';
@@ -17,7 +16,7 @@ const DownloadsSection = () => (
         className="cta-btn"
         color="gold"
         text="Downloads"
-        hashlink={`${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`}
+        hashlink={`${GET_INVOLVED_PATH}#${DOWNLOAD_ASSETS_SECTION_ID}`}
       />
     </div>
     <div className="downloads-assets-container">
@@ -34,7 +33,7 @@ const DownloadAssetPreview = ({ asset: { image, style, name } }) => (
   <HashLink
     className="downloads-asset"
     style={prefix(style)}
-    to={`${getInvolved.pathname}#${DOWNLOAD_ASSETS_SECTION_ID}`}
+    to={`${GET_INVOLVED_PATH}#${DOWNLOAD_ASSETS_SECTION_ID}`}
     scroll={scrollToElementAvoidHeader}
     smooth
   >

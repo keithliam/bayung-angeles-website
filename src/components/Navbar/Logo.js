@@ -3,13 +3,13 @@ import { HashLink } from 'react-router-hash-link';
 import Img from 'react-cool-img';
 import WingText from '../WingText';
 import OfficialEmoji from '../OfficialEmoji';
-import { landing } from '../../routes';
+import { LANDING_PATH } from '../../constants';
 
 import miniLogoWhite from '../../assets/images/ba-logo-mini-white.png';
 import miniLogoGold from '../../assets/images/ba-logo-mini-gold.png';
 
 const Logo = ({ completeLogo, onClick, wingColor = 'white' }) => (
-  <HashLink className="logo nav-link" to={`${landing.pathname}#`} onClick={onClick} smooth>
+  <HashLink className="logo nav-link" to={`${LANDING_PATH}#`} onClick={onClick} smooth>
     {completeLogo ? (
       <>
         Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
