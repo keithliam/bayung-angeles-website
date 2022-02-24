@@ -8,6 +8,8 @@ import { scrollToElementAvoidHeader } from '../../helpers';
 
 import { previewAssets } from '../../data/downloadsSection';
 
+import spinner from '../../assets/images/spinner.gif';
+
 const DownloadsSection = () => (
   <div className="downloads">
     <div className="downloads-content">
@@ -37,7 +39,7 @@ const DownloadAssetPreview = ({ asset: { image, style, name } }) => (
     scroll={scrollToElementAvoidHeader}
     smooth
   >
-    <Img className="asset-image" src={image} alt={name} />
+    <Img className="asset-image" src={image} placeholder={spinner} alt={name} />
   </HashLink>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StandardSection, SectionHeaderHighlight, StepNumber, ImagePreview } from './components';
-import fbGroup from '../../assets/images/ba-fb-group.png';
+import fbGroup from '../../assets/images/ba-fb-group.jpg';
 
 const LINK = 'https://bit.ly/bayung-angeles-fb-group';
 

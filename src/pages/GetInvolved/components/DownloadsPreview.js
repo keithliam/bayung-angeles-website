@@ -5,6 +5,8 @@ import { prefix } from 'inline-style-prefixer';
 import Img from 'react-cool-img';
 import { registerScrollResizeEventListeners } from '../../../helpers';
 
+import spinner from '../../../assets/images/spinner.gif';
+
 const DownloadsPreview = ({ className, previews }) => {
   const ref = useRef();
   const [previewsAppear, setPreviewsAppear] = useState(false);
@@ -37,7 +39,7 @@ const DownloadsPreview = ({ className, previews }) => {
             rel="noreferrer"
             style={prefix({ transitionDelay: `${index * 50}ms` })}
           >
-            <Img src={preview} alt="Download preview" />
+            <Img src={preview} placeholder={spinner} alt="Download preview" />
           </a>
         </CSSTransition>
       ))}

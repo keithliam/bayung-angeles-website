@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react';
 import ScrollFade from '@benestudioco/react-scrollfade';
 import { PhotoCredit, WingText } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
-import baIllustration from '../../assets/images/ba-illus.png';
+import baIllustration from '../../assets/images/ba-illus.jpg';
 import baLogo from '../../assets/images/ba-logo-yellow.png';
 import caratDown from '../../assets/images/carat-down.svg';
 import caratRight from '../../assets/images/carat-right-blue.png';
@@ -18,6 +18,8 @@ import {
   memberIndexInCategoryByOverallMemberIndex,
   overallMemberIndexByCategoryMemberIndices,
 } from '../../data/team';
+
+import spinner from '../../assets/images/spinner-landscape.gif';
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
@@ -189,7 +191,12 @@ const MemberCard = ({
   disableScroll,
 }) => (
   <>
-    <Img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
+    <Img
+      className="team-card-banner"
+      src={bannerImage}
+      placeholder={spinner}
+      alt={`${name} Banner`}
+    />
     <div className="team-card-content">
       <div
         className={classNames('member-info', { 'no-scroll': disableScroll })}

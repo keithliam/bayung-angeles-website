@@ -6,7 +6,7 @@ import {
   StepNumber,
   ImagePreview,
 } from './components';
-import fbPage from '../../assets/images/ba-fb-page.png';
+import fbPage from '../../assets/images/ba-fb-page.jpg';
 
 const LINK = 'https://bit.ly/bayung-angeles-facebook-page';
 
