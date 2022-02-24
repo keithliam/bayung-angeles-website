@@ -263,22 +263,29 @@
                 filter: drop-shadow(3px 3px 16px $previews-box-shadow-color);
                 overflow: hidden;
                 opacity: 0;
+                transform: translateY(20%);
 
-                &.fade-in-enter {
-                  transform: translateY(20%);
-                  transition: none;
-                }
-                
-                &.fade-in-enter-done:not(.fade-in-enter-active) {
-                  transform: translateY(0);
-                  opacity: 1;
-
-                  &:hover {
-                    filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
-                    transform: scale(2);
-                    position: relative;
-                    z-index: 3;
+                &.fade-in {
+                  &-enter,
+                  &-exit,
+                  &-exit-active {
+                    transform: translateY(20%);
+                    opacity: 0;
                   }
+
+                  &-enter-active,
+                  &-enter-done {
+                    transform: translateY(0);
+                    opacity: 1;
+                  }
+                }
+
+                &:hover {
+                  filter: drop-shadow(3px 3px 36px $previews-box-shadow-color);
+                  transform: scale(2);
+                  position: relative;
+                  z-index: 3;
+                  transition-delay: 0ms !important;
                 }
 
                 img {
