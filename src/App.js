@@ -1,18 +1,21 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter, useRoutes } from 'react-router-dom';
 import routes from './routes';
-import { Footer, Navbar, ErrorBoundary } from './components';
-import { Loading as LoadingPage, Error as ErrorPage } from './pages';
+import { Footer, Navbar, ErrorBoundary, LoadingScreen, ErrorScreen } from './components';
 
 const App = () => (
-  <ErrorBoundary errorComponent={ErrorPage}>
-    <Suspense fallback={<LoadingPage />}>
-      <BrowserRouter>
-        <Navbar />
-        <Routes />
-        <Footer />
-      </BrowserRouter>
-    </Suspense>
+  <ErrorBoundary errorComponent={ErrorScreen}>
+    <LoadingScreen delay={1500}>
+      {fallbackManager => (
+        <Suspense fallback={fallbackManager}>
+          <BrowserRouter>
+            <Navbar />
+            <Routes />
+            <Footer />
+          </BrowserRouter>
+        </Suspense>
+      )}
+    </LoadingScreen>
   </ErrorBoundary>
 );
 

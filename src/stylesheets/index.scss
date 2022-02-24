@@ -7,8 +7,8 @@
 @use 'components/wingText.scss';
 @use 'components/cta-button.scss';
 @use 'components/officialEmoji.scss';
+@use 'components/loadingScreen.scss';
+@use 'components/errorScreen.scss';
 
 @use 'pages/landing.scss';
 @use 'pages/get-involved.scss';
-@use 'pages/loading.scss';
-@use 'pages/error.scss';
