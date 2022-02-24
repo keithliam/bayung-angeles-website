@@ -186,7 +186,14 @@ const CardNavButton = ({ swiperRef, xDirection }) => {
 };
 
 const MemberCard = ({
-  member: { name, bannerImage, education, experience, affiliations },
+  member: {
+    name,
+    bannerImage,
+    education,
+    experience,
+    affiliations,
+    socialMediaLinks: [firstSocialLink],
+  },
   onCardContentScroll,
   disableScroll,
 }) => (
@@ -209,10 +216,17 @@ const MemberCard = ({
       </div>
       <div className="member-footer">
         <div className="member-social-media-links" />
-        <a className="member-page-link" href="google.com">
-          Learn More
-          <Img src={caratRight} alt="Button arrow" />
-        </a>
+        {firstSocialLink && (
+          <a
+            className="member-page-link"
+            href={firstSocialLink.link}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Learn More
+            <Img src={caratRight} alt="Button arrow" />
+          </a>
+        )}
       </div>
     </div>
   </>
