@@ -6,8 +6,8 @@ import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
-import baIllustration from '../../assets/images/ba-illus.png';
-import logoWhite from '../../assets/images/logo-minimal-white.png';
+import baIllustration from '../../assets/images/ba-illus.jpg';
+import logoWhite from '../../assets/images/ba-logo-mini-white.png';
 
 import { topics } from '../../data/pillars';
 
