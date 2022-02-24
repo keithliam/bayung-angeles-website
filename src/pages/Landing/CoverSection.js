@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
-import Img from 'react-cool-img';
 import { PhotoCredit, SocialMediaLinks, WingText, OfficialEmoji } from '../../components';
 import cover from '../../assets/images/angeles-city-cover.jpg';
 
@@ -10,7 +9,7 @@ import { PILLARS_SECTION_ID } from '../../constants';
 
 const CoverSection = () => (
   <div className="cover-container">
-    <Img src={cover} className="ba-cover" alt="cover" />
+    <img src={cover} className="ba-cover" alt="cover" />
     <div className="cover-headline">
       <h1>
         Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
@@ -24,7 +23,7 @@ const CoverSection = () => (
       />
       <div className="cover-gradient">
         <HashLink className="scroll-down-indicator" to={`#${PILLARS_SECTION_ID}`} smooth>
-          <Img src={caratDown} alt="Scroll down" />
+          <img src={caratDown} alt="Scroll down" />
         </HashLink>
         <PhotoCredit
           className="cover-credit"

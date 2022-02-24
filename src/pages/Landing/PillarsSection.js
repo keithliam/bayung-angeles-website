@@ -53,7 +53,7 @@ const PillarsSection = ({ id = 'pillars' }) => {
   return (
     <div ref={sectionRef} id={id} className="pillars">
       <Sticky bottomBoundary={`#${id}`} innerClass="pillars-content">
-        <Img
+        <img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={prefix({ transform: `scale(${backgroundScale})` })}
           src={baIllustration}

@@ -60,7 +60,7 @@ const TeamSection = ({ id }) => {
 
   return (
     <div id={id} ref={sectionRef} className="team">
-      <Img className="team-bg" src={baIllustration} alt="BA logo" />
+      <img className="team-bg" src={baIllustration} alt="illustration" />
       <div className="team-content">
         <span className="introduce-text">Introducing</span>
         <div className="introduce-headline">
