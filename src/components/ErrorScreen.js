@@ -5,7 +5,7 @@ import CTAButton from './CTAButton';
 import miniLogoWhite from '../assets/images/ba-logo-mini-white-no-diacritic.png';
 
 const ErrorScreen = () => (
-  <div className="error-page">
+  <div className="error-screen">
     <div>
       <Img className="logo" src={miniLogoWhite} alt="A" />
       <h1>ró Páró!</h1>
