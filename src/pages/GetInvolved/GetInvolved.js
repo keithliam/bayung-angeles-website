@@ -10,9 +10,9 @@ import DonationSection from './DonationSection';
 import BrandGuidelinesSection from './BrandGuidelinesSection';
 import BrandAssetsSection from './BrandAssetsSection';
 import StickersSection from './StickersSection';
-
-import cover from '../../assets/images/pisamban-maragul.jpg';
 import PostersWallpapersSection from './PostersWallpapersSection';
+
+import cover from '../../assets/images/angeles-city-cover.jpg';
 import { DOWNLOAD_ASSETS_SECTION_ID } from '../../constants';
 
 const Section = ({ id, headingClassName, title, subtitle, children }) => (
