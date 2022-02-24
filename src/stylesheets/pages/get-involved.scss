@@ -33,11 +33,15 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
-        object-position: top;
+        object-position: center;
+
+        @media (max-width: $breakpoint-mobile) {
+          object-position: top;
+        }
       }
 
       .heading-gradient {
-        background: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%); 
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 50%); 
       }
     
       h1 {
