@@ -35,7 +35,7 @@ const Loader = ({ loading }) => (
 );
 
 /**
- * Displays a loader on top of its children that persists for a specified amount of time.
+ * Displays a loader on top of its children. Persists for a specified amount of time.
  */
 const LoadingScreen = ({ delay, children }) => {
   const timerRef = useRef();
