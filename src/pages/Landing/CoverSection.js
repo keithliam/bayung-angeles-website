@@ -2,8 +2,7 @@ import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 import Img from 'react-cool-img';
 import { PhotoCredit, SocialMediaLinks, WingText, OfficialEmoji } from '../../components';
-import cover from '../../assets/images/pisamban-maragul.jpg';
-import coverOverlay from '../../assets/images/pisamban-maragul-isolated.png';
+import cover from '../../assets/images/angeles-city-cover.jpg';
 
 import caratDown from '../../assets/images/carat-down.svg';
 
@@ -16,7 +15,6 @@ const CoverSection = () => (
       <h1>
         Báyung <WingText text="Ángeles" wingPosition="start" /> <OfficialEmoji />
       </h1>
-      <Img src={coverOverlay} className="ba-cover" alt="cover" />
       <h4>Be part of the movement</h4>
       <span>Stay connected. Follow our socials.</span>
       <SocialMediaLinks
@@ -30,7 +28,7 @@ const CoverSection = () => (
         </HashLink>
         <PhotoCredit
           className="cover-credit"
-          title="Pisamban Maragul"
+          title="Mumunang Sala"
           name="Bruno Tiotuico"
           link="https://bit.ly/bayung-angeles-portfolio-bruno"
         />
