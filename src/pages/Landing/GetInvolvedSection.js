@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Img from 'react-cool-img';
 import { CTAButton, OfficialEmoji } from '../../components';
 import { registerScrollResizeEventListeners } from '../../helpers';
 import { GET_INVOLVED_PATH } from '../../constants';
@@ -38,7 +37,7 @@ const GetInvolvedSection = () => {
       </div>
       <div className="involved-image-container">
         <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
-          <Img className="involved-bg" src={logoFlagWhite} alt="BA Flag" />
+          <img className="involved-bg" src={logoFlagWhite} alt="BA Flag" />
         </CSSTransition>
       </div>
     </div>
