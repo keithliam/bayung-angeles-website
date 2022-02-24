@@ -1,10 +1,10 @@
 import React from 'react';
 import Img from 'react-cool-img';
-import { CTAButton } from '../components';
+import CTAButton from './CTAButton';
 
 import miniLogoWhite from '../assets/images/ba-logo-mini-white-no-diacritic.png';
 
-const ErrorPage = () => (
+const ErrorScreen = () => (
   <div className="error-page">
     <div>
       <Img className="logo" src={miniLogoWhite} alt="A" />
@@ -20,4 +20,4 @@ const ErrorPage = () => (
   </div>
 );
 
-export default ErrorPage;
+export default ErrorScreen;

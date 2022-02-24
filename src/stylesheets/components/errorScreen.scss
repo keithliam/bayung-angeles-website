@@ -2,7 +2,7 @@
 @use '../theme/colors' as *;
 @use '../theme/typography' as *;
 
-.loading-page {
+.error-screen {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -12,32 +12,34 @@
   background-color: $ba-blue;
   color: $ba-smoke;
   text-align: center;
+  user-select: none;
 
   .logo {
-    margin-top: -10vh;
     height: 130px;
     z-index: 1;
+    pointer-events: none;
     
     @media (max-width: $breakpoint-large) {
       height: 105px;
     }
 
     @media (max-width: $breakpoint-small) {
-      height: 120px;
+      height: 83px;
     }
 
     @media (max-width: $breakpoint-tablet) {
-      height: 100px;
+      height: 68px;
     }
 
     @media (max-width: $breakpoint-mobile) {
-      height: 90px;
+      height: 50px;
     }
   }
   
   h1 {
+    display: inline-block;
     margin: 0;
-    margin-top: 5vh;
+    margin-left: -0.3em;
     letter-spacing: 0.107em;
     font-family: $font-heading;
     @include px-to-rem(130px);
