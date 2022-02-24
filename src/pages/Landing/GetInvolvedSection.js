@@ -1,29 +1,44 @@
-import React from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
+import React, { useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { CTAButton } from '../../components';
+import Img from 'react-cool-img';
+import { CTAButton, OfficialEmoji } from '../../components';
+import { registerScrollResizeEventListeners } from '../../helpers';
+import { GET_INVOLVED_PATH } from '../../constants';
 
 import logoFlagWhite from '../../assets/images/ba-logo-flag-white.png';
 
 const GetInvolvedSection = () => {
-  const [ref, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
+  const sectionRef = useRef();
+  const [imageAppear, setImageAppear] = useState(false);
 
-  const imageAppear = bounds.top <= dimensions.height / 2;
+  useEffect(() => {
+    const handleScrollResizeEvent = () => {
+      if (sectionRef.current) {
+        const { top } = sectionRef.current.getBoundingClientRect();
+        setImageAppear(top <= window.innerHeight / 2);
+      }
+    };
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
+  }, []);
 
   return (
-    <div ref={ref} className="get-involved">
+    <div ref={sectionRef} className="get-involved">
       <div className="involved-content">
         <span className="heading-line">
-          Together we can make Angeles City the best city in the country.
+          Together we can make Angeles City the best city in the country.{' '}
+          <OfficialEmoji color="white" />
         </span>
         <span className="involved-subheading">Show your support. Join the movement.</span>
-        <CTAButton className="cta-btn" color="blue" text="Get Involved" />
+        <CTAButton
+          className="cta-btn"
+          color="blue"
+          text="Get Involved"
+          hashlink={`${GET_INVOLVED_PATH}#`}
+        />
       </div>
       <div className="involved-image-container">
         <CSSTransition in={imageAppear} classNames="fade" timeout={3000} unmountOnExit>
-          <img className="involved-bg" src={logoFlagWhite} alt="BA Flag" />
+          <Img className="involved-bg" src={logoFlagWhite} alt="BA Flag" />
         </CSSTransition>
       </div>
     </div>

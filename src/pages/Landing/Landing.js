@@ -1,5 +1,4 @@
-import React, { useLayoutEffect, useRef } from 'react';
-import useMeasure from 'react-use-measure';
+import React, { useEffect } from 'react';
 import CoverSection from './CoverSection';
 import PillarsSection from './PillarsSection';
 import ImagineSection from './ImagineSection';
@@ -7,36 +6,28 @@ import QuoteSection from './QuoteSection';
 import TeamSection from './TeamSection';
 import GetInvolvedSection from './GetInvolvedSection';
 import DownloadsSection from './DownloadsSection';
-import { Footer, Header } from '../../components';
+import { PILLARS_SECTION_ID, TEAM_SECTION_ID } from '../../constants';
 
 const LandingPage = () => {
-  const [ref, bounds] = useMeasure();
-  const coverSectionRef = useRef();
-  const pillarsSectionRef = useRef();
-  const teamSectionRef = useRef();
-
   // This is just a fix because react-stickynode requires a scroll event to initially appear.
   // See https://github.com/yahoo/react-stickynode/issues/383
-  const measurementDone = Object.values(bounds).some(pixels => pixels !== 0);
-  useLayoutEffect(() => {
-    if (measurementDone) window.scrollBy(0, -1);
-  }, [measurementDone]);
+  useEffect(() => {
+    window.scrollBy(0, -1);
+  }, []);
 
   return (
-    <div ref={ref} id="landing">
-      <Header coverSectionRef={coverSectionRef} teamSectionRef={teamSectionRef} />
+    <div id="landing">
       <div className="container">
-        <CoverSection ref={coverSectionRef} pillarsSectionRef={pillarsSectionRef} />
+        <CoverSection />
         <div className="content-container">
-          <PillarsSection ref={pillarsSectionRef} />
+          <PillarsSection id={PILLARS_SECTION_ID} />
           <ImagineSection />
           <QuoteSection />
-          <TeamSection ref={teamSectionRef} />
+          <TeamSection id={TEAM_SECTION_ID} />
           <GetInvolvedSection />
           <DownloadsSection />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

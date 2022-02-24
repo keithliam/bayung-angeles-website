@@ -1,49 +1,65 @@
-import React, { forwardRef } from 'react';
-import useMeasure from 'react-use-measure';
-import { useDimensions } from 'react-viewport-utils';
-import mergeRefs from 'merge-refs';
+import React, { useEffect, useRef, useState } from 'react';
 import Sticky from 'react-stickynode';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
+import Img from 'react-cool-img';
 import { prefix } from 'inline-style-prefixer';
 import classNames from 'classnames';
 import { PhotoCredit, WingText } from '../../components';
-import baIllustration from '../../assets/images/ba-illus.png';
-import logoWhite from '../../assets/images/logo-minimal-white.png';
+import { registerScrollResizeEventListeners } from '../../helpers';
+import baIllustration from '../../assets/images/ba-illus.jpg';
+import logoWhite from '../../assets/images/ba-logo-mini-white.png';
 
 import { topics } from '../../data/pillars';
 
 const lastTopicIndex = topics.length - 1;
 
-const PillarsSection = (props, ref) => {
-  const [sectionRef, bounds] = useMeasure({ scroll: true });
-  const dimensions = useDimensions();
+const PillarsSection = ({ id = 'pillars' }) => {
+  const sectionRef = useRef();
+  const [topicIndex, setTopicIndex] = useState(0);
+  const [entireSectionInView, setEntireSectionInView] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+  const [backgroundScale, setBackgroundScale] = useState(1);
 
-  const viewportHeight = dimensions.height;
-  const { top, bottom } = bounds;
+  useEffect(() => {
+    const handleScrollResizeEvent = () => {
+      if (sectionRef.current) {
+        const viewportHeight = window.innerHeight;
+        const { top, bottom } = sectionRef.current.getBoundingClientRect();
 
-  const topicIndex = (() => {
-    const nthTopic = Math.floor(-top / viewportHeight);
-    if (nthTopic < 0) return 0;
-    if (nthTopic > lastTopicIndex) return lastTopicIndex;
-    return nthTopic;
-  })();
+        const newTopicIndex = (() => {
+          const nthTopic = Math.floor(-top / viewportHeight);
+          if (nthTopic < 0) return 0;
+          if (nthTopic > lastTopicIndex) return lastTopicIndex;
+          return nthTopic;
+        })();
+        setTopicIndex(newTopicIndex);
+
+        const scrolledPastSectionTop = top < 0;
+        const newEntireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
+        setEntireSectionInView(newEntireSectionInView);
+
+        setShowLogo(newEntireSectionInView && top + viewportHeight * 0.2 < 0);
+
+        const newScale = scrolledPastSectionTop ? 1 + -top / 50000 : 1;
+        const roundedScale = Math.floor(newScale * 1000) / 1000;
+        setBackgroundScale(roundedScale);
+      }
+    };
+    return registerScrollResizeEventListeners(handleScrollResizeEvent);
+  }, []);
+
   const { title, description } = topics[topicIndex];
 
-  const scrolledPastSectionTop = top < 0;
-  const entireSectionInView = scrolledPastSectionTop && bottom - viewportHeight > 0;
-  const showLogo = entireSectionInView && top + viewportHeight * 0.2 < 0;
-  const backgroundScale = scrolledPastSectionTop ? 1 + -top / 50000 : 1;
-
   return (
-    <div ref={mergeRefs(ref, sectionRef)} id="pillars" className="pillars">
-      <Sticky bottomBoundary="#pillars" innerClass="pillars-content">
-        <img
+    <div ref={sectionRef} id={id} className="pillars">
+      <Sticky bottomBoundary={`#${id}`} innerClass="pillars-content">
+        <Img
           className={classNames('pillars-bg', { 'bg-show': entireSectionInView })}
           style={prefix({ transform: `scale(${backgroundScale})` })}
           src={baIllustration}
           alt="illustration"
         />
-        <img
+        <Img
           className={classNames('pillars-bg-logo', { 'bg-show': showLogo })}
           src={logoWhite}
           alt="illustration"
@@ -56,13 +72,13 @@ const PillarsSection = (props, ref) => {
         <div className="topic">
           <span className="highlight">Our </span>
           <SwitchTransition mode="out-in">
-            <CSSTransition key={title} classNames="scroll" timeout={1000}>
+            <CSSTransition key={title} classNames="scroll" timeout={500}>
               <WingText className="title" text={title} wingPosition="end" />
             </CSSTransition>
           </SwitchTransition>
         </div>
         <SwitchTransition mode="out-in">
-          <CSSTransition key={title} classNames="fade" timeout={2000}>
+          <CSSTransition key={title} classNames="fade" timeout={1250}>
             <span className="description">{description}</span>
           </CSSTransition>
         </SwitchTransition>
@@ -71,4 +87,4 @@ const PillarsSection = (props, ref) => {
   );
 };
 
-export default forwardRef(PillarsSection);
+export default PillarsSection;

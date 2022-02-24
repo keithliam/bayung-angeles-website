@@ -36,6 +36,7 @@
         left: 0;
         right: 0;
         bottom: 0;
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
 
         @media (max-width: $breakpoint-large) {
           padding: 105px $page-padding-x;
@@ -72,12 +73,24 @@
           letter-spacing: 0.107em;
           color: $ba-blue;
 
+          @media (max-width: 1280px) {
+            @include px-to-rem(115px);
+          }
+
           @media (max-width: $breakpoint-large) {
             @include px-to-rem(105px);
           }
 
+          @media (max-width: 1050px) {
+            @include px-to-rem(95px);
+          }
+
           @media (max-width: $breakpoint-small) {
             @include px-to-rem(82px);
+          }
+
+          @media (max-width: 830px) {
+            @include px-to-rem(75px);
           }
 
           @media (max-width: $breakpoint-tablet) {
@@ -134,31 +147,7 @@
           position: relative;
 
           .social-media-link {
-            height: 50px;
-
-            &:not(:last-of-type) {
-              margin-right: 20px;
-            }
-
-            @media (max-width: $breakpoint-large) {
-              height: 50px;
-            }
-  
-            @media (max-width: $breakpoint-tablet) {
-              height: 45px;
-
-              &:not(:last-of-type) {
-                margin-right: 18px;
-              }
-            }
-  
-            @media (max-width: $breakpoint-mobile) {
-              height: 40px;
-
-              &:not(:last-of-type) {
-                margin-right: 15px;
-              }
-            }
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
           }
         }
 
@@ -174,7 +163,7 @@
           justify-content: center;
           align-items: flex-end;
 
-          button {
+          a.scroll-down-indicator {
             padding: 20px;
             animation: bounce-down 4s ease-in-out infinite;
             background-color: transparent;
@@ -302,12 +291,12 @@
             position: absolute;
             left: 50%;
             top: 50%;
-            height: 40vh;
+            height: 28vh;
             transition: opacity 1s ease-in-out, filter 3s ease-out;
             opacity: 0;
             pointer-events: none;
             animation: wing-fly 3s cubic-bezier(.31,.02,.36,.94) infinite alternate;
-            transform: translate(-35%, calc(-50% - 15vh));
+            transform: translate(-33%, calc(-50% - 15vh));
             filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
 
             &.bg-show {
@@ -375,7 +364,7 @@
               &.scroll-exit,
               &.scroll-enter-active,
               &.scroll-exit-active {
-                transition: all 1.5s cubic-bezier(.77, 0, .18, 1);
+                transition: all 0.8s cubic-bezier(.77, 0, .18, 1);
               }
             }
           }
@@ -415,13 +404,6 @@
                 @include px-to-rem(15px);
               }
             }
-            
-            &.scroll-enter,
-            &.scroll-exit,
-            &.scroll-enter-active,
-            &.scroll-exit-active {
-              transition: all 1s cubic-bezier(.77, 0, .18, 1);
-            }
           }
         }
       }
@@ -448,7 +430,7 @@
             height: 100vh;
             width: 100%;
             object-fit: cover;
-            object-position: center bottom;
+            object-position: center;
             pointer-events: none;
             opacity: 0;
             filter: blur(10px);
@@ -473,7 +455,7 @@
             &.bg-fade-exit,
             &.bg-fade-enter-active,
             &.bg-fade-exit-active {
-              transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+              transition: opacity 0.5s cubic-bezier(0.87, 0.2, 0.61, 0.99);
             }
           }
 
@@ -539,6 +521,13 @@
                 @include px-to-rem(35px);
               }
             }
+
+            &.fade-enter,
+            &.fade-exit,
+            &.fade-enter-active,
+            &.fade-exit-active {
+              transition: opacity 1s cubic-bezier(0.87, 0.2, 0.61, 0.99);
+            }
           }
 
           .photo-info,
@@ -557,6 +546,14 @@
             @media (max-width: $breakpoint-small) {
               @include px-to-rem(15px);
             }
+
+            @media (max-width: $breakpoint-tablet) {
+              @include px-to-rem(14px);
+            }
+
+            @media (max-width: $breakpoint-mobile) {
+              @include px-to-rem(13px);
+            }
           }
 
           .photo-info {
@@ -573,11 +570,15 @@
             opacity: 0;
 
             @media (max-width: $breakpoint-large) {
-              padding: 16px $page-padding-x;
+              padding: 14px $page-padding-x;
+            }
+
+            @media (max-width: $breakpoint-tablet) {
+              padding: 12px $page-padding-x;
             }
 
             @media (max-width: $breakpoint-mobile) {
-              padding: 14px $page-padding-x;
+              padding: 8px $page-padding-x;
             }
 
             &.info-show {
@@ -619,8 +620,8 @@
           position: absolute;
           right: 0;
           bottom: 0;
-          height: 150%;
-          transform: translate(25%,35%);
+          height: 108%;
+          transform: translate(16%,29%);
           opacity: 0.3;
           pointer-events: none;
 
@@ -638,7 +639,7 @@
           &.fade-exit,
           &.fade-enter-active,
           &.fade-exit-active {
-            transition: opacity 3s ease-in;
+            transition: opacity 2s ease-in;
           }
         }
 
@@ -666,7 +667,11 @@
             display: block;
 
             .quote-highlight {
-              color: $ba-blue;
+              transition: all 2.5s ease-out;
+
+              &-show {
+                color: $ba-blue;
+              }
             }
           }
         }
@@ -1125,6 +1130,10 @@
                       padding: 0 16px;
                     }
 
+                    &.no-scroll {
+                      overflow-y: hidden;
+                    }
+
                     .info-section {
                       &:first-of-type {
                         padding-top: 295px;
@@ -1339,7 +1348,7 @@
             &.fade-exit,
             &.fade-enter-active,
             &.fade-exit-active {
-              transition: opacity 3s ease-in;
+              transition: opacity 2s ease-in;
             }
           }
         }
@@ -1460,13 +1469,13 @@
 
 @keyframes wing-fly {
   0% {
-    transform: translate(-35%, calc(-50% - 15vh));
+    transform: translate(-33%, calc(-50% - 15vh));
     transition: filter 3s ease-out;
     filter: blur(0) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
   }
 
   100% {
-    transform: translate(-35%, calc(-50% - 15vh - 30px));
+    transform: translate(-33%, calc(-50% - 15vh - 30px));
     filter: blur(0) drop-shadow(0 0 40px rgba(255, 255, 255, 1));
   }
 }

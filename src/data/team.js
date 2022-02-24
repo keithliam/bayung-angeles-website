@@ -15,9 +15,51 @@ export const teamCategories = [
       {
         name: 'Amos Rivera',
         bannerImage: riveraBanner,
-        education: [],
-        experience: [],
-        affiliations: [],
+        education: [
+          {
+            highlight: 'Bachelor of Science in Accountancy',
+            description: 'Holy Angel University',
+          },
+          {
+            highlight: 'Bachelor of Laws',
+            description: 'Undergraduate, Angeles University Foundation School of Law',
+          },
+          {
+            highlight: 'Urban Development and Housing',
+            description: 'Ateneo School of Government',
+          },
+          {
+            highlight: 'Transport and Traffic Engineering',
+            description: 'Univesity of the Philippines Diliman',
+          },
+        ],
+        experience: [
+          {
+            highlight: 'Angeles City Councilor',
+            description: '(2013-Present)',
+          },
+          {
+            highlight: 'Office-in-charge',
+            description:
+              'Local Urban Poor Affairs and Housing Office (LUPAHO), Angeles City Local Government (1998-2013)',
+          },
+        ],
+        affiliations: [
+          {
+            highlight:
+              'The Fraternal Order of Eagles—Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-rivera-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-rivera-tiktok',
+          },
+        ],
       },
     ],
   },
@@ -99,6 +141,12 @@ export const teamCategories = [
             description: 'Sigma Delta Pi Sorority',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-juan-fb',
+          },
+        ],
       },
     ],
   },
@@ -178,6 +226,16 @@ export const teamCategories = [
             highlight: 'Rotary Club of Angeles Kuliat',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-arceo-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-arceo-tiktok',
+          },
+        ],
       },
       {
         name: 'Ar. Paul Maiquez',
@@ -220,6 +278,16 @@ export const teamCategories = [
           },
           {
             highlight: 'Fraternal Order of Eagles, Angeles City Clark Salakot Chapter',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-maiquez-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-maiquez-tiktok',
           },
         ],
       },
@@ -275,6 +343,12 @@ export const teamCategories = [
           },
           {
             highlight: 'Fraternal Order of Eagles, Angeles City Clark Salakot Chapter',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-quito-fb',
           },
         ],
       },
@@ -347,6 +421,12 @@ export const teamCategories = [
             description: 'HAU College of Arts, Sciences, and Education Student Council (2014-2015)',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-santiago-fb',
+          },
+        ],
       },
       {
         name: 'Jeselle Dayrit',
@@ -387,6 +467,16 @@ export const teamCategories = [
           {
             highlight:
               'The Fraternal Order of Eagles - Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-dayrit-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-dayrit-tiktok',
           },
         ],
       },
@@ -455,6 +545,16 @@ export const teamCategories = [
             description: 'Jose Abad Santos Memorial Masonic Lodge',
           },
         ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-aloot-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-aloot-tiktok',
+          },
+        ],
       },
       {
         name: 'Atty. Israel Forto',
@@ -504,6 +604,16 @@ export const teamCategories = [
           {
             highlight:
               'Fraternal Order of Eagles - Philippine Eagles, Clark Angeles Salakot Eagles Club',
+          },
+        ],
+        socialMediaLinks: [
+          {
+            name: 'Facebook',
+            link: 'https://bit.ly/ba-forto-fb',
+          },
+          {
+            name: 'TikTok',
+            link: 'https://bit.ly/ba-forto-tiktok',
           },
         ],
       },

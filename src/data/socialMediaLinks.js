@@ -10,7 +10,7 @@ import tiktokWhite from '../assets/images/social-media-icons/tiktok-white.svg';
 export const socialMediaLinks = [
   {
     name: 'Facebook',
-    link: 'https://bit.ly/bayung-angeles-facebook',
+    link: 'https://bit.ly/bayung-angeles-facebook-page',
     iconBlue: facebookBlue,
     iconWhite: facebookWhite,
   },
