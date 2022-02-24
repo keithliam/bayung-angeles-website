@@ -19,6 +19,8 @@ import {
   overallMemberIndexByCategoryMemberIndices,
 } from '../../data/team';
 
+import spinner from '../../assets/images/spinner-landscape.gif';
+
 import 'swiper/swiper.scss';
 import 'swiper/modules/effect-cards/effect-cards.scss';
 import 'swiper/modules/autoplay/autoplay.scss';
@@ -189,7 +191,12 @@ const MemberCard = ({
   disableScroll,
 }) => (
   <>
-    <Img className="team-card-banner" src={bannerImage} alt={`${name} Banner`} />
+    <Img
+      className="team-card-banner"
+      src={bannerImage}
+      placeholder={spinner}
+      alt={`${name} Banner`}
+    />
     <div className="team-card-content">
       <div
         className={classNames('member-info', { 'no-scroll': disableScroll })}
