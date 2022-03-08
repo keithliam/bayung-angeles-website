@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/github/keithliam/bayung-angeles-website.svg?style=for-the-badge)](https://wakatime.com/badge/github/keithliam/bayung-angeles-website)
+
 # Báyung Ángeles Website
 
 A beautiful, responsive website built using ReactJS.
