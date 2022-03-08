@@ -6,7 +6,7 @@ A beautiful, responsive website built using ReactJS and React Hooks.
 
 Báyung Ángeles is a community advocating social change through responsible, effective, and transparent public governance.
 
-## 🌐 Hosting
+### 🌐 Hosting
 
 This repository is hooked up to AWS Amplify for automatic deployments.
 
