@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/github/keithliam/bayung-angeles-website.svg?style=for-the-badge)](https://wakatime.com/badge/github/keithliam/bayung-angeles-website)
+
 # Báyung Ángeles Website
 
 A beautiful, responsive website built using ReactJS.
@@ -18,8 +20,8 @@ This repository is hooked up to AWS Amplify for automatic deployments.
 
 | Branch | Domain |
 | --- | --- |
-| `production` | bayungangeles.org |
-| `staging` | staging.bayungangeles.org |
+| `production` | [bayungangeles.org](https://www.bayungangeles.org/) |
+| `staging` | [staging.bayungangeles.org](https://staging.bayungangeles.org/) |
 
 ### 🛠 Technologies Used
 
