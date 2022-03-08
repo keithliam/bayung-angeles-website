@@ -1,6 +1,6 @@
 # Báyung Ángeles Website
 
-A beautiful, responsive website built using ReactJS and React Hooks.
+A beautiful, responsive website built using ReactJS.
 
 [![Báyung Ángeles website](/screenshots/landing.png?raw=true)](https://bayungangeles.org/)
 
