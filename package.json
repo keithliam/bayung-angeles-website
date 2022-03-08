@@ -66,5 +66,6 @@
   "lint-staged": {
     "*.js": "npm run lint:fix",
     "*.scss": "npm run lint:style"
-  }
+  },
+  "license": "MIT"
 }
