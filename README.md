@@ -1,8 +1,8 @@
-# Bayung Angeles Website
+# Báyung Ángeles Website
 
 A beautiful, responsive website built using ReactJS and React Hooks.
 
-[![Learn Kulitan Promotional Image](/screenshots/landing.png?raw=true)](https://bayungangeles.org/)
+[![Báyung Ángeles](/screenshots/landing.png?raw=true)](https://bayungangeles.org/)
 
 Báyung Ángeles is a community advocating social change through responsible, effective, and transparent public governance.
 
