@@ -1,0 +1,21 @@
+@use '../theme/typography' as *;
+
+.wing-text {
+  position: relative;
+
+  img {
+    position: absolute;
+    height: 1.05em;
+    pointer-events: none;
+
+    &.start {
+      left: 0.33em;
+      bottom: 0.25em;
+    }
+
+    &.end {
+      right: -0.45em;
+      bottom: 0.25em;
+    }
+  }
+}

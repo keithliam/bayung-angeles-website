@@ -1,0 +1,103 @@
+@use '../theme/breakpoints' as *;
+@use '../theme/colors' as *;
+@use '../theme/typography' as *;
+
+.error-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $ba-blue;
+  color: $ba-smoke;
+  text-align: center;
+  user-select: none;
+
+  .logo {
+    height: 130px;
+    z-index: 1;
+    pointer-events: none;
+    
+    @media (max-width: $breakpoint-large) {
+      height: 105px;
+    }
+
+    @media (max-width: $breakpoint-small) {
+      height: 83px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      height: 68px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      height: 50px;
+    }
+  }
+  
+  h1 {
+    display: inline-block;
+    margin: 0;
+    margin-left: -0.3em;
+    letter-spacing: 0.107em;
+    font-family: $font-heading;
+    @include px-to-rem(130px);
+
+    @media (max-width: $breakpoint-large) {
+      @include px-to-rem(105px);
+    }
+
+    @media (max-width: $breakpoint-small) {
+      @include px-to-rem(82px);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      @include px-to-rem(68px);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      @include px-to-rem(50px);
+    }
+  }
+
+  h4 {
+    margin: 0;
+    font-family: $font-heading;
+    letter-spacing: 0.107em;
+    text-transform: uppercase;
+    @include px-to-rem(45px);
+
+    @media (max-width: $breakpoint-large) {
+      @include px-to-rem(37px);
+    }
+
+    @media (max-width: $breakpoint-small) {
+      @include px-to-rem(30px);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      @include px-to-rem(25px);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      @include px-to-rem(20px);
+    }
+  }
+
+  .refresh-btn {
+    margin-top: 30px;
+
+    @media (max-width: $breakpoint-large) {
+      margin-top: 25px;
+    }
+
+    @media (max-width: $breakpoint-small) {
+      margin-top: 20px;
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      margin-top: 15px;
+    }
+  }
+}
