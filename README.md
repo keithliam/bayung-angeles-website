@@ -4,6 +4,8 @@
 
 A beautiful, responsive website built using ReactJS.
 
+###### This project has been migrated to [keithliam/bayung-angeles-website-v2](https://github.com/keithliam/bayung-angeles-website-v2) that uses TypeScript, Gatsby, Emotion CSS, and ReactJS.
+
 [![Báyung Ángeles website](/screenshots/landing.png?raw=true)](https://bayungangeles.org/)
 
 ---
@@ -16,7 +18,9 @@ A beautiful, responsive website built using ReactJS.
 
 ### 🌐 Hosting
 
-This repository is hooked up to AWS Amplify for automatic deployments.
+~~This repository is hooked up to AWS Amplify for automatic deployments.~~
+
+The following domains are now unutilized by this repository and are exclusively used by [keithliam/bayung-angeles-website-v2](https://github.com/keithliam/bayung-angeles-website-v2) as a result of a migration.
 
 | Branch | Domain |
 | --- | --- |
