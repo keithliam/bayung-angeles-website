@@ -19,6 +19,7 @@ A beautiful, responsive website built using ReactJS.
 ### 🌐 Hosting
 
 ~~This repository is hooked up to AWS Amplify for automatic deployments.~~
+
 The following domains are now unutilized by this repository and are exclusively used by [keithliam/bayung-angeles-website-v2](https://github.com/keithliam/bayung-angeles-website-v2) as a result of a migration.
 
 | Branch | Domain |
